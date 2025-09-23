@@ -852,3 +852,72 @@ select.form-input {
         gap: 1rem;
     }
 }
+/* GALLERY PAGE STYLES */
+.gallery {
+    padding: 4rem 0;
+    background-color: var(--white);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.shot {
+    background: var(--white);
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 2px solid var(--light-blue);
+}
+
+.shot:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    border-color: var(--medium-blue);
+}
+
+.shot__img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
+.shot__cap {
+    padding: 1.5rem;
+    text-align: center;
+    background: var(--light-blue);
+    color: var(--dark-blue);
+    font-weight: 600;
+    margin: 0;
+}
+
+.nav-links a[href="gallery.html"] {
+    color: var(--light-blue);
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .shot__img {
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery {
+        padding: 2rem 0;
+    }
+}
