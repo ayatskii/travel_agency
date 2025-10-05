@@ -4,27 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Services - BlueWave Travel</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<header class="header">
+<!-- Навигация с оригинальным дизайном но на Bootstrap -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container">
-        <nav class="nav">
-            <h1 class="logo">BlueWave Travel</h1>
-            <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="services.html" class="active">Services</a>
-                <a href="gallery.html">Gallery</a>
-                <a href="contact.html">Contact</a>
-            </div>
-            <a href="booking.html" class="book-btn">Book Now</a>
-        </nav>
+        <a class="navbar-brand fw-bold" href="index.html">BlueWave Travel</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMain">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-lg-3">
+                <li class="nav-item">
+                    <a class="nav-link position-relative" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link position-relative" href="about.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active position-relative" href="services.html">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link position-relative" href="gallery.html">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link position-relative" href="contact.html">Contact</a>
+                </li>
+            </ul>
+            <a class="btn btn-light ms-lg-3 px-3 py-2 fw-medium" href="booking.html">Book Now</a>
+        </div>
     </div>
-</header>
+</nav>
 
 <main class="services-grid">
     <aside class="services-sidebar">
-        <h3>Our Services</h3>
+        <h3 class="mb-3">Our Services</h3>
         <nav class="services-nav">
             <a href="#adventure" class="service-link">Adventure Tours</a>
             <a href="#luxury" class="service-link">Luxury Getaways</a>
@@ -35,76 +51,92 @@
 
     <section class="services-main">
         <h2 class="section-title">Our Services</h2>
-        <div class="service-cards">
 
-            <article id="adventure" class="service-card">
-                <div class="service-image">🏔️</div>
-                <div class="service-content">
-                    <h3>Adventure Tours</h3>
-                    <p>Experience thrilling adventures with guided tours and outdoor activities.</p>
-                    <div class="service-features">
-                        <span>✓ Expert guides</span>
-                        <span>✓ Safety equipment</span>
-                        <span>✓ Small groups</span>
-                    </div>
-                    <div class="service-actions">
-                        <a href="booking.html" class="btn btn-primary">Book Now</a>
-                        <a href="gallery.html" class="btn btn-secondary">View Photos</a>
+        <!-- Bootstrap Cards -->
+        <div class="container my-4">
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+
+                <!-- Adventure Tours Card -->
+                <div class="col">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="service-image card-img-top d-flex align-items-center justify-content-center fs-1 bg-light-blue">🏔️</div>
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold text-dark-blue">Adventure Tours</h5>
+                            <p class="card-text text-dark-blue">Experience thrilling adventures with guided tours and outdoor activities.</p>
+                            <div class="service-features mb-3">
+                                <div class="text-dark-blue">✓ Expert guides</div>
+                                <div class="text-dark-blue">✓ Safety equipment</div>
+                                <div class="text-dark-blue">✓ Small groups</div>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 pt-0">
+                            <a class="btn btn-primary btn-sm w-100 mb-2" href="booking.html">Book Now</a>
+                            <a class="btn btn-outline-secondary btn-sm w-100" href="gallery.html">View Photos</a>
+                        </div>
                     </div>
                 </div>
-            </article>
 
-            <article id="luxury" class="service-card">
-                <div class="service-image">🌟</div>
-                <div class="service-content">
-                    <h3>Luxury Getaways</h3>
-                    <p>Premium travel experiences with 5-star accommodations and personalized service.</p>
-                    <div class="service-features">
-                        <span>✓ 5-star hotels</span>
-                        <span>✓ Private transfers</span>
-                        <span>✓ Personal concierge</span>
-                    </div>
-                    <div class="service-actions">
-                        <a href="booking.html" class="btn btn-primary">Book Now</a>
-                        <a href="gallery.html" class="btn btn-secondary">View Options</a>
+                <!-- Luxury Getaways Card -->
+                <div class="col">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="service-image card-img-top d-flex align-items-center justify-content-center fs-1 bg-light-blue">🌟</div>
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold text-dark-blue">Luxury Getaways</h5>
+                            <p class="card-text text-dark-blue">Premium travel experiences with 5-star accommodations and personalized service.</p>
+                            <div class="service-features mb-3">
+                                <div class="text-dark-blue">✓ 5-star hotels</div>
+                                <div class="text-dark-blue">✓ Private transfers</div>
+                                <div class="text-dark-blue">✓ Personal concierge</div>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 pt-0">
+                            <a class="btn btn-primary btn-sm w-100 mb-2" href="booking.html">Book Now</a>
+                            <a class="btn btn-outline-secondary btn-sm w-100" href="gallery.html">View Options</a>
+                        </div>
                     </div>
                 </div>
-            </article>
 
-            <article id="family" class="service-card">
-                <div class="service-image">👨‍👩‍👧‍👦</div>
-                <div class="service-content">
-                    <h3>Family Vacations</h3>
-                    <p>Family-friendly trips with activities for all ages and comfortable accommodations.</p>
-                    <div class="service-features">
-                        <span>✓ Kid activities</span>
-                        <span>✓ Family rooms</span>
-                        <span>✓ Childcare options</span>
-                    </div>
-                    <div class="service-actions">
-                        <a href="booking.html" class="btn btn-primary">Book Now</a>
-                        <a href="gallery.html" class="btn btn-secondary">Family Photos</a>
+                <!-- Family Vacations Card -->
+                <div class="col">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="service-image card-img-top d-flex align-items-center justify-content-center fs-1 bg-light-blue">👨‍👩‍👧‍👦</div>
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold text-dark-blue">Family Vacations</h5>
+                            <p class="card-text text-dark-blue">Family-friendly trips with activities for all ages and comfortable accommodations.</p>
+                            <div class="service-features mb-3">
+                                <div class="text-dark-blue">✓ Kid activities</div>
+                                <div class="text-dark-blue">✓ Family rooms</div>
+                                <div class="text-dark-blue">✓ Childcare options</div>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 pt-0">
+                            <a class="btn btn-primary btn-sm w-100 mb-2" href="booking.html">Book Now</a>
+                            <a class="btn btn-outline-secondary btn-sm w-100" href="gallery.html">Family Photos</a>
+                        </div>
                     </div>
                 </div>
-            </article>
 
-            <article id="corporate" class="service-card">
-                <div class="service-image">💼</div>
-                <div class="service-content">
-                    <h3>Corporate Travel</h3>
-                    <p>Business travel solutions with meeting arrangements and expense management.</p>
-                    <div class="service-features">
-                        <span>✓ Business flights</span>
-                        <span>✓ Meeting rooms</span>
-                        <span>✓ 24/7 support</span>
-                    </div>
-                    <div class="service-actions">
-                        <a href="contact.html" class="btn btn-primary">Contact Sales</a>
-                        <a href="travel-insurance.html" class="btn btn-secondary">Insurance</a>
+                <!-- Corporate Travel Card -->
+                <div class="col">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="service-image card-img-top d-flex align-items-center justify-content-center fs-1 bg-light-blue">💼</div>
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold text-dark-blue">Corporate Travel</h5>
+                            <p class="card-text text-dark-blue">Business travel solutions with meeting arrangements and expense management.</p>
+                            <div class="service-features mb-3">
+                                <div class="text-dark-blue">✓ Business flights</div>
+                                <div class="text-dark-blue">✓ Meeting rooms</div>
+                                <div class="text-dark-blue">✓ 24/7 support</div>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 pt-0">
+                            <a class="btn btn-primary btn-sm w-100 mb-2" href="contact.html">Contact Sales</a>
+                            <a class="btn btn-outline-secondary btn-sm w-100" href="travel-insurance.html">Insurance</a>
+                        </div>
                     </div>
                 </div>
-            </article>
 
+            </div>
         </div>
     </section>
 </main>
@@ -128,10 +160,11 @@
         </div>
         <div class="footer-bottom">
             <p>© 2025 BlueWave Travel
-            Developed by: Altynay Yertay, Nuray Nuraly, Aiat Mergenbay, Merey Amangeldi</p>
-
+                Developed by: Altynay Yertay, Nuray Nuraly, Aiat Mergenbay, Merey Amangeldi</p>
         </div>
     </div>
 </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
