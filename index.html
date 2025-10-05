@@ -1,192 +1,237 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Explore the world's most beautiful destinations with BlueWave Travel's expertly crafted travel experiences.">
-    <meta name="keywords" content="travel, agency, vacation, tours, destinations">
-    <meta name="author" content="BlueWave Travel Team">
-    <title>Travel Agency</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" href="./assets/imgs/favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore the world's most beautiful destinations with BlueWave Travel's expertly crafted travel experiences.">
+  <meta name="keywords" content="travel, agency, vacation, tours, destinations">
+  <meta name="author" content="BlueWave Travel Team">
+  <title>BlueWave Travel Agency</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="./assets/imgs/favicon.ico" type="image/x-icon">
 </head>
+
 <body>
-    <header id="main-header" class="header">
-        <div class="container">
-            <nav class="nav">
-                <h1 class="logo">BlueWave Travel</h1>
-                <div class="nav-links">
-                    <a href="index.html">Home</a>
-                    <a href="index.html#destinations">Destinations</a>
-                    <a href="index.html#packages">Packages</a>
-                    <a href="about.html">About</a>
-                    <a href="contact.html">Contact</a>
-                    <a href="gallery.html">Gallery</a>
-                    <a href="services.html">Services</a>
-                </div>
-                <a href="booking.html" class="book-btn">Book Now</a>
-            </nav>
+  <header id="main-header" class="header">
+    <div class="container">
+      <nav class="nav d-flex align-items-center justify-content-between py-3">
+        <h1 class="logo">BlueWave Travel</h1>
+        <div class="nav-links d-none d-md-flex gap-4">
+          <a href="index.html">Home</a>
+          <a href="#destinations">Destinations</a>
+          <a href="#packages">Packages</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="services.html">Services</a>
         </div>
-    </header>
+        <a href="booking.html" class="book-btn">Book Now</a>
+      </nav>
+    </div>
+  </header>
 
-    <section id="hero-section" class="hero">
-        <div class="container">
-            <h2 class="hero-title">Discover Your Next Adventure</h2>
-            <p class="hero-description">
-                Explore the world's most beautiful destinations with our expertly crafted travel experiences. 
-                From pristine beaches to mountain peaks, your perfect journey awaits.
-            </p>
-            <div class="hero-buttons">
-                <button class="btn btn-primary">Explore Destinations</button>
-                <button class="btn btn-secondary">View Packages</button>
-            </div>
+  <section id="hero-section" class="hero text-center py-5">
+    <div class="container">
+      <h2 class="hero-title mb-3">Discover Your Next Adventure</h2>
+      <p class="hero-description mb-4 px-sm-3">
+        Explore the world's most beautiful destinations with our expertly crafted travel experiences. 
+        From pristine beaches to mountain peaks, your perfect journey awaits.
+      </p>
+      <div class="d-flex flex-column flex-sm-row justify-content-center gap-3">
+        <a href="#destinations" class="btn btn-primary px-4 py-2">Explore Destinations</a>
+        <a href="#packages" class="btn btn-secondary px-4 py-2">View Packages</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5" style="background-color: hsl(207, 81%, 90%);">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-sm-12 col-md-6 col-lg-6">
+          <h3 class="fw-bold mb-3">Why BlueWave?</h3>
+          <p class="lead mb-4">Tailored trips, fair prices, and 24/7 global support.</p>
+          <a href="about.html" class="btn btn-primary me-2 mb-3">Learn More</a>
+          <a href="services.html" class="btn btn-outline-primary mb-3">Our Services</a>
         </div>
-    </section>
-
-    <section id="destinations" class="destinations">
-        <div class="container">
-            <h3 class="section-title">Popular Destinations</h3>
-            <div class="grid">
-                <div class="card">
-                    <div class="card-image medium-blue">
-                        <img src="./assets/imgs/card1.jpeg" alt="" width="360" height="190">
-                    </div>
-                    <div class="card-content">
-                        <h4 class="card-title">Tropical Paradise</h4>
-                        <p class="card-subtitle">Crystal clear waters and white sandy beaches</p>
-                        <p class="card-text">Experience the ultimate beach getaway with pristine shores and vibrant coral reefs.</p>
-                        <button class="btn btn-card">Learn More</button>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-image dark-blue">
-                        <img src="./assets/imgs/card2.jpeg" alt="" width="360" height="190">
-                    </div>
-                    <div class="card-content">
-                        <h4 class="card-title">Mountain Escapes</h4>
-                        <p class="card-subtitle">Breathtaking peaks and alpine adventures</p>
-                        <p class="card-text">Discover majestic mountain ranges and enjoy thrilling outdoor activities.</p>
-                        <button class="btn btn-card">Learn More</button>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-image light-blue-bordered">
-                        <img src="./assets/imgs/card3.jpeg" alt="" width="360" height="190">
-                    </div>
-                    <div class="card-content">
-                        <h4 class="card-title">Cultural Cities</h4>
-                        <p class="card-subtitle">Historic landmarks and vibrant cultures</p>
-                        <p class="card-text">Immerse yourself in rich history, art, and local traditions.</p>
-                        <button class="btn btn-card">Learn More</button>
-                    </div>
-                </div>
-            </div>
+        <div class="col-sm-12 col-md-6 col-lg-6 text-center">
+          <img src="./assets/imgs/card1.jpeg" class="img-fluid rounded-4 shadow-lg" alt="Why Choose BlueWave">
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <section id="packages" class="packages">
-        <div class="container">
-            <h3 class="section-title">Travel Packages</h3>
-            <div class="packages-grid">
-                <div class="package-card">
-                    <div class="package-header">
-                        <h4 class="package-title">Weekend Getaway</h4>
-                        <p class="package-subtitle">Perfect for short escapes</p>
-                    </div>
-                    <div class="package-content">
-                        <div class="package-price">$299</div>
-                        <ul class="package-features">
-                            <li>• 2 nights accommodation</li>
-                            <li>• Breakfast included</li>
-                            <li>• Airport transfers</li>
-                            <li>• City tour guide</li>
-                        </ul>
-                        <button class="btn btn-package">Select Package</button>
-                    </div>
-                </div>
-
-                <div class="package-card featured">
-                    <div class="package-header">
-                        <div class="popular-badge">Most Popular</div>
-                        <h4 class="package-title">Adventure Week</h4>
-                        <p class="package-subtitle">Full week of excitement</p>
-                    </div>
-                    <div class="package-content">
-                        <div class="package-price">$899</div>
-                        <ul class="package-features">
-                            <li>• 7 nights accommodation</li>
-                            <li>• All meals included</li>
-                            <li>• Adventure activities</li>
-                            <li>• Professional guide</li>
-                            <li>• Travel insurance</li>
-                        </ul>
-                        <button class="btn btn-featured">Select Package</button>
-                    </div>
-                </div>
-
-                <div class="package-card">
-                    <div class="package-header">
-                        <h4 class="package-title">Luxury Retreat</h4>
-                        <p class="package-subtitle">Premium experience</p>
-                    </div>
-                    <div class="package-content">
-                        <div class="package-price">$1,599</div>
-                        <ul class="package-features">
-                            <li>• 5 nights luxury resort</li>
-                            <li>• Gourmet dining</li>
-                            <li>• Spa treatments</li>
-                            <li>• Private transportation</li>
-                            <li>• Concierge service</li>
-                        </ul>
-                        <button class="btn btn-package">Select Package</button>
-                    </div>
-                </div>
-            </div>
+  <section class="py-5 bg-light">
+    <div class="container text-center">
+      <h3 class="mb-5 fw-bold text-primary">Top Highlights</h3>
+      <div class="row g-4">
+        <div class="col-sm-6 col-md-4 col-lg-4">
+          <div class="p-4 border rounded-4 shadow-sm bg-white h-100">
+            <h5 class="mb-2">🏝️ Beaches</h5>
+            <p>Relax on crystal-clear shores with golden sand and turquoise waves.</p>
+          </div>
         </div>
-    </section>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-section">
-                    <h4 class="footer-title">BlueWave Travel</h4>
-                    <p class="footer-text">Your trusted partner for unforgettable travel experiences around the world.</p>
-                </div>
-                <div class="footer-section">
-                    <h5 class="footer-subtitle">Quick Links</h5>
-                    <ul class="footer-links">
-                        <li><a href="index.html#destinations">Destinations</a></li>
-                        <li><a href="index.html#packages">Packages</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="services.html">Services</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h5 class="footer-subtitle">Support</h5>
-                    <ul class="footer-links">
-                        <li><a href="help.html">Help Center</a></li>
-                        <li><a href="travel-insurance.html">Travel Insurance</a></li>
-                        <li><a href="cancellation-policy.html">Cancellation Policy</a></li>
-                        <li><a href="#">FAQ</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h5 class="footer-subtitle">Contact Info</h5>
-                    <div class="footer-contact">
-                        <p>📧 info@bluewave.travel</p>
-                        <p>📞 +1 (555) 123-4567</p>
-                        <p>📍 123 Ocean Drive, Miami FL</p>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>© 2025 BlueWave Travel. All rights reserved.</p>
-                <p>Developed by: Altynay Yertay, Nuray Nuraly, Aiat Mergenbay, Merey Amangeldi</p>
-            </div>
+        <div class="col-sm-6 col-md-4 col-lg-4">
+          <div class="p-4 border rounded-4 shadow-sm bg-white h-100">
+            <h5 class="mb-2">🏔️ Mountains</h5>
+            <p>Conquer breathtaking peaks and enjoy scenic hiking trails.</p>
+          </div>
         </div>
-    </footer>
+        <div class="col-sm-6 col-md-4 col-lg-4">
+          <div class="p-4 border rounded-4 shadow-sm bg-white h-100">
+            <h5 class="mb-2">🏙️ Cities</h5>
+            <p>Explore vibrant metropolises full of culture, food, and art.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="destinations" class="py-5" style="background-color: hsl(207, 81%, 94%);">
+    <div class="container text-center">
+      <h3 class="section-title mb-5">Popular Destinations</h3>
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        
+        <div class="col">
+          <div class="card h-100 shadow border-0 rounded-4">
+            <img src="./assets/imgs/card1.jpeg" class="card-img-top" alt="Tropical Paradise">
+            <div class="card-body">
+              <h4 class="card-title">Tropical Paradise</h4>
+              <p class="card-subtitle text-muted mb-2">Crystal clear waters and white sandy beaches</p>
+              <p class="card-text">Experience the ultimate beach getaway with pristine shores and vibrant coral reefs.</p>
+              <button class="btn btn-primary w-100">Learn More</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card h-100 shadow border-0 rounded-4">
+            <img src="./assets/imgs/card2.jpeg" class="card-img-top" alt="Mountain Escapes">
+            <div class="card-body">
+              <h4 class="card-title">Mountain Escapes</h4>
+              <p class="card-subtitle text-muted mb-2">Breathtaking peaks and alpine adventures</p>
+              <p class="card-text">Discover majestic mountain ranges and enjoy thrilling outdoor activities.</p>
+              <button class="btn btn-primary w-100">Learn More</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card h-100 shadow border-0 rounded-4">
+            <img src="./assets/imgs/card3.jpeg" class="card-img-top" alt="Cultural Cities">
+            <div class="card-body">
+              <h4 class="card-title">Cultural Cities</h4>
+              <p class="card-subtitle text-muted mb-2">Historic landmarks and vibrant cultures</p>
+              <p class="card-text">Immerse yourself in rich history, art, and local traditions.</p>
+              <button class="btn btn-primary w-100">Learn More</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="packages" class="py-5 bg-light">
+  <div class="container">
+    <h3 class="section-title mb-5">Travel Packages</h3>
+
+    <div class="row g-4">
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm border-0 rounded-4">
+          <div class="card-body p-4">
+            <h4 class="card-title mb-1">Weekend Getaway</h4>
+            <p class="text-muted mb-3">Perfect for short escapes</p>
+            <div class="display-6 fw-bold mb-3 text-primary">$299</div>
+            <ul class="mb-4 ps-3">
+              <li>2 nights accommodation</li>
+              <li>Breakfast included</li>
+              <li>Airport transfers</li>
+              <li>City tour guide</li>
+            </ul>
+            <button class="btn btn-primary w-100">Select Package</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <div class="card h-100 shadow border-2 rounded-4" style="border-color: var(--medium-blue);">
+          <div class="card-body p-4">
+            <span class="badge text-bg-primary mb-2">Most Popular</span>
+            <h4 class="card-title mb-1">Adventure Week</h4>
+            <p class="text-muted mb-3">Full week of excitement</p>
+            <div class="display-6 fw-bold mb-3 text-primary">$899</div>
+            <ul class="mb-4 ps-3">
+              <li>7 nights accommodation</li>
+              <li>All meals included</li>
+              <li>Adventure activities</li>
+              <li>Professional guide</li>
+              <li>Travel insurance</li>
+            </ul>
+            <button class="btn btn-primary w-100">Select Package</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm border-0 rounded-4">
+          <div class="card-body p-4">
+            <h4 class="card-title mb-1">Luxury Retreat</h4>
+            <p class="text-muted mb-3">Premium experience</p>
+            <div class="display-6 fw-bold mb-3 text-primary">$1,599</div>
+            <ul class="mb-4 ps-3">
+              <li>5 nights luxury resort</li>
+              <li>Gourmet dining</li>
+              <li>Spa treatments</li>
+              <li>Private transportation</li>
+              <li>Concierge service</li>
+            </ul>
+            <button class="btn btn-primary w-100">Select Package</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <footer class="footer mt-5">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4 class="footer-title">BlueWave Travel</h4>
+          <p class="footer-text">Your trusted partner for unforgettable travel experiences around the world.</p>
+        </div>
+        <div>
+          <h5 class="footer-subtitle">Quick Links</h5>
+          <ul class="footer-links">
+            <li><a href="#destinations">Destinations</a></li>
+            <li><a href="#packages">Packages</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="footer-subtitle">Support</h5>
+          <ul class="footer-links">
+            <li><a href="help.html">Help Center</a></li>
+            <li><a href="travel-insurance.html">Travel Insurance</a></li>
+            <li><a href="cancellation-policy.html">Cancellation Policy</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="footer-subtitle">Contact Info</h5>
+          <p>📧 info@bluewave.travel</p>
+          <p>📞 +1 (555) 123-4567</p>
+          <p>📍 123 Ocean Drive, Miami FL</p>
+        </div>
+      </div>
+      <div class="footer-bottom mt-4">
+        <p>© 2025 BlueWave Travel. All rights reserved.</p>
+        <p>Developed by: Altynay Yertay, Nuray Nuraly, Aiat Mergenbay, Merey Amangeldi</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
