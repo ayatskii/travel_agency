@@ -8,101 +8,117 @@
     <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-
-<header id="main-header" class="header">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container">
-        <nav class="nav">
-            <h1 class="logo">BlueWave Travel</h1>
-            <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="index.html#destinations">Destinations</a>
-                <a href="index.html#packages">Packages</a>
-                <a href="about.html">About</a>
-                <a href="contact.html">Contact</a>
-                <a href="gallery.html">Gallery</a>
-                <a href="services.html">Services</a>
-            </div>
-            <button class="book-btn" onclick="location.href='booking.html'">Book Now</button>
-        </nav>
+        <a class="navbar-brand fw-bold" href="index.html">BlueWave Travel</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMain">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-lg-3">
+                <li class="nav-item">
+                    <a class="nav-link position-relative" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link position-relative" href="index.html#destinations">Destinations</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link position-relative" href="index.html#packages">Packages</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link position-relative" href="about.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link position-relative" href="contact.html">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link position-relative" href="gallery.html">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link position-relative" href="services.html">Services</a>
+                </li>
+            </ul>
+            <a class="btn btn-light ms-lg-3 px-3 py-2 fw-medium" href="booking.html">Book Now</a>
+        </div>
     </div>
-</header>
+</nav>
 
-  <main>
+<main>
     <section class="ta-container" style="padding: 28px 0 8px">
-      <h1>Help &amp; Support</h1>
-      <p style="max-width: 760px; color:#555;">
-        Find answers to common questions, chat with us, or send an email — we’ll assist with bookings, payments, and trip changes.
-      </p>
+        <h1>Help &amp; Support</h1>
+        <p style="max-width: 760px; color:#555;">
+            Find answers to common questions, chat with us, or send an email — we'll assist with bookings, payments, and trip changes.
+        </p>
     </section>
 
     <section class="ta-container">
-      <div class="ta-cards" aria-label="Help options">
-        <article class="ta-card">
-          <div class="ta-card__body">
-            <h3 class="ta-card__title">FAQ</h3>
-            <p class="ta-card__text">
-              Quick answers about bookings, payments, baggage, and refunds. Updated regularly.
-            </p>
-          </div>
-          <div class="ta-card__actions">
-            <a class="ta-btn" href="#faq">Open FAQ</a>
-          </div>
-        </article>
+        <div class="ta-cards" aria-label="Help options">
+            <article class="ta-card">
+                <div class="ta-card__body">
+                    <h3 class="ta-card__title">FAQ</h3>
+                    <p class="ta-card__text">
+                        Quick answers about bookings, payments, baggage, and refunds. Updated regularly.
+                    </p>
+                </div>
+                <div class="ta-card__actions">
+                    <a class="ta-btn" href="#faq">Open FAQ</a>
+                </div>
+            </article>
 
-        <article class="ta-card">
-          <div class="ta-card__body">
-            <h3 class="ta-card__title">Live Chat</h3>
-            <p class="ta-card__text">
-              Real-time support during business hours. Average response time — 1–2 minutes.
-            </p>
-          </div>
-          <div class="ta-card__actions">
-            <a class="ta-btn" href="#chat">Start Chat</a>
-          </div>
-        </article>
+            <article class="ta-card">
+                <div class="ta-card__body">
+                    <h3 class="ta-card__title">Live Chat</h3>
+                    <p class="ta-card__text">
+                        Real-time support during business hours. Average response time — 1–2 minutes.
+                    </p>
+                </div>
+                <div class="ta-card__actions">
+                    <a class="ta-btn" href="#chat">Start Chat</a>
+                </div>
+            </article>
 
-        <article class="ta-card">
-          <div class="ta-card__body">
-            <h3 class="ta-card__title">Email Support</h3>
-            <p class="ta-card__text">
-              For complex issues — send us an email and attach screenshots/documents.
-            </p>
-          </div>
-          <div class="ta-card__actions">
-            <a class="ta-btn" href="contact.html">Send Email</a>
-          </div>
-        </article>
-      </div>
+            <article class="ta-card">
+                <div class="ta-card__body">
+                    <h3 class="ta-card__title">Email Support</h3>
+                    <p class="ta-card__text">
+                        For complex issues — send us an email and attach screenshots/documents.
+                    </p>
+                </div>
+                <div class="ta-card__actions">
+                    <a class="ta-btn" href="contact.html">Send Email</a>
+                </div>
+            </article>
+        </div>
     </section>
 
     <section id="faq" class="ta-container ta-faq" style="padding: 26px 0 34px">
-      <h2>Frequently Asked Questions</h2>
+        <h2>Frequently Asked Questions</h2>
 
-      <details>
-        <summary>How can I change my travel dates?</summary>
-        <p>
-            Open your ticket in your account and click “Modify”. If you need help — contact us in chat.
-        </p>
-      </details>
+        <details>
+            <summary>How can I change my travel dates?</summary>
+            <p>
+                Open your ticket in your account and click "Modify". If you need help — contact us in chat.
+            </p>
+        </details>
 
-      <details>
-        <summary>What are the refund policies?</summary>
-        <p>
-            Conditions depend on your fare. Standard fare allows free cancellation up to 24 hours before departure
-        </p>
-      </details>
+        <details>
+            <summary>What are the refund policies?</summary>
+            <p>
+                Conditions depend on your fare. Standard fare allows free cancellation up to 24 hours before departure
+            </p>
+        </details>
 
-      <details>
-        <summary>How can I add baggage?</summary>
-        <p>On the booking page select “Baggage”, or request extra baggage via support chat.</p>
-      </details>
+        <details>
+            <summary>How can I add baggage?</summary>
+            <p>On the booking page select "Baggage", or request extra baggage via support chat.</p>
+        </details>
     </section>
 
     <section id="chat" class="ta-container" style="padding-bottom: 36px">
-      <h2>Live Chat</h2>
-      <p style="color:#555;">The chat widget will be added here soon. For now — please use Email Support. <a href="mailto:support@example.com">Email Support</a>.</p>
+        <h2>Live Chat</h2>
+        <p style="color:#555;">The chat widget will be added here soon. For now — please use Email Support. <a href="mailto:support@example.com">Email Support</a>.</p>
     </section>
-  </main>
+</main>
 
 <footer class="footer">
     <div class="container">

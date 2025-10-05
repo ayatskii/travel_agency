@@ -9,31 +9,48 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<header id="main-header" class="header">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container">
-        <nav class="nav">
-            <h1 class="logo">BlueWave Travel</h1>
-            <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="index.html#destinations">Destinations</a>
-                <a href="index.html#packages">Packages</a>
-                <a href="about.html">About</a>
-                <a href="contact.html">Contact</a>
-                <a href="gallery.html">Gallery</a>
-                <a href="services.html">Services</a>
-            </div>
-            <a href="booking.html" class="book-btn">Book Now</a>
-        </nav>
+        <a class="navbar-brand fw-bold" href="index.html">BlueWave Travel</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMain">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-lg-3">
+                <li class="nav-item">
+                    <a class="nav-link position-relative" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link position-relative" href="index.html#destinations">Destinations</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link position-relative" href="index.html#packages">Packages</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link position-relative" href="about.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link position-relative" href="contact.html">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link position-relative" href="gallery.html">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active position-relative" href="services.html">Services</a>
+                </li>
+            </ul>
+            <a class="btn btn-light ms-lg-3 px-3 py-2 fw-medium" href="booking.html">Book Now</a>
+        </div>
     </div>
-</header>
+</nav>
 
 <section class="insurance-section">
     <div class="container">
         <h2 class="section-title">Travel Insurance</h2>
-        <p class="hero-description">Protect your journey with comprehensive travel insurance coverage</p>
+        <p class="hero-description text-center">Protect your journey with comprehensive travel insurance coverage</p>
 
         <div class="coverage-list">
-            <h3>What's Covered</h3>
+            <h3 class="text-center mb-4">What's Covered</h3>
             <div class="coverage-grid">
                 <div class="coverage-item">
                     <h4>🏥 Medical Emergencies</h4>
@@ -54,51 +71,78 @@
             </div>
         </div>
 
-        <div class="insurance-plans">
-            <div class="insurance-card">
-                <div class="plan-badge">Basic</div>
-                <h3>Essential Coverage</h3>
-                <div class="plan-price">$49</div>
-                <div class="plan-period">per trip</div>
-                <ul class="plan-features">
-                    <li>Medical emergencies up to $50,000</li>
-                    <li>Trip cancellation coverage</li>
-                    <li>Lost luggage protection</li>
-                    <li>24/7 emergency assistance</li>
-                </ul>
-                <a href="booking.html" class="btn btn-package">Select Plan</a>
-            </div>
-        </div>
-            <div class="insurance-card featured">
-                <div class="plan-badge">Most Popular</div>
-                <h3>Comprehensive</h3>
-                <div class="plan-price">$89</div>
-                <div class="plan-period">per trip</div>
-                <ul class="plan-features">
-                    <li>Medical emergencies up to $100,000</li>
-                    <li>Full trip cancellation coverage</li>
-                    <li>Baggage and travel delay</li>
-                    <li>Adventure sports coverage</li>
-                    <li>Rental car protection</li>
-                </ul>
-                <a href="booking.html" class="btn btn-featured">Select Plan</a>
-            </div>
+        <!-- Bootstrap Cards for Insurance Plans -->
+        <div class="container my-5">
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
 
-            <div class="insurance-card">
-                <div class="plan-badge">Premium</div>
-                <h3>Full Protection</h3>
-                <div class="plan-price">$129</div>
-                <div class="plan-period">per trip</div>
-                <ul class="plan-features">
-                    <li>Medical emergencies up to $250,000</li>
-                    <li>Cancel for any reason</li>
-                    <li>Comprehensive delay coverage</li>
-                    <li>Business equipment protection</li>
-                    <li>Worldwide coverage</li>
-                </ul>
-                <a href="booking.html" class="btn btn-package">Select Plan</a>
+                <!-- Basic Plan Card -->
+                <div class="col">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <div class="plan-badge bg-primary text-white d-inline-block px-3 py-1 rounded-pill small mb-3">Basic</div>
+                            <h5 class="card-title fw-bold text-dark-blue">Essential Coverage</h5>
+                            <div class="plan-price display-6 fw-bold text-dark-blue my-3">$49</div>
+                            <div class="plan-period text-muted mb-4">per trip</div>
+                            <ul class="plan-features list-unstyled text-start mb-4">
+                                <li class="mb-2">✓ Medical emergencies up to $50,000</li>
+                                <li class="mb-2">✓ Trip cancellation coverage</li>
+                                <li class="mb-2">✓ Lost luggage protection</li>
+                                <li class="mb-0">✓ 24/7 emergency assistance</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 pt-0">
+                            <a href="booking.html" class="btn btn-primary w-100">Select Plan</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Comprehensive Plan Card -->
+                <div class="col">
+                    <div class="card h-100 border-0 shadow-lg position-relative" style="transform: scale(1.05); z-index: 1;">
+                        <div class="card-body text-center p-4">
+                            <div class="plan-badge bg-warning text-dark d-inline-block px-3 py-1 rounded-pill small mb-3">Most Popular</div>
+                            <h5 class="card-title fw-bold text-dark-blue">Comprehensive</h5>
+                            <div class="plan-price display-6 fw-bold text-dark-blue my-3">$89</div>
+                            <div class="plan-period text-muted mb-4">per trip</div>
+                            <ul class="plan-features list-unstyled text-start mb-4">
+                                <li class="mb-2">✓ Medical emergencies up to $100,000</li>
+                                <li class="mb-2">✓ Full trip cancellation coverage</li>
+                                <li class="mb-2">✓ Baggage and travel delay</li>
+                                <li class="mb-2">✓ Adventure sports coverage</li>
+                                <li class="mb-0">✓ Rental car protection</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 pt-0">
+                            <a href="booking.html" class="btn btn-primary w-100">Select Plan</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Premium Plan Card -->
+                <div class="col">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <div class="plan-badge bg-info text-white d-inline-block px-3 py-1 rounded-pill small mb-3">Premium</div>
+                            <h5 class="card-title fw-bold text-dark-blue">Full Protection</h5>
+                            <div class="plan-price display-6 fw-bold text-dark-blue my-3">$129</div>
+                            <div class="plan-period text-muted mb-4">per trip</div>
+                            <ul class="plan-features list-unstyled text-start mb-4">
+                                <li class="mb-2">✓ Medical emergencies up to $250,000</li>
+                                <li class="mb-2">✓ Cancel for any reason</li>
+                                <li class="mb-2">✓ Comprehensive delay coverage</li>
+                                <li class="mb-2">✓ Business equipment protection</li>
+                                <li class="mb-0">✓ Worldwide coverage</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 pt-0">
+                            <a href="booking.html" class="btn btn-primary w-100">Select Plan</a>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
+    </div>
 </section>
 
 <footer class="footer">

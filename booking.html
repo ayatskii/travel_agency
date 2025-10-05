@@ -9,23 +9,40 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<header id="main-header" class="header">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container">
-        <nav class="nav">
-            <h1 class="logo">BlueWave Travel</h1>
-            <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="index.html#destinations">Destinations</a>
-                <a href="index.html#packages">Packages</a>
-                <a href="about.html">About</a>
-                <a href="contact.html">Contact</a>
-                <a href="gallery.html">Gallery</a>
-                <a href="services.html">Services</a>
-            </div>
-            <a href="booking.html" class="book-btn">Book Now</a>
-        </nav>
+        <a class="navbar-brand fw-bold" href="index.html">BlueWave Travel</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMain">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-lg-3">
+                <li class="nav-item">
+                    <a class="nav-link position-relative" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link position-relative" href="index.html#destinations">Destinations</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link position-relative" href="index.html#packages">Packages</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link position-relative" href="about.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link position-relative" href="contact.html">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link position-relative" href="gallery.html">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link position-relative" href="services.html">Services</a>
+                </li>
+            </ul>
+            <a class="btn btn-light ms-lg-3 px-3 py-2 fw-medium" href="booking.html">Book Now</a>
+        </div>
     </div>
-</header>
+</nav>
 
 <section class="booking-section">
     <div class="container">

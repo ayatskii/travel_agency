@@ -9,71 +9,89 @@
   <link rel="icon" href="./assets/imgs/favicon.ico" type="image/x-icon">
 </head>
 <body>
-  
-  <header id="main-header" class="header">
-    <div class="container">
-      <nav class="nav">
-        <h1 class="logo">BlueWave Travel</h1>
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="index.html#destinations">Destinations</a>
-            <a href="index.html#packages">Packages</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-            <a href="gallery.html">Gallery</a>
-            <a href="services.html">Services</a>
-        </div>
-        <button class="book-btn" onclick="location.href='booking.html'">Book Now</button>
-      </nav>
-    </div>
-  </header>
 
-  
-  <main>
+<!-- Bootstrap Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">BlueWave Travel</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMain">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-lg-3">
+                <li class="nav-item">
+                    <a class="nav-link position-relative" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link position-relative" href="index.html#destinations">Destinations</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link position-relative" href="index.html#packages">Packages</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link position-relative" href="about.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link position-relative" href="contact.html">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active position-relative" href="gallery.html">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link position-relative" href="services.html">Services</a>
+                </li>
+            </ul>
+            <a class="btn btn-light ms-lg-3 px-3 py-2 fw-medium" href="booking.html">Book Now</a>
+        </div>
+    </div>
+</nav>
+
+
+<main>
     <section class="ta-container" style="padding: 28px 0 8px">
-      <h1>Gallery</h1>
-      <p style="max-width: 760px; color:#555;">
-        👉 A collection of our best destinations and travel moments. Hover to see the captions.
-      </p>
+        <h1>Gallery</h1>
+        <p style="max-width: 760px; color:#555;">
+            👉 A collection of our best destinations and travel moments. Hover to see the captions.
+        </p>
     </section>
 
     <section class="ta-container" style="padding-bottom: 36px">
-      <div class="ta-gallery" aria-label="Travel photos">
-        <figure class="ta-figure">
-          <img src="assets/imgs/The Maldives.jpeg" alt="Maldives">
-          <figcaption class="ta-caption">Maldives</figcaption>
-        </figure>
-        <figure class="ta-figure">
-          <img src="assets/imgs/The Colosseum, Rome.jpeg" alt="Rome Italy">
-          <figcaption class="ta-caption">Rome Italy</figcaption>
-        </figure>
-        <figure class="ta-figure">
-          <img src="assets/imgs/Switzerland.jpeg" alt="Switzerland">
-          <figcaption class="ta-caption">Switzerland</figcaption>
-        </figure>
-        <figure class="ta-figure">
-          <img src="assets/imgs/Dubai.jpeg" alt="Dubai">
-          <figcaption class="ta-caption">Dubai</figcaption>
-        </figure>
-        <figure class="ta-figure">
-          <img src="assets/imgs/Phuket.jpeg" alt="Phuket Thailand">
-          <figcaption class="ta-caption">Phuket Thailand</figcaption>
-        </figure>
-        <figure class="ta-figure">
-          <img src="assets/imgs/China.jpeg" alt="Great Wall of China">
-          <figcaption class="ta-caption">Great Wall of China</figcaption>
-        </figure>
-        <figure class="ta-figure">
-          <img src="assets/imgs/Japan.jpeg" alt="Tokyo Japan">
-          <figcaption class="ta-caption">Tokyo Japan</figcaption>
-        </figure>
-        <figure class="ta-figure">
-          <img src="assets/imgs/Эстетика.jpeg" alt="Istanbul Turkey">
-          <figcaption class="ta-caption">Istanbul Turkey</figcaption>
-        </figure>
-      </div>
+        <div class="ta-gallery" aria-label="Travel photos">
+            <figure class="ta-figure">
+                <img src="assets/imgs/The Maldives.jpeg" alt="Maldives">
+                <figcaption class="ta-caption">Maldives</figcaption>
+            </figure>
+            <figure class="ta-figure">
+                <img src="assets/imgs/The Colosseum, Rome.jpeg" alt="Rome Italy">
+                <figcaption class="ta-caption">Rome Italy</figcaption>
+            </figure>
+            <figure class="ta-figure">
+                <img src="assets/imgs/Switzerland.jpeg" alt="Switzerland">
+                <figcaption class="ta-caption">Switzerland</figcaption>
+            </figure>
+            <figure class="ta-figure">
+                <img src="assets/imgs/Dubai.jpeg" alt="Dubai">
+                <figcaption class="ta-caption">Dubai</figcaption>
+            </figure>
+            <figure class="ta-figure">
+                <img src="assets/imgs/Phuket.jpeg" alt="Phuket Thailand">
+                <figcaption class="ta-caption">Phuket Thailand</figcaption>
+            </figure>
+            <figure class="ta-figure">
+                <img src="assets/imgs/China.jpeg" alt="Great Wall of China">
+                <figcaption class="ta-caption">Great Wall of China</figcaption>
+            </figure>
+            <figure class="ta-figure">
+                <img src="assets/imgs/Japan.jpeg" alt="Tokyo Japan">
+                <figcaption class="ta-caption">Tokyo Japan</figcaption>
+            </figure>
+            <figure class="ta-figure">
+                <img src="assets/imgs/Эстетика.jpeg" alt="Istanbul Turkey">
+                <figcaption class="ta-caption">Istanbul Turkey</figcaption>
+            </figure>
+        </div>
     </section>
-  </main>
+</main>
 
 <footer class="footer">
     <div class="container">
