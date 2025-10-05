@@ -31,10 +31,10 @@ body {
     z-index: 100;
 }
 .nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem 0;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 1rem 0 !important;
 }
 .logo {
     font-size: 1.5rem;
