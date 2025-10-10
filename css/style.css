@@ -840,11 +840,6 @@ select.form-input {
         grid-template-columns: repeat(3, 1fr);
     }
 }
-@media (max-width: 576px) {
-    .hero-title {
-        font-size: 2rem;
-    }
-}
 @media (max-width: 767px) {
     .nav-links {
         display: none;
@@ -1296,34 +1291,4 @@ section.why-bluewave .btn-outline-primary {
 section.why-bluewave .btn-outline-primary:hover {
     background-color: var(--white);
     color: var(--medium-blue);
-}
-
-/* === Carousel Style Update === */
-.carousel img {
-  border-radius: 12px;
-  object-fit: cover;
-  height: 500px;
-  width: 100%;
-}
-
-.carousel-inner {
-  border-radius: 12px;
-  overflow: hidden;
-}
-
-.carousel-indicators button {
-  background-color: #fff;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  opacity: 0.7;
-}
-
-.carousel-indicators .active {
-  opacity: 1;
-}
-
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-  filter: invert(1) drop-shadow(0 0 5px #000);
 }
