@@ -128,3 +128,25 @@ if (contactForm) {
   [cName,cEmail,cMessage,cAgree].forEach(el=>el && el.addEventListener('input', validateContact));
 }
 });
+
+const modal=document.getElementById('modal');
+const open=()=>modal.classList.remove('hidden');
+const close=()=>modal.classList.add('hidden');
+document.getElementById('openPopup')?.addEventListener('click',open);
+document.getElementById('closePopup')?.addEventListener('click',close);
+modal?.addEventListener('click',e=>{if(e.target.classList.contains('backdrop')) close();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape') close();});
+
+// ===== Background color cycler button on cancellation-policy page =====
+(()=>{
+  const btn = document.getElementById('bgBtn');
+  if(!btn) return;
+  const colors=['#f6f7f9','#ffe8a1','#d1f7c4','#cde3ff','#ffd1dc'];
+  let i=0;
+  btn.addEventListener('click',()=>{
+    const next = colors[i++ % colors.length];
+    document.body.style.backgroundColor = next;
+    const section = document.querySelector('.policy-section');
+    if (section) section.style.backgroundColor = next;
+  });
+})();

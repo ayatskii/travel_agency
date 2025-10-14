@@ -69,7 +69,17 @@
                 <h3 class="fw-bold mb-3">Why BlueWave?</h3>
                 <p class="lead mb-4">Tailored trips, fair prices, and 24/7 global support.</p>
                 <a href="about.html" class="btn btn-primary me-2 mb-3">Learn More</a>
-                <a href="services.html" class="btn btn-outline-primary mb-3">Our Services</a>
+                <button id="openPopup" class="btn btn-outline-primary mb-3">Subscribe</button>
+                <div id="modal" class="hidden">
+                      <div class="backdrop"></div>
+                      <div class="dialog">
+                        <button id="closePopup">×</button>
+                        <form>
+                          <input type="email" placeholder="Email">
+                          <button id="send" type="submit">Send</button>
+                        </form>
+                      </div>
+                </div>
             </div>
             <div class="col-sm-12 col-md-6 col-lg-6 text-center">
                 <img src="./assets/imgs/card1.jpeg" class="img-fluid rounded-4 shadow-lg" alt="Why Choose BlueWave">
