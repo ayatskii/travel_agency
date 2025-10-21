@@ -8,9 +8,46 @@
   <link rel="stylesheet" href="css/style.css" />
   <link rel="icon" href="./assets/imgs/favicon.ico" type="image/x-icon">
 </head>
+<div id="modal" class="backdrop hidden position-fixed top-0 start-0 w-100 h-100" style="background:rgba(0,0,0,.5);z-index:1055;">
+  <div class="d-flex align-items-center justify-content-center h-100">
+    <div class="bg-white rounded-4 p-4 shadow" style="width: min(520px, 92vw);" role="dialog" aria-modal="true" aria-labelledby="subTitle">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h5 id="subTitle" class="m-0">Subscribe to BlueWave</h5>
+        <button id="closePopup" class="btn btn-sm btn-outline-secondary" aria-label="Close">×</button>
+      </div>
+      <form id="newsletterForm" novalidate>
+        <div class="mb-3">
+          <label for="nlEmail" class="form-label">Email</label>
+          <input type="email" class="form-control" id="nlEmail" placeholder="you@example.com" required>
+          <div id="nlErr" class="invalid-feedback d-block" style="display:none;">Enter a valid email.</div>
+        </div>
+        <div id="nlOk" class="alert alert-success py-2" style="display:none;">Thanks. You are subscribed.</div>
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const f = document.getElementById('newsletterForm');
+  if (!f) return;
+  const email = document.getElementById('nlEmail');
+  const err = document.getElementById('nlErr');
+  const ok  = document.getElementById('nlOk');
+  const isEmail = v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);
+
+  f.addEventListener('submit', e => {
+    e.preventDefault();
+    err.style.display = 'none'; ok.style.display = 'none';
+    if (!isEmail(email.value.trim())) { err.style.display = 'block'; return; }
+    ok.style.display = 'block'; email.value = '';
+  });
+});
+</script>
+
 <body>
 
-<!-- Bootstrap Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container">
         <a class="navbar-brand fw-bold" href="index.html">BlueWave Travel</a>
@@ -41,6 +78,7 @@
                     <a class="nav-link position-relative" href="services.html">Services</a>
                 </li>
             </ul>
+            <button id="themeToggle" class="btn btn-outline-light ms-2" title="Toggle theme">🌙</button>
             <a class="btn btn-light ms-lg-3 px-3 py-2 fw-medium" href="booking.html">Book Now</a>
         </div>
     </div>
@@ -51,59 +89,8 @@
     <section class="ta-container" style="padding: 28px 0 8px">
         <h1>Gallery</h1>
         <p style="max-width: 760px; color:#555;">
-            👉 A collection of our best destinations and travel moments. Hover to see the captions.
+            A collection of our best destinations and travel moments. Hover to see the captions.
         </p>
-    </section>
-
-    <!-- Hero Carousel -->
-    <section class="ta-container" style="padding-bottom: 36px">
-        <div id="heroCarousel" class="carousel slide mb-4 rounded-4 shadow-lg overflow-hidden" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
-                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
-                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="5" aria-label="Slide 6"></button>
-                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="6" aria-label="Slide 7"></button>
-                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="7" aria-label="Slide 8"></button>
-                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="8" aria-label="Slide 9"></button>
-            </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="assets/imgs/The Maldives.jpeg" class="d-block w-100" alt="Maldives Paradise">
-                </div>
-                <div class="carousel-item">
-                    <img src="assets/imgs/The Colosseum, Rome.jpeg" class="d-block w-100" alt="Rome Colosseum">
-                </div>
-                <div class="carousel-item">
-                    <img src="assets/imgs/Switzerland.jpeg" class="d-block w-100" alt="Switzerland Alps">
-                </div>
-                <div class="carousel-item">
-                    <img src="assets/imgs/Dubai.jpeg" class="d-block w-100" alt="Dubai Skyline">
-                </div>
-                <div class="carousel-item">
-                    <img src="assets/imgs/Phuket.jpeg" class="d-block w-100" alt="Phuket Thailand">
-                </div>
-                <div class="carousel-item">
-                    <img src="assets/imgs/China.jpeg" class="d-block w-100" alt="Great Wall of China">
-                </div>
-                <div class="carousel-item">
-                    <img src="assets/imgs/Japan.jpeg" class="d-block w-100" alt="Tokyo Japan">
-                </div>
-                <div class="carousel-item">
-                    <img src="assets/imgs/Эстетика.jpeg" class="d-block w-100" alt="Istanbul Turkey">
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
     </section>
 
     <section class="ta-container" style="padding-bottom: 36px">
@@ -142,6 +129,11 @@
             </figure>
         </div>
     </section>
+    <div class="text-center my-5">
+    <button id="openPopup" class="btn btn-primary btn-lg">Subscribe for Deals</button>
+    <button id="bgBtn" class="btn btn-outline-secondary ms-2">Change Background</button>
+    </div>
+    
 </main>
 
 <footer class="footer">
@@ -189,5 +181,6 @@
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="js/app.js" defer></script>
+<script src="js/altynay-dom.js" defer></script>
 </body>
 </html>

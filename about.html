@@ -39,6 +39,7 @@
                     <a class="nav-link position-relative" href="services.html">Services</a>
                 </li>
             </ul>
+            <button id="themeToggle" class="btn btn-outline-light ms-2" title="Toggle theme">🌙</button>
             <a class="btn btn-light ms-lg-3 px-3 py-2 fw-medium" href="booking.html">Book Now</a>
         </div>
     </div>
@@ -56,9 +57,27 @@
         <div class="story-content">
             <div class="story-text">
                 <h2 class="section-title">Our Story</h2>
-                <p>Founded in 2015 by passionate travelers Altynay, Nuray, Aiat and Merey, BlueWave Travel began as a small boutique agency with a big dream: to make extraordinary travel experiences accessible to everyone.</p>
-                <p>What started as a four-person operation planning custom itineraries from a cozy Miami office has grown into a team of 25 travel experts who have helped over 50,000 travelers discover the world's most beautiful destinations.</p>
-                <p>Our name "BlueWave" represents our love for ocean adventures and our commitment to riding the wave of innovation in travel experiences.</p>
+                <div class="read-more-section">
+                    <p class="short-text">Founded in 2015 by passionate travelers Altynay, Nuray, Aiat and Merey, BlueWave Travel began as a small boutique agency with a big dream: to make extraordinary travel experiences accessible to everyone.</p>
+                    <div class="more-content">
+                        <p>What started as a four-person operation planning custom itineraries from a cozy Miami office has grown into a team of 25 travel experts who have helped over 50,000 travelers discover the world's most beautiful destinations.</p>
+                        <p>Our name "BlueWave" represents our love for ocean adventures and our commitment to riding the wave of innovation in travel experiences. We believe that every journey should be as unique as the traveler embarking on it, and we pour that philosophy into every itinerary we create.</p>
+                        <p>Over the years, we've expanded from local Florida getaways to global adventures, but our core mission remains the same: to deliver exceptional service, personalized attention, and memories that last a lifetime.</p>
+                    </div>
+                    <button class="read-more-btn">Read More</button>
+                </div>
+
+                <div class="rating-section mt-4">
+                    <h4>Rate Our Story:</h4>
+                    <div class="rating-stars" data-service="about-story">
+                        <span class="star" data-rating="1" title="Poor">★</span>
+                        <span class="star" data-rating="2" title="Fair">★</span>
+                        <span class="star" data-rating="3" title="Good">★</span>
+                        <span class="star" data-rating="4" title="Very Good">★</span>
+                        <span class="star" data-rating="5" title="Excellent">★</span>
+                    </div>
+                    <p class="rating-text small text-muted mt-2">Click stars to rate our company story</p>
+                </div>
             </div>
             <div class="story-image">
                 <img src="assets/imgs/favicon.ico" alt="BlueWave Travel Team" class="circular-image">
@@ -73,7 +92,14 @@
         <div class="mission-grid">
             <div class="mission-card">
                 <h3>🌊 Our Mission</h3>
-                <p>To create transformative travel experiences that inspire, educate, and connect people with the world's diverse cultures and natural wonders while maintaining the highest standards of service and sustainability.</p>
+                <div class="read-more-section">
+                    <p class="short-text">To create transformative travel experiences that inspire, educate, and connect people with the world's diverse cultures and natural wonders while maintaining the highest standards of service and sustainability.</p>
+                    <div class="more-content">
+                        <p>We strive to be more than just a travel agency - we aim to be catalysts for personal growth and global understanding. Through carefully curated experiences, we help travelers step outside their comfort zones and discover new perspectives.</p>
+                        <p>Our mission extends beyond the trip itself. We're committed to ensuring that every journey leaves a positive impact on both the traveler and the destinations we visit.</p>
+                    </div>
+                    <button class="read-more-btn">Read More</button>
+                </div>
             </div>
             <div class="mission-card">
                 <h3>💎 Our Values</h3>
@@ -84,6 +110,17 @@
                     <li><strong>Innovation:</strong> Cutting-edge travel solutions</li>
                     <li><strong>Community:</strong> Supporting local economies</li>
                 </ul>
+
+                <div class="rating-section mt-3">
+                    <h6>Rate Our Values:</h6>
+                    <div class="rating-stars" data-service="company-values">
+                        <span class="star" data-rating="1" title="Poor">★</span>
+                        <span class="star" data-rating="2" title="Fair">★</span>
+                        <span class="star" data-rating="3" title="Good">★</span>
+                        <span class="star" data-rating="4" title="Very Good">★</span>
+                        <span class="star" data-rating="5" title="Excellent">★</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -97,26 +134,96 @@
                 <img src="assets/imgs/altynay.JPG" alt="Altynay Yertay" class="circular-image">
                 <h3>Altynay Yertay</h3>
                 <p class="position">Co-Founder & Business Development Director</p>
-                <p>Strategic partnerships and market expansion expert</p>
+                <div class="read-more-section">
+                    <p class="short-text">Strategic partnerships and market expansion expert with 10+ years in travel industry.</p>
+                    <div class="more-content">
+                        <p>Altynay leads our global expansion efforts and strategic partnerships. Her vision for creating unique travel experiences has been instrumental in our growth from local agency to international presence.</p>
+                        <p>Specialties: Market analysis, partnership development, strategic planning</p>
+                    </div>
+                    <button class="read-more-btn">Read More</button>
+                </div>
+
+                <div class="rating-section mt-2">
+                    <div class="rating-stars" data-service="team-altynay">
+                        <span class="star" data-rating="1">★</span>
+                        <span class="star" data-rating="2">★</span>
+                        <span class="star" data-rating="3">★</span>
+                        <span class="star" data-rating="4">★</span>
+                        <span class="star" data-rating="5">★</span>
+                    </div>
+                </div>
             </div>
+
             <div class="team-member">
                 <img src="assets/imgs/nuray.JPG" alt="Nuray Nuraly" class="circular-image">
                 <h3>Nuray Nuraly</h3>
                 <p class="position">Co-Founder & Financial Director</p>
-                <p>Financial planning and investment management specialist</p>
+                <div class="read-more-section">
+                    <p class="short-text">Financial planning and investment management specialist ensuring sustainable growth.</p>
+                    <div class="more-content">
+                        <p>Nuray's financial expertise has been crucial in scaling our operations while maintaining profitability. She ensures that we can deliver exceptional value to our customers while building a sustainable business model.</p>
+                        <p>Specialties: Financial strategy, risk management, investment planning</p>
+                    </div>
+                    <button class="read-more-btn">Read More</button>
+                </div>
+
+                <div class="rating-section mt-2">
+                    <div class="rating-stars" data-service="team-nuray">
+                        <span class="star" data-rating="1">★</span>
+                        <span class="star" data-rating="2">★</span>
+                        <span class="star" data-rating="3">★</span>
+                        <span class="star" data-rating="4">★</span>
+                        <span class="star" data-rating="5">★</span>
+                    </div>
+                </div>
             </div>
 
             <div class="team-member">
                 <img src="assets/imgs/aiat.JPG" alt="Aiat Mergenbay" class="circular-image">
                 <h3>Aiat Mergenbay</h3>
                 <p class="position">Technical Director & IT Development Lead</p>
-                <p>Digital transformation and technology solutions architect</p>
+                <div class="read-more-section">
+                    <p class="short-text">Digital transformation and technology solutions architect driving innovation.</p>
+                    <div class="more-content">
+                        <p>Aiat leads our technology initiatives, from booking platforms to customer relationship management systems. His innovative approach has revolutionized how we deliver seamless travel experiences.</p>
+                        <p>Specialties: Software architecture, digital transformation, UX design</p>
+                    </div>
+                    <button class="read-more-btn">Read More</button>
+                </div>
+
+                <div class="rating-section mt-2">
+                    <div class="rating-stars" data-service="team-aiat">
+                        <span class="star" data-rating="1">★</span>
+                        <span class="star" data-rating="2">★</span>
+                        <span class="star" data-rating="3">★</span>
+                        <span class="star" data-rating="4">★</span>
+                        <span class="star" data-rating="5">★</span>
+                    </div>
+                </div>
             </div>
+
             <div class="team-member">
                 <img src="assets/imgs/merey.JPG" alt="Merey Amangeldi" class="circular-image">
                 <h3>Merey Amangeldi</h3>
                 <p class="position">Marketing & Customer Service Director</p>
-                <p>Brand development and customer experience innovator</p>
+                <div class="read-more-section">
+                    <p class="short-text">Brand development and customer experience innovator focused on client satisfaction.</p>
+                    <div class="more-content">
+                        <p>Merey's customer-centric approach has shaped our brand identity and service standards. She ensures that every client interaction exceeds expectations and builds lasting relationships.</p>
+                        <p>Specialties: Brand strategy, customer experience, digital marketing</p>
+                    </div>
+                    <button class="read-more-btn">Read More</button>
+                </div>
+
+                <div class="rating-section mt-2">
+                    <div class="rating-stars" data-service="team-merey">
+                        <span class="star" data-rating="1">★</span>
+                        <span class="star" data-rating="2">★</span>
+                        <span class="star" data-rating="3">★</span>
+                        <span class="star" data-rating="4">★</span>
+                        <span class="star" data-rating="5">★</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -129,18 +236,54 @@
             <div class="achievement">
                 <h3>50,000+</h3>
                 <p>Happy Travelers</p>
+                <div class="rating-section mt-2">
+                    <div class="rating-stars" data-service="achievement-travelers">
+                        <span class="star" data-rating="1">★</span>
+                        <span class="star" data-rating="2">★</span>
+                        <span class="star" data-rating="3">★</span>
+                        <span class="star" data-rating="4">★</span>
+                        <span class="star" data-rating="5">★</span>
+                    </div>
+                </div>
             </div>
             <div class="achievement">
                 <h3>35+</h3>
                 <p>Countries Covered</p>
+                <div class="rating-section mt-2">
+                    <div class="rating-stars" data-service="achievement-countries">
+                        <span class="star" data-rating="1">★</span>
+                        <span class="star" data-rating="2">★</span>
+                        <span class="star" data-rating="3">★</span>
+                        <span class="star" data-rating="4">★</span>
+                        <span class="star" data-rating="5">★</span>
+                    </div>
+                </div>
             </div>
             <div class="achievement">
                 <h3>98%</h3>
                 <p>Customer Satisfaction</p>
+                <div class="rating-section mt-2">
+                    <div class="rating-stars" data-service="achievement-satisfaction">
+                        <span class="star" data-rating="1">★</span>
+                        <span class="star" data-rating="2">★</span>
+                        <span class="star" data-rating="3">★</span>
+                        <span class="star" data-rating="4">★</span>
+                        <span class="star" data-rating="5">★</span>
+                    </div>
+                </div>
             </div>
             <div class="achievement">
                 <h3>12</h3>
                 <p>Industry Awards</p>
+                <div class="rating-section mt-2">
+                    <div class="rating-stars" data-service="achievement-awards">
+                        <span class="star" data-rating="1">★</span>
+                        <span class="star" data-rating="2">★</span>
+                        <span class="star" data-rating="3">★</span>
+                        <span class="star" data-rating="4">★</span>
+                        <span class="star" data-rating="5">★</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -152,13 +295,48 @@
         <div class="commitment-content">
             <div class="commitment-text">
                 <h3>Sustainable Tourism</h3>
-                <p>We believe in responsible travel that benefits both travelers and local communities. Our partnerships ensure that 5% of every booking goes toward environmental conservation and community development projects in the destinations we visit.</p>
+                <div class="read-more-section">
+                    <p class="short-text">We believe in responsible travel that benefits both travelers and local communities.</p>
+                    <div class="more-content">
+                        <p>Our partnerships ensure that 5% of every booking goes toward environmental conservation and community development projects in the destinations we visit. We work with local guides, support family-owned businesses, and promote eco-friendly accommodations.</p>
+                        <p>We're committed to reducing our carbon footprint through carbon offset programs and promoting sustainable travel practices among our clients.</p>
+                    </div>
+                    <button class="read-more-btn">Read More</button>
+                </div>
 
                 <h3>24/7 Support</h3>
-                <p>Our dedicated support team is available around the clock to assist you during your travels. From flight changes to local recommendations, we're here for you every step of the way.</p>
+                <div class="read-more-section">
+                    <p class="short-text">Our dedicated support team is available around the clock to assist you during your travels.</p>
+                    <div class="more-content">
+                        <p>From flight changes to local recommendations, we're here for you every step of the way. Our multilingual support team can assist with emergencies, itinerary changes, and any questions that arise during your journey.</p>
+                        <p>We provide local emergency contacts in every destination and maintain relationships with service providers worldwide to ensure quick resolution of any issues.</p>
+                    </div>
+                    <button class="read-more-btn">Read More</button>
+                </div>
 
                 <h3>Best Price Guarantee</h3>
-                <p>We're committed to offering the best value for your money. If you find a better price for the same package, we'll match it and give you an additional 10% discount.</p>
+                <div class="read-more-section">
+                    <p class="short-text">We're committed to offering the best value for your money.</p>
+                    <div class="more-content">
+                        <p>If you find a better price for the same package, we'll match it and give you an additional 10% discount. Our partnerships with airlines, hotels, and local providers allow us to offer competitive pricing without compromising on quality.</p>
+                        <p>We regularly monitor market prices and adjust our offerings to ensure you get the best possible deal for your dream vacation.</p>
+                    </div>
+                    <button class="read-more-btn">Read More</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-5">
+            <div class="rating-section">
+                <h4>Overall Company Rating:</h4>
+                <div class="rating-stars" data-service="overall-company">
+                    <span class="star" data-rating="1" title="Poor">★</span>
+                    <span class="star" data-rating="2" title="Fair">★</span>
+                    <span class="star" data-rating="3" title="Good">★</span>
+                    <span class="star" data-rating="4" title="Very Good">★</span>
+                    <span class="star" data-rating="5" title="Excellent">★</span>
+                </div>
+                <p class="rating-text mt-2">Share your overall experience with BlueWave Travel</p>
             </div>
         </div>
     </div>
@@ -207,7 +385,9 @@
         </div>
     </div>
 </footer>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="js/app.js" defer></script>
+<script src="js/altynay-dom.js" defer></script>
 </body>
 </html>
