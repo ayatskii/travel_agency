@@ -32,10 +32,12 @@
                     <a class="nav-link position-relative" href="contact.html">Contact</a>
                 </li>
             </ul>
+            <button id="themeToggle" class="btn btn-outline-light ms-2" title="Toggle theme">🌙</button>
             <a class="btn btn-light ms-lg-3 px-3 py-2 fw-medium" href="booking.html">Book Now</a>
         </div>
     </div>
 </nav>
+
 <main class="services-grid">
     <aside class="services-sidebar">
         <h3 class="mb-3">Our Services</h3>
@@ -44,81 +46,298 @@
             <a href="#luxury" class="service-link">Luxury Getaways</a>
             <a href="#family" class="service-link">Family Vacations</a>
             <a href="#corporate" class="service-link">Corporate Travel</a>
+            <a href="#custom" class="service-link">Custom Packages</a>
+            <a href="#group" class="service-link">Group Travel</a>
         </nav>
+
+        <div class="sidebar-ratings mt-4">
+            <h5>Service Ratings</h5>
+            <div class="overall-rating">
+                <div class="rating-display">
+                    <div class="stars-static">
+                        <span class="star static-star">★</span>
+                        <span class="star static-star">★</span>
+                        <span class="star static-star">★</span>
+                        <span class="star static-star">★</span>
+                        <span class="star static-star">★</span>
+                    </div>
+                    <span class="rating-score">4.8/5</span>
+                </div>
+                <p class="rating-count small text-muted">Based on 2,347 reviews</p>
+            </div>
+        </div>
     </aside>
+
     <section class="services-main">
-        <h2 class="section-title">Our Services</h2>
+        <div class="services-header text-center mb-5">
+            <h2 class="section-title">Our Premium Services</h2>
+            <p class="hero-description">Discover our comprehensive range of travel services designed to create unforgettable experiences</p>
+
+            <div class="service-filter mb-4">
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-outline-primary active" data-filter="all">All Services</button>
+                    <button type="button" class="btn btn-outline-primary" data-filter="adventure">Adventure</button>
+                    <button type="button" class="btn btn-outline-primary" data-filter="luxury">Luxury</button>
+                    <button type="button" class="btn btn-outline-primary" data-filter="family">Family</button>
+                </div>
+            </div>
+        </div>
+
         <div class="container my-4">
-            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-                <div class="col" id="adventure">
-                    <div class="card h-100 border-0 shadow-sm">
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 services-container">
+
+                <!-- Adventure Tours -->
+                <div class="col service-item" data-category="adventure" id="adventure">
+                    <div class="card h-100 border-0 shadow-sm service-card">
                         <div class="service-image card-img-top d-flex align-items-center justify-content-center fs-1 bg-light-blue">🏔️</div>
                         <div class="card-body">
                             <h5 class="card-title fw-bold text-dark-blue">Adventure Tours</h5>
-                            <p class="card-text text-dark-blue">Experience thrilling adventures with guided tours and outdoor activities.</p>
+                            <div class="read-more-section">
+                                <p class="short-text card-text text-dark-blue">Experience thrilling adventures with guided tours and outdoor activities in the world's most exciting destinations.</p>
+                                <div class="more-content">
+                                    <p>Our adventure tours are designed for thrill-seekers and nature lovers. From hiking majestic mountain ranges to exploring remote wilderness areas, we provide expert guides, safety equipment, and unforgettable experiences.</p>
+                                    <p><strong>Popular Destinations:</strong> Patagonia, Nepal, Costa Rica, New Zealand</p>
+                                    <p><strong>Activities:</strong> Trekking, rock climbing, white-water rafting, wildlife safaris</p>
+                                </div>
+                                <button class="read-more-btn btn btn-link p-0 mt-2">Read More</button>
+                            </div>
                             <div class="service-features mb-3">
-                                <div class="text-dark-blue">✓ Expert guides</div>
-                                <div class="text-dark-blue">✓ Safety equipment</div>
-                                <div class="text-dark-blue">✓ Small groups</div>
+                                <div class="text-dark-blue">✓ Expert local guides</div>
+                                <div class="text-dark-blue">✓ Premium safety equipment</div>
+                                <div class="text-dark-blue">✓ Small group sizes</div>
+                                <div class="text-dark-blue">✓ Sustainable tourism practices</div>
                             </div>
                         </div>
                         <div class="card-footer bg-transparent border-0 pt-0">
-                            <a class="btn btn-primary btn-sm w-100 mb-2" href="booking.html">Book Now</a>
+                            <div class="service-rating mb-3">
+                                <h6>Rate this service:</h6>
+                                <div class="rating-stars" data-service="adventure-tours">
+                                    <span class="star" data-rating="1" title="Poor">★</span>
+                                    <span class="star" data-rating="2" title="Fair">★</span>
+                                    <span class="star" data-rating="3" title="Good">★</span>
+                                    <span class="star" data-rating="4" title="Very Good">★</span>
+                                    <span class="star" data-rating="5" title="Excellent">★</span>
+                                </div>
+                            </div>
+                            <a class="btn btn-primary btn-sm w-100 mb-2" href="booking.html">Book Adventure</a>
                             <a class="btn btn-outline-secondary btn-sm w-100" href="gallery.html">View Photos</a>
                         </div>
                     </div>
                 </div>
-                <div class="col" id="luxury">
-                    <div class="card h-100 border-0 shadow-sm">
+
+                <!-- Luxury Getaways -->
+                <div class="col service-item" data-category="luxury" id="luxury">
+                    <div class="card h-100 border-0 shadow-sm service-card">
                         <div class="service-image card-img-top d-flex align-items-center justify-content-center fs-1 bg-light-blue">🌟</div>
                         <div class="card-body">
                             <h5 class="card-title fw-bold text-dark-blue">Luxury Getaways</h5>
-                            <p class="card-text text-dark-blue">Premium travel experiences with 5-star accommodations and personalized service.</p>
+                            <div class="read-more-section">
+                                <p class="short-text card-text text-dark-blue">Premium travel experiences with 5-star accommodations and personalized service for the discerning traveler.</p>
+                                <div class="more-content">
+                                    <p>Indulge in the ultimate luxury travel experience with our carefully curated getaways. We partner with the world's finest hotels, resorts, and service providers to deliver exceptional comfort and exclusivity.</p>
+                                    <p><strong>Signature Experiences:</strong> Private villa stays, Michelin-star dining, personal butlers, helicopter transfers</p>
+                                    <p><strong>Destinations:</strong> Maldives, French Riviera, Dubai, Seychelles, Santorini</p>
+                                </div>
+                                <button class="read-more-btn btn btn-link p-0 mt-2">Read More</button>
+                            </div>
                             <div class="service-features mb-3">
-                                <div class="text-dark-blue">✓ 5-star hotels</div>
+                                <div class="text-dark-blue">✓ 5-star accommodations</div>
                                 <div class="text-dark-blue">✓ Private transfers</div>
                                 <div class="text-dark-blue">✓ Personal concierge</div>
+                                <div class="text-dark-blue">✓ Exclusive access</div>
                             </div>
                         </div>
                         <div class="card-footer bg-transparent border-0 pt-0">
-                            <a class="btn btn-primary btn-sm w-100 mb-2" href="booking.html">Book Now</a>
+                            <div class="service-rating mb-3">
+                                <h6>Rate this service:</h6>
+                                <div class="rating-stars" data-service="luxury-getaways">
+                                    <span class="star" data-rating="1" title="Poor">★</span>
+                                    <span class="star" data-rating="2" title="Fair">★</span>
+                                    <span class="star" data-rating="3" title="Good">★</span>
+                                    <span class="star" data-rating="4" title="Very Good">★</span>
+                                    <span class="star" data-rating="5" title="Excellent">★</span>
+                                </div>
+                            </div>
+                            <a class="btn btn-primary btn-sm w-100 mb-2" href="booking.html">Book Luxury</a>
                             <a class="btn btn-outline-secondary btn-sm w-100" href="gallery.html">View Options</a>
                         </div>
                     </div>
                 </div>
-                <div class="col" id="family">
-                    <div class="card h-100 border-0 shadow-sm">
+
+                <!-- Family Vacations -->
+                <div class="col service-item" data-category="family" id="family">
+                    <div class="card h-100 border-0 shadow-sm service-card">
                         <div class="service-image card-img-top d-flex align-items-center justify-content-center fs-1 bg-light-blue">👨‍👩‍👧‍👦</div>
                         <div class="card-body">
                             <h5 class="card-title fw-bold text-dark-blue">Family Vacations</h5>
-                            <p class="card-text text-dark-blue">Family-friendly trips with activities for all ages and comfortable accommodations.</p>
+                            <div class="read-more-section">
+                                <p class="short-text card-text text-dark-blue">Family-friendly trips with activities for all ages and comfortable accommodations that feel like home.</p>
+                                <div class="more-content">
+                                    <p>Create lasting memories with our specially designed family vacations. We understand that traveling with children requires extra planning, and we've got you covered with age-appropriate activities and family-friendly accommodations.</p>
+                                    <p><strong>Family Features:</strong> Connecting rooms, kid's clubs, child-friendly dining, educational activities</p>
+                                    <p><strong>Popular Choices:</strong> Orlando theme parks, Mediterranean cruises, beach resorts, educational tours</p>
+                                </div>
+                                <button class="read-more-btn btn btn-link p-0 mt-2">Read More</button>
+                            </div>
                             <div class="service-features mb-3">
-                                <div class="text-dark-blue">✓ Kid activities</div>
-                                <div class="text-dark-blue">✓ Family rooms</div>
+                                <div class="text-dark-blue">✓ Kid-friendly activities</div>
+                                <div class="text-dark-blue">✓ Family-sized rooms</div>
                                 <div class="text-dark-blue">✓ Childcare options</div>
+                                <div class="text-dark-blue">✓ Flexible scheduling</div>
                             </div>
                         </div>
                         <div class="card-footer bg-transparent border-0 pt-0">
-                            <a class="btn btn-primary btn-sm w-100 mb-2" href="booking.html">Book Now</a>
+                            <div class="service-rating mb-3">
+                                <h6>Rate this service:</h6>
+                                <div class="rating-stars" data-service="family-vacations">
+                                    <span class="star" data-rating="1" title="Poor">★</span>
+                                    <span class="star" data-rating="2" title="Fair">★</span>
+                                    <span class="star" data-rating="3" title="Good">★</span>
+                                    <span class="star" data-rating="4" title="Very Good">★</span>
+                                    <span class="star" data-rating="5" title="Excellent">★</span>
+                                </div>
+                            </div>
+                            <a class="btn btn-primary btn-sm w-100 mb-2" href="booking.html">Book Family Trip</a>
                             <a class="btn btn-outline-secondary btn-sm w-100" href="gallery.html">Family Photos</a>
                         </div>
                     </div>
                 </div>
-                <div class="col" id="corporate">
-                    <div class="card h-100 border-0 shadow-sm">
+
+                <!-- Corporate Travel -->
+                <div class="col service-item" data-category="corporate" id="corporate">
+                    <div class="card h-100 border-0 shadow-sm service-card">
                         <div class="service-image card-img-top d-flex align-items-center justify-content-center fs-1 bg-light-blue">💼</div>
                         <div class="card-body">
                             <h5 class="card-title fw-bold text-dark-blue">Corporate Travel</h5>
-                            <p class="card-text text-dark-blue">Business travel solutions with meeting arrangements and expense management.</p>
+                            <div class="read-more-section">
+                                <p class="short-text card-text text-dark-blue">Business travel solutions with meeting arrangements and comprehensive expense management.</p>
+                                <div class="more-content">
+                                    <p>Streamline your business travel with our corporate services. We handle everything from flight bookings and hotel arrangements to meeting planning and expense reporting, allowing you to focus on your business objectives.</p>
+                                    <p><strong>Corporate Benefits:</strong> Volume discounts, dedicated account manager, 24/7 support, detailed reporting</p>
+                                    <p><strong>Services:</strong> Group travel, event planning, executive travel, team building retreats</p>
+                                </div>
+                                <button class="read-more-btn btn btn-link p-0 mt-2">Read More</button>
+                            </div>
                             <div class="service-features mb-3">
-                                <div class="text-dark-blue">✓ Business flights</div>
-                                <div class="text-dark-blue">✓ Meeting rooms</div>
-                                <div class="text-dark-blue">✓ 24/7 support</div>
+                                <div class="text-dark-blue">✓ Business-class flights</div>
+                                <div class="text-dark-blue">✓ Meeting facilities</div>
+                                <div class="text-dark-blue">✓ 24/7 corporate support</div>
+                                <div class="text-dark-blue">✓ Expense management</div>
                             </div>
                         </div>
                         <div class="card-footer bg-transparent border-0 pt-0">
+                            <div class="service-rating mb-3">
+                                <h6>Rate this service:</h6>
+                                <div class="rating-stars" data-service="corporate-travel">
+                                    <span class="star" data-rating="1" title="Poor">★</span>
+                                    <span class="star" data-rating="2" title="Fair">★</span>
+                                    <span class="star" data-rating="3" title="Good">★</span>
+                                    <span class="star" data-rating="4" title="Very Good">★</span>
+                                    <span class="star" data-rating="5" title="Excellent">★</span>
+                                </div>
+                            </div>
                             <a class="btn btn-primary btn-sm w-100 mb-2" href="contact.html">Contact Sales</a>
                             <a class="btn btn-outline-secondary btn-sm w-100" href="travel-insurance.html">Insurance</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Custom Packages -->
+                <div class="col service-item" data-category="custom" id="custom">
+                    <div class="card h-100 border-0 shadow-sm service-card">
+                        <div class="service-image card-img-top d-flex align-items-center justify-content-center fs-1 bg-light-blue">🎯</div>
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold text-dark-blue">Custom Packages</h5>
+                            <div class="read-more-section">
+                                <p class="short-text card-text text-dark-blue">Tailor-made itineraries designed specifically for your unique travel preferences and requirements.</p>
+                                <div class="more-content">
+                                    <p>Can't find exactly what you're looking for? Our custom package service allows you to create your dream vacation from scratch. Work with our travel designers to build an itinerary that matches your interests, budget, and schedule perfectly.</p>
+                                    <p><strong>Customization Options:</strong> Destination selection, activity planning, accommodation choices, transportation preferences</p>
+                                    <p><strong>Process:</strong> Consultation, proposal, revisions, final booking</p>
+                                </div>
+                                <button class="read-more-btn btn btn-link p-0 mt-2">Read More</button>
+                            </div>
+                            <div class="service-features mb-3">
+                                <div class="text-dark-blue">✓ Personalized itineraries</div>
+                                <div class="text-dark-blue">✓ Expert travel design</div>
+                                <div class="text-dark-blue">✓ Flexible scheduling</div>
+                                <div class="text-dark-blue">✓ Budget optimization</div>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 pt-0">
+                            <div class="service-rating mb-3">
+                                <h6>Rate this service:</h6>
+                                <div class="rating-stars" data-service="custom-packages">
+                                    <span class="star" data-rating="1" title="Poor">★</span>
+                                    <span class="star" data-rating="2" title="Fair">★</span>
+                                    <span class="star" data-rating="3" title="Good">★</span>
+                                    <span class="star" data-rating="4" title="Very Good">★</span>
+                                    <span class="star" data-rating="5" title="Excellent">★</span>
+                                </div>
+                            </div>
+                            <a class="btn btn-primary btn-sm w-100 mb-2" href="contact.html">Design My Trip</a>
+                            <a class="btn btn-outline-secondary btn-sm w-100" href="gallery.html">Get Inspired</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Group Travel -->
+                <div class="col service-item" data-category="group" id="group">
+                    <div class="card h-100 border-0 shadow-sm service-card">
+                        <div class="service-image card-img-top d-flex align-items-center justify-content-center fs-1 bg-light-blue">👥</div>
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold text-dark-blue">Group Travel</h5>
+                            <div class="read-more-section">
+                                <p class="short-text card-text text-dark-blue">Organized group tours and travel arrangements for clubs, organizations, and large parties.</p>
+                                <div class="more-content">
+                                    <p>Planning travel for a group? Our group travel specialists handle all the logistics, from coordinating flights and accommodations to organizing group activities and managing payments. Perfect for clubs, organizations, family reunions, and special interest groups.</p>
+                                    <p><strong>Group Benefits:</strong> Special group rates, dedicated tour leader, customized activities, payment plans</p>
+                                    <p><strong>Group Types:</strong> Educational tours, religious pilgrimages, special interest groups, family reunions</p>
+                                </div>
+                                <button class="read-more-btn btn btn-link p-0 mt-2">Read More</button>
+                            </div>
+                            <div class="service-features mb-3">
+                                <div class="text-dark-blue">✓ Group discounts</div>
+                                <div class="text-dark-blue">✓ Dedicated coordinator</div>
+                                <div class="text-dark-blue">✓ Custom activities</div>
+                                <div class="text-dark-blue">✓ Payment flexibility</div>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 pt-0">
+                            <div class="service-rating mb-3">
+                                <h6>Rate this service:</h6>
+                                <div class="rating-stars" data-service="group-travel">
+                                    <span class="star" data-rating="1" title="Poor">★</span>
+                                    <span class="star" data-rating="2" title="Fair">★</span>
+                                    <span class="star" data-rating="3" title="Good">★</span>
+                                    <span class="star" data-rating="4" title="Very Good">★</span>
+                                    <span class="star" data-rating="5" title="Excellent">★</span>
+                                </div>
+                            </div>
+                            <a class="btn btn-primary btn-sm w-100 mb-2" href="contact.html">Plan Group Trip</a>
+                            <a class="btn btn-outline-secondary btn-sm w-100" href="gallery.html">Group Photos</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Overall Service Rating Section -->
+        <div class="container mt-5">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card border-primary">
+                        <div class="card-body text-center">
+                            <h4 class="card-title mb-4">How would you rate our services overall?</h4>
+                            <div class="rating-stars large-stars" data-service="overall-services">
+                                <span class="star large-star" data-rating="1" title="Poor">★</span>
+                                <span class="star large-star" data-rating="2" title="Fair">★</span>
+                                <span class="star large-star" data-rating="3" title="Good">★</span>
+                                <span class="star large-star" data-rating="4" title="Very Good">★</span>
+                                <span class="star large-star" data-rating="5" title="Excellent">★</span>
+                            </div>
+                            <p class="text-muted mt-3">Your feedback helps us improve our services</p>
                         </div>
                     </div>
                 </div>
@@ -126,6 +345,7 @@
         </div>
     </section>
 </main>
+
 <footer class="footer">
     <div class="container">
         <div class="footer-grid">
@@ -140,6 +360,8 @@
                     <li><a href="#luxury">Luxury Getaways</a></li>
                     <li><a href="#family">Family Vacations</a></li>
                     <li><a href="#corporate">Corporate Travel</a></li>
+                    <li><a href="#custom">Custom Packages</a></li>
+                    <li><a href="#group">Group Travel</a></li>
                 </ul>
             </div>
         </div>
@@ -150,7 +372,9 @@
         </div>
     </div>
 </footer>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="js/app.js" defer></script>
+<script src="js/altynay-dom.js" defer></script>
 </body>
 </html>

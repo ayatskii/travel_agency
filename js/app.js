@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     const el = document.getElementById("clock");
-    if (!el) return;             // если элемент не найден — выходим
+    if (!el) return;
     function updateClock() {
         const now = new Date();
         const opts = {
