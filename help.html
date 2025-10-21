@@ -133,8 +133,13 @@
 
     <section id="chat" class="ta-container" style="padding-bottom: 36px">
         <h2>Live Chat</h2>
-        <p style="color:#555;">The chat widget will be added here soon. For now — please use Email Support. <a href="mailto:support@example.com">Email Support</a>.</p>
+        <div class="chat-bubble-container" id="chat-bubbles"></div>
+        <form id="chat-form">
+            <input type="text" id="chat-input" placeholder="Type your message..." required>
+            <button type="submit">Send</button>
+        </form>
     </section>
+
 </main>
 
 <footer class="footer">

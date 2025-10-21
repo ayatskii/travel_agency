@@ -150,3 +150,43 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape') close();});
     if (section) section.style.backgroundColor = next;
   });
 })();
+
+const chatForm = document.querySelector('#chat-form');
+const chatContainer = document.querySelector('#chat-bubbles');
+
+chatForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const userMessage = document.querySelector('#chat-input').value;
+    const userBubble = document.createElement('div');
+    userBubble.classList.add('chat-bubble', 'user');
+    userBubble.textContent = userMessage;
+    chatContainer.appendChild(userBubble);
+
+    setTimeout(() => {
+        const botMessage = 'We will respond soon.';
+        const botBubble = document.createElement('div');
+        botBubble.classList.add('chat-bubble', 'bot');
+        botBubble.textContent = botMessage;
+        chatContainer.appendChild(botBubble);
+        playBeep(); // Звук при ответе бота
+    }, 500);
+});
+
+document.querySelectorAll('.accordion-button').forEach(button => {
+    button.addEventListener('click', function() {
+        const panel = button.nextElementSibling;
+        if (panel.style.maxHeight) {
+            panel.style.maxHeight = null;
+        } else {
+            panel.style.maxHeight = panel.scrollHeight + 'px';
+        }
+        button.classList.toggle('active');
+    });
+});
+
+function playBeep() {
+  const audio = new Audio('assets/sounds/beep.mp3'); 
+  audio.play();
+}
+
+
