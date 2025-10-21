@@ -190,3 +190,22 @@ function playBeep() {
 }
 
 
+const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+
+accordionHeaders.forEach(header => {
+  header.addEventListener('click', function() {
+    const content = this.nextElementSibling;  
+    const isOpen = content.classList.contains('open'); 
+
+
+    if (isOpen) {
+      content.classList.remove('open');  
+      this.classList.remove('open');     
+    } else {
+      content.classList.add('open');     
+      this.classList.add('open');        
+    }
+  });
+});
+
