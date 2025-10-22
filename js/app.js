@@ -78,7 +78,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-<<<<<<< HEAD
     // Background color cycler
     (() => {
         const btn = document.getElementById('bgBtn');
@@ -92,90 +91,62 @@ document.addEventListener("DOMContentLoaded", () => {
             if (section) section.style.backgroundColor = next;
         });
     })();
-});
-=======
-  [cName,cEmail,cMessage,cAgree].forEach(el=>el && el.addEventListener('input', validateContact));
-}
-});
 
-const modal=document.getElementById('modal');
-const open=()=>modal.classList.remove('hidden');
-const close=()=>modal.classList.add('hidden');
-document.getElementById('openPopup')?.addEventListener('click',open);
-document.getElementById('closePopup')?.addEventListener('click',close);
-modal?.addEventListener('click',e=>{if(e.target.classList.contains('backdrop')) close();});
-document.addEventListener('keydown',e=>{if(e.key==='Escape') close();});
+    // Chat functionality (новый код от команды)
+    const chatForm = document.querySelector('#chat-form');
+    const chatContainer = document.querySelector('#chat-bubbles');
 
-// ===== Background color cycler button on cancellation-policy page =====
-(()=>{
-  const btn = document.getElementById('bgBtn');
-  if(!btn) return;
-  const colors=['#f6f7f9','#ffe8a1','#d1f7c4','#cde3ff','#ffd1dc'];
-  let i=0;
-  btn.addEventListener('click',()=>{
-    const next = colors[i++ % colors.length];
-    document.body.style.backgroundColor = next;
-    const section = document.querySelector('.policy-section');
-    if (section) section.style.backgroundColor = next;
-  });
-})();
+    if (chatForm && chatContainer) {
+        chatForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const userMessage = document.querySelector('#chat-input').value;
+            const userBubble = document.createElement('div');
+            userBubble.classList.add('chat-bubble', 'user');
+            userBubble.textContent = userMessage;
+            chatContainer.appendChild(userBubble);
 
-const chatForm = document.querySelector('#chat-form');
-const chatContainer = document.querySelector('#chat-bubbles');
+            setTimeout(() => {
+                const botMessage = 'We will respond soon.';
+                const botBubble = document.createElement('div');
+                botBubble.classList.add('chat-bubble', 'bot');
+                botBubble.textContent = botMessage;
+                chatContainer.appendChild(botBubble);
+                playBeep(); // Звук при ответе бота
+            }, 500);
+        });
+    }
 
-chatForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    const userMessage = document.querySelector('#chat-input').value;
-    const userBubble = document.createElement('div');
-    userBubble.classList.add('chat-bubble', 'user');
-    userBubble.textContent = userMessage;
-    chatContainer.appendChild(userBubble);
+    // Accordion functionality (новый код от команды)
+    document.querySelectorAll('.accordion-button').forEach(button => {
+        button.addEventListener('click', function() {
+            const panel = button.nextElementSibling;
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + 'px';
+            }
+            button.classList.toggle('active');
+        });
+    });
 
-    setTimeout(() => {
-        const botMessage = 'We will respond soon.';
-        const botBubble = document.createElement('div');
-        botBubble.classList.add('chat-bubble', 'bot');
-        botBubble.textContent = botMessage;
-        chatContainer.appendChild(botBubble);
-        playBeep(); // Звук при ответе бота
-    }, 500);
-});
+    function playBeep() {
+        const audio = new Audio('assets/sounds/beep.mp3'); 
+        audio.play();
+    }
 
-document.querySelectorAll('.accordion-button').forEach(button => {
-    button.addEventListener('click', function() {
-        const panel = button.nextElementSibling;
-        if (panel.style.maxHeight) {
-            panel.style.maxHeight = null;
-        } else {
-            panel.style.maxHeight = panel.scrollHeight + 'px';
-        }
-        button.classList.toggle('active');
+    const accordionHeaders = document.querySelectorAll('.accordion-header');
+    accordionHeaders.forEach(header => {
+        header.addEventListener('click', function() {
+            const content = this.nextElementSibling;  
+            const isOpen = content.classList.contains('open'); 
+
+            if (isOpen) {
+                content.classList.remove('open');  
+                this.classList.remove('open');     
+            } else {
+                content.classList.add('open');     
+                this.classList.add('open');        
+            }
+        });
     });
 });
-
-function playBeep() {
-  const audio = new Audio('assets/sounds/beep.mp3'); 
-  audio.play();
-}
-
-
-const accordionHeaders = document.querySelectorAll('.accordion-header');
-
-
-accordionHeaders.forEach(header => {
-  header.addEventListener('click', function() {
-    const content = this.nextElementSibling;  
-    const isOpen = content.classList.contains('open'); 
-
-
-    if (isOpen) {
-      content.classList.remove('open');  
-      this.classList.remove('open');     
-    } else {
-      content.classList.add('open');     
-      this.classList.add('open');        
-    }
-  });
-});
-
->>>>>>> da892a510a5ffe14ef14ff574fe77d553306648d
