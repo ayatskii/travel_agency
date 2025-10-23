@@ -59,6 +59,27 @@
         <div class="d-flex flex-column flex-sm-row justify-content-center gap-3">
             <a href="#destinations" class="btn btn-primary px-4 py-2">Explore Destinations</a>
             <a href="#packages" class="btn btn-secondary px-4 py-2">View Packages</a>
+            <button id="randomDestinationBtn" class="btn btn-outline-primary px-4 py-2">🎲 Random Destination</button>
+        </div>
+    
+        <div id="heroStats" class="mt-4 d-none">
+            <div class="row justify-content-center">
+                <div class="col-auto">
+                    <div class="badge bg-primary fs-6 px-3 py-2">
+                        <span id="destinationCount">0</span> Destinations Available
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="badge bg-success fs-6 px-3 py-2">
+                        <span id="packageCount">0</span> Travel Packages
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="badge bg-info fs-6 px-3 py-2">
+                        Avg Rating: <span id="avgRating">0</span>/5
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -118,40 +139,54 @@
 <section id="destinations" class="py-5" style="background-color: hsl(207, 81%, 94%);">
     <div class="container text-center">
         <h3 class="section-title mb-5">Popular Destinations</h3>
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        
+        
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="destinationsGrid">
 
-            <div class="col">
-                <div class="card h-100 shadow border-0 rounded-4">
+            <div class="col" data-destination-type="beach">
+                <div class="card h-100 shadow border-0 rounded-4 destination-card">
                     <img src="./assets/imgs/card1.jpeg" class="card-img-top" alt="Tropical Paradise">
                     <div class="card-body">
                         <h4 class="card-title">Tropical Paradise</h4>
                         <p class="card-subtitle text-muted mb-2">Crystal clear waters and white sandy beaches</p>
+                        <div class="mb-2">
+                            <span class="badge bg-info">Beach</span>
+                            <span class="badge bg-warning text-dark">⭐ 4.8</span>
+                        </div>
                         <p class="card-text">Experience the ultimate beach getaway with pristine shores and vibrant coral reefs.</p>
-                        <button class="btn btn-primary w-100">Learn More</button>
+                        <button class="btn btn-primary w-100 destination-btn" data-destination="0">Learn More</button>
                     </div>
                 </div>
             </div>
 
-            <div class="col">
-                <div class="card h-100 shadow border-0 rounded-4">
+            <div class="col" data-destination-type="mountain">
+                <div class="card h-100 shadow border-0 rounded-4 destination-card">
                     <img src="./assets/imgs/card2.jpeg" class="card-img-top" alt="Mountain Escapes">
                     <div class="card-body">
                         <h4 class="card-title">Mountain Escapes</h4>
                         <p class="card-subtitle text-muted mb-2">Breathtaking peaks and alpine adventures</p>
+                        <div class="mb-2">
+                            <span class="badge bg-success">Mountain</span>
+                            <span class="badge bg-warning text-dark">⭐ 4.9</span>
+                        </div>
                         <p class="card-text">Discover majestic mountain ranges and enjoy thrilling outdoor activities.</p>
-                        <button class="btn btn-primary w-100">Learn More</button>
+                        <button class="btn btn-primary w-100 destination-btn" data-destination="1">Learn More</button>
                     </div>
                 </div>
             </div>
 
-            <div class="col">
-                <div class="card h-100 shadow border-0 rounded-4">
+            <div class="col" data-destination-type="cultural">
+                <div class="card h-100 shadow border-0 rounded-4 destination-card">
                     <img src="./assets/imgs/card3.jpeg" class="card-img-top" alt="Cultural Cities">
                     <div class="card-body">
                         <h4 class="card-title">Cultural Cities</h4>
                         <p class="card-subtitle text-muted mb-2">Historic landmarks and vibrant cultures</p>
+                        <div class="mb-2">
+                            <span class="badge bg-primary">Cultural</span>
+                            <span class="badge bg-warning text-dark">⭐ 4.7</span>
+                        </div>
                         <p class="card-text">Immerse yourself in rich history, art, and local traditions.</p>
-                        <button class="btn btn-primary w-100">Learn More</button>
+                        <button class="btn btn-primary w-100 destination-btn" data-destination="2">Learn More</button>
                     </div>
                 </div>
             </div>
@@ -164,31 +199,48 @@
     <div class="container">
         <h3 class="section-title mb-5">Travel Packages</h3>
 
-        <div class="row g-4">
+        <!-- Package Statistics Display -->
+        <div id="packageStats" class="row mb-4 d-none">
+            <div class="col-12 text-center">
+                <div class="alert alert-info">
+                    <strong>💡 Smart Pricing:</strong> 
+                    <span id="avgPackagePrice">$0</span> average price | 
+                    <span id="totalSavings">$0</span> total savings available | 
+                    <span id="bestValue">Best Value</span> package recommended
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4" id="packagesGrid">
             <div class="col-sm-12 col-md-6 col-lg-4">
-                <div class="card h-100 shadow-sm border-0 rounded-4">
+                <div class="card h-100 shadow-sm border-0 rounded-4 package-card" data-package="weekend">
                     <div class="card-body p-4">
                         <h4 class="card-title mb-1">Weekend Getaway</h4>
                         <p class="text-muted mb-3">Perfect for short escapes</p>
-                        <div class="display-6 fw-bold mb-3 text-primary">$299</div>
+                        <div class="display-6 fw-bold mb-3 text-primary price">$299</div>
                         <ul class="mb-4 ps-3">
                             <li>2 nights accommodation</li>
                             <li>Breakfast included</li>
                             <li>Airport transfers</li>
                             <li>City tour guide</li>
                         </ul>
-                        <button class="btn btn-primary w-100">Select Package</button>
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-primary package-select-btn" data-package-type="weekend">Select Package</button>
+                            <button class="btn btn-outline-secondary btn-sm package-info-btn" data-package-type="weekend">
+                                📊 Package Details
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <div class="col-sm-12 col-md-6 col-lg-4">
-                <div class="card h-100 shadow border-2 rounded-4" style="border-color: var(--medium-blue);">
+                <div class="card h-100 shadow border-2 rounded-4 package-card" style="border-color: var(--medium-blue);" data-package="adventure">
                     <div class="card-body p-4">
                         <span class="badge text-bg-primary mb-2">Most Popular</span>
                         <h4 class="card-title mb-1">Adventure Week</h4>
                         <p class="text-muted mb-3">Full week of excitement</p>
-                        <div class="display-6 fw-bold mb-3 text-primary">$899</div>
+                        <div class="display-6 fw-bold mb-3 text-primary price">$899</div>
                         <ul class="mb-4 ps-3">
                             <li>7 nights accommodation</li>
                             <li>All meals included</li>
@@ -196,17 +248,22 @@
                             <li>Professional guide</li>
                             <li>Travel insurance</li>
                         </ul>
-                        <button class="btn btn-primary w-100">Select Package</button>
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-primary package-select-btn" data-package-type="adventure">Select Package</button>
+                            <button class="btn btn-outline-secondary btn-sm package-info-btn" data-package-type="adventure">
+                                📊 Package Details
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <div class="col-sm-12 col-md-6 col-lg-4">
-                <div class="card h-100 shadow-sm border-0 rounded-4">
+                <div class="card h-100 shadow-sm border-0 rounded-4 package-card" data-package="luxury">
                     <div class="card-body p-4">
                         <h4 class="card-title mb-1">Luxury Retreat</h4>
                         <p class="text-muted mb-3">Premium experience</p>
-                        <div class="display-6 fw-bold mb-3 text-primary">$1,599</div>
+                        <div class="display-6 fw-bold mb-3 text-primary price">$1,599</div>
                         <ul class="mb-4 ps-3">
                             <li>5 nights luxury resort</li>
                             <li>Gourmet dining</li>
@@ -214,10 +271,31 @@
                             <li>Private transportation</li>
                             <li>Concierge service</li>
                         </ul>
-                        <button class="btn btn-primary w-100">Select Package</button>
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-primary package-select-btn" data-package-type="luxury">Select Package</button>
+                            <button class="btn btn-outline-secondary btn-sm package-info-btn" data-package-type="luxury">
+                                📊 Package Details
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
+
+        <!-- Package Comparison Tool -->
+        <div class="mt-5">
+            <div class="text-center">
+                <button id="comparePackagesBtn" class="btn btn-outline-primary">
+                    📋 Compare All Packages
+                </button>
+                <button id="findBestValueBtn" class="btn btn-outline-success">
+                    💰 Find Best Value
+                </button>
+                <button id="budgetCalculatorBtn" class="btn btn-outline-info">
+                    🧮 Budget Calculator
+                </button>
+            </div>
+            <div id="comparisonResult" class="mt-3"></div>
         </div>
     </div>
 </section>
