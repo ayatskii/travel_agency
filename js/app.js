@@ -488,6 +488,7 @@ function showNotification(message, type = 'info') {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+    // Clock functionality
     const el = document.getElementById("clock");
     if (!el) return;
     function updateClock() {
@@ -598,64 +599,71 @@ if (contactForm) {
   const cAgree = g('cAgree');
   const contactStatus = g('contactStatus');
 
-  const err = id => g(id);
-  const show = (el,msg)=>{ if(el){ el.textContent=msg; el.classList.remove('d-none'); } };
-  const hide = el => { if(el) el.classList.add('d-none'); };
-  const isEmail = v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);
+        const err = id => g(id);
+        const show = (el,msg)=>{ if(el){ el.textContent=msg; el.classList.remove('d-none'); } };
+        const hide = el => { if(el) el.classList.add('d-none'); };
+        const isEmail = v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);
 
-  function validateContact(){
-    let ok = true;
-    ['err-cName','err-cEmail','err-cMessage','err-cAgree'].forEach(i=>hide(err(i)));
-    contactStatus.innerHTML = '';
+        function validateContact(){
+            let ok = true;
+            ['err-cName','err-cEmail','err-cMessage','err-cAgree'].forEach(i=>hide(err(i)));
+            contactStatus.innerHTML = '';
 
-    if(!cName.value.trim()){ show(err('err-cName'),'Enter your name.'); ok=false; }
-    const e = cEmail.value.trim();
-    if(!e || !isEmail(e)){ show(err('err-cEmail'),'Enter a valid email.'); ok=false; }
-    const m = cMessage.value.trim();
-    if(m.length < 10){ show(err('err-cMessage'),'Message must be at least 10 characters.'); ok=false; }
-    if(!cAgree.checked){ show(err('err-cAgree'),'You must agree before submitting.'); ok=false; }
+            if(!cName.value.trim()){ show(err('err-cName'),'Enter your name.'); ok=false; }
+            const e = cEmail.value.trim();
+            if(!e || !isEmail(e)){ show(err('err-cEmail'),'Enter a valid email.'); ok=false; }
+            const m = cMessage.value.trim();
+            if(m.length < 10){ show(err('err-cMessage'),'Message must be at least 10 characters.'); ok=false; }
+            if(!cAgree.checked){ show(err('err-cAgree'),'You must agree before submitting.'); ok=false; }
 
-    return ok;
-  }
+            return ok;
+        }
 
-  contactForm.addEventListener('submit', (e)=>{
-    e.preventDefault();
-    if(validateContact()){
-      contactStatus.innerHTML = "<p class='text-success mb-0'>Message sent successfully.</p>";
-      contactForm.reset();
-    } else {
-      contactStatus.innerHTML = "<p class='text-danger mb-0'>Please fix the errors above.</p>";
+        contactForm.addEventListener('submit', (e)=>{
+            e.preventDefault();
+            if(validateContact()){
+                contactStatus.innerHTML = "<p class='text-success mb-0'>Message sent successfully.</p>";
+                contactForm.reset();
+            } else {
+                contactStatus.innerHTML = "<p class='text-danger mb-0'>Please fix the errors above.</p>";
+            }
+        });
+
+        [cName,cEmail,cMessage,cAgree].forEach(el=>el && el.addEventListener('input', validateContact));
     }
-  });
 
-  [cName,cEmail,cMessage,cAgree].forEach(el=>el && el.addEventListener('input', validateContact));
-}
-});
+    // Modal functionality
+    const modal = document.getElementById('modal');
+    if (modal) {
+        const open = () => modal.classList.remove('hidden');
+        const close = () => modal.classList.add('hidden');
+        document.getElementById('openPopup')?.addEventListener('click', open);
+        document.getElementById('closePopup')?.addEventListener('click', close);
+        modal.addEventListener('click', e => {
+            if (e.target.classList.contains('backdrop')) close();
+        });
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') close();
+        });
+    }
 
-const modal=document.getElementById('modal');
-const open=()=>modal.classList.remove('hidden');
-const close=()=>modal.classList.add('hidden');
-document.getElementById('openPopup')?.addEventListener('click',open);
-document.getElementById('closePopup')?.addEventListener('click',close);
-modal?.addEventListener('click',e=>{if(e.target.classList.contains('backdrop')) close();});
-document.addEventListener('keydown',e=>{if(e.key==='Escape') close();});
+    // Background color cycler
+    (() => {
+        const btn = document.getElementById('bgBtn');
+        if (!btn) return;
+        const colors = ['#f6f7f9', '#ffe8a1', '#d1f7c4', '#cde3ff', '#ffd1dc'];
+        let i = 0;
+        btn.addEventListener('click', () => {
+            const next = colors[i++ % colors.length];
+            document.body.style.backgroundColor = next;
+            const section = document.querySelector('.policy-section');
+            if (section) section.style.backgroundColor = next;
+        });
+    })();
 
-// ===== Background color cycler button on cancellation-policy page =====
-(()=>{
-  const btn = document.getElementById('bgBtn');
-  if(!btn) return;
-  const colors=['#f6f7f9','#ffe8a1','#d1f7c4','#cde3ff','#ffd1dc'];
-  let i=0;
-  btn.addEventListener('click',()=>{
-    const next = colors[i++ % colors.length];
-    document.body.style.backgroundColor = next;
-    const section = document.querySelector('.policy-section');
-    if (section) section.style.backgroundColor = next;
-  });
-})();
-
-const chatForm = document.querySelector('#chat-form');
-const chatContainer = document.querySelector('#chat-bubbles');
+    // Chat functionality (новый код от команды)
+    const chatForm = document.querySelector('#chat-form');
+    const chatContainer = document.querySelector('#chat-bubbles');
 
 if (chatForm && chatContainer) {
     chatForm.addEventListener('submit', function(e) {
@@ -677,17 +685,18 @@ if (chatForm && chatContainer) {
     });
 }
 
-document.querySelectorAll('.accordion-button').forEach(button => {
-    button.addEventListener('click', function() {
-        const panel = button.nextElementSibling;
-        if (panel.style.maxHeight) {
-            panel.style.maxHeight = null;
-        } else {
-            panel.style.maxHeight = panel.scrollHeight + 'px';
-        }
-        button.classList.toggle('active');
+    // Accordion functionality (новый код от команды)
+    document.querySelectorAll('.accordion-button').forEach(button => {
+        button.addEventListener('click', function() {
+            const panel = button.nextElementSibling;
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + 'px';
+            }
+            button.classList.toggle('active');
+        });
     });
-});
 
 function playBeep() {
   try {
