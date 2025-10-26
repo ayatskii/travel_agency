@@ -126,8 +126,9 @@ class DOMFeatures {
             "Great! Thank you for the positive rating!",
             "Excellent! Thanks for the perfect rating!"
         ];
-
-        this.showNotification(messages[rating - 1], 'success');
+        if (window.showToast) {
+            showToast(messages[rating - 1], 'success');
+        }
     }
 
     // 2. ПЕРЕКЛЮЧЕНИЕ ТЕМЫ "ДЕНЬ/НОЧЬ"
@@ -314,37 +315,6 @@ class DOMFeatures {
                 behavior: 'smooth'
             });
         }
-    }
-
-    // ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ
-    showNotification(message, type) {
-        const notification = document.createElement('div');
-        notification.className = `notification notification-${type} fade-in-up`;
-        notification.textContent = message;
-
-        Object.assign(notification.style, {
-            position: 'fixed',
-            top: '20px',
-            right: '20px',
-            padding: '12px 20px',
-            borderRadius: '8px',
-            color: 'white',
-            backgroundColor: type === 'success' ? '#28a745' : '#dc3545',
-            zIndex: '10000',
-            boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
-            fontWeight: '500',
-            maxWidth: '300px',
-            wordWrap: 'break-word'
-        });
-
-        document.body.appendChild(notification);
-
-        // Auto remove after 3 seconds
-        setTimeout(() => {
-            notification.style.transform = 'translateX(100%)';
-            notification.style.opacity = '0';
-            setTimeout(() => notification.remove(), 300);
-        }, 3000);
     }
 
     playRatingSound() {
