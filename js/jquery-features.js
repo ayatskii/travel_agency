@@ -18,7 +18,6 @@ $(document).ready(function(){
             });
         });
     }
-
     function checkCounterAnimation() {
         const achievementsSection = $('.about-achievements');
         const scrollPos = $(window).scrollTop();
@@ -30,16 +29,12 @@ $(document).ready(function(){
             $(window).off('scroll', checkCounterAnimation);
         }
     }
-
     $(window).on('scroll', checkCounterAnimation);
     checkCounterAnimation();
-
     // Toast Notification System
     function showToast(message, type = 'info', duration = 3000) {
-        // Удаляем старые toast чтобы не копились
         $('.bluewave-toast').remove();
 
-        // Создаем красивый toast элемент
         const toast = $('<div class="bluewave-toast"></div>')
             .addClass(type)
             .html(`
@@ -48,21 +43,15 @@ $(document).ready(function(){
                     <span>${message}</span>
                 </div>
             `);
-
-        // Добавляем на страницу
         $('body').append(toast);
 
-        // Показываем с анимацией
         setTimeout(() => toast.addClass('show'), 100);
 
-        // Скрываем через указанное время
         setTimeout(() => {
             toast.removeClass('show');
             setTimeout(() => toast.remove(), 300);
         }, duration);
     }
-
-    // Иконки для разных типов уведомлений
     function getToastIcon(type) {
         const icons = {
             success: '✅',
@@ -72,16 +61,12 @@ $(document).ready(function(){
         };
         return icons[type] || '💙';
     }
-
-    // Улучшение системы рейтинга с jQuery
     function enhanceRatingSystem() {
-        // Заменяем стандартные уведомления рейтинга на наши toast
         $(document).on('click', '.star', function() {
             const $star = $(this);
             const rating = $star.data('rating');
             const service = $star.closest('.rating-stars').data('service');
 
-            // Показываем улучшенное уведомление
             const messages = [
                 "Thanks for your rating! We'll work harder. 👏",
                 "Thank you! We appreciate your feedback. 👍",
@@ -89,17 +74,12 @@ $(document).ready(function(){
                 "Great! Thank you for the positive rating! 🌟",
                 "Excellent! Thanks for the perfect rating! 🎉"
             ];
-
             showToast(messages[rating - 1], 'success');
-
-            // Добавляем анимацию к звездам
             $star.prevAll('.star').addBack().addClass('pulse-animation');
             setTimeout(() => {
                 $star.prevAll('.star').addBack().removeClass('pulse-animation');
             }, 600);
         });
     }
-
-    // Инициализируем улучшения рейтинга
     enhanceRatingSystem();
 });
