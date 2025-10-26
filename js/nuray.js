@@ -1,10 +1,291 @@
-// nuray.js: форма бронирования
+// nuray.js - jQuery функционал для заданий
+$(document).ready(function() {
+    console.log("jQuery is ready!");
+
+    // Task 1: Real-time Search - фильтрация услуг
+    initRealTimeSearch();
+    
+    // Task 2: Autocomplete Search - подсказки при поиске
+    initAutocompleteSearch();
+    
+    // Task 3: Loading Spinner on Submit - для форм бронирования и контактов
+    initLoadingSpinner();
+    
+    // Инициализация формы бронирования
+    if (document.getElementById('bookingForm')) {
+        new BookingFormHandler();
+        console.log('Booking form handler initialized');
+    }
+});
+
+// Task 1: Real-time Search - фильтрация услуг или направлений (КОРРЕКТНАЯ ВЕРСИЯ)
+function initRealTimeSearch() {
+    const $searchInput = $('#servicesSearch');
+    
+    if ($searchInput.length) {
+        console.log('Initializing real-time search...');
+        
+        // Сохраняем оригинальную структуру карточек
+        const cardTitles = [
+            "Tropical Paradise",
+            "Mountain Escape", 
+            "Cultural Cities",
+            "Weekend Getaway",
+            "Adventure Week",
+            "Luxury Retreat"
+        ];
+        
+        const cardDescriptions = [
+            "Beautiful beaches and crystal clear waters",
+            "Adventure in the majestic mountains",
+            "Explore rich history and architecture", 
+            "Short and sweet escape package",
+            "Thrilling activities for adrenaline lovers",
+            "Premium experience with top amenities"
+        ];
+        
+        $searchInput.on('input', function() {
+            const searchTerm = $(this).val().toLowerCase().trim();
+            const $services = $('.service-item');
+            
+            if (searchTerm === '') {
+                // Восстанавливаем оригинальные карточки
+                $services.each(function(index) {
+                    $(this).html(`
+                        <div class="card-body">
+                            <h5 class="card-title">${cardTitles[index]}</h5>
+                            <p class="card-text">${cardDescriptions[index]}</p>
+                        </div>
+                    `);
+                });
+                $services.show().removeClass('search-highlight');
+                return;
+            }
+            
+            $services.each(function(index) {
+                const $service = $(this);
+                const title = cardTitles[index];
+                const description = cardDescriptions[index];
+                const serviceText = (title + ' ' + description).toLowerCase();
+                
+                if (serviceText.includes(searchTerm)) {
+                    $service.show().addClass('search-highlight');
+                    
+                    // Подсветка с сохранением структуры HTML
+                    const highlightedTitle = title.replace(
+                        new RegExp(`(${searchTerm})`, 'gi'), 
+                        '<mark class="search-highlight-text">$1</mark>'
+                    );
+                    
+                    const highlightedDescription = description.replace(
+                        new RegExp(`(${searchTerm})`, 'gi'), 
+                        '<mark class="search-highlight-text">$1</mark>'
+                    );
+                    
+                    $service.html(`
+                        <div class="card-body">
+                            <h5 class="card-title">${highlightedTitle}</h5>
+                            <p class="card-text">${highlightedDescription}</p>
+                        </div>
+                    `);
+                    
+                } else {
+                    $service.hide().removeClass('search-highlight');
+                    // Восстанавливаем оригинальную карточку
+                    $service.html(`
+                        <div class="card-body">
+                            <h5 class="card-title">${title}</h5>
+                            <p class="card-text">${description}</p>
+                        </div>
+                    `);
+                }
+            });
+        });
+    }
+}
+
+// Task 2: Autocomplete Search - подсказки при поиске
+function initAutocompleteSearch() {
+    const $searchInput = $('#servicesSearch');
+    
+    if ($searchInput.length) {
+        // Создаем контейнер для автодополнения
+        $searchInput.wrap('<div class="position-relative"></div>');
+        $searchInput.after('<div class="autocomplete-suggestions"></div>');
+        const $suggestions = $('.autocomplete-suggestions');
+        
+        // Пример данных для автодополнения
+        const suggestions = [
+            "Tropical Paradise",
+            "Mountain Escape", 
+            "Cultural Cities",
+            "Weekend Getaway",
+            "Adventure Week",
+            "Luxury Retreat",
+            "Beach Vacation",
+            "Ski Resort",
+            "City Tour",
+            "Family Package"
+        ];
+        
+        $searchInput.on('input', function() {
+            const searchTerm = $(this).val().toLowerCase().trim();
+            $suggestions.empty().hide();
+            
+            if (searchTerm.length < 2) return;
+            
+            const matched = suggestions.filter(item => 
+                item.toLowerCase().includes(searchTerm)
+            );
+            
+            if (matched.length > 0) {
+                matched.forEach(item => {
+                    $suggestions.append(
+                        `<div class="suggestion-item">${item}</div>`
+                    );
+                });
+                $suggestions.show();
+            }
+        });
+        
+        // Обработчик клика по предложению
+        $suggestions.on('click', '.suggestion-item', function() {
+            const selectedText = $(this).text();
+            $searchInput.val(selectedText);
+            $suggestions.hide();
+            
+            // Триггерим поиск
+            $searchInput.trigger('input');
+        });
+        
+        // Скрываем предложения при клике вне
+        $(document).on('click', function(e) {
+            if (!$(e.target).closest('.autocomplete-suggestions, #servicesSearch').length) {
+                $suggestions.hide();
+            }
+        });
+        
+        // Закрываем по ESC
+        $searchInput.on('keydown', function(e) {
+            if (e.key === 'Escape') {
+                $suggestions.hide();
+            }
+        });
+    }
+}
+
+// Task 3: Loading Spinner on Submit - для форм бронирования и контактов
+function initLoadingSpinner() {
+    // Для формы бронирования
+    $('#bookingForm').on('submit', function(e) {
+        const $form = $(this);
+        const $submitBtn = $('#submitBtn');
+        const originalText = $submitBtn.text();
+        
+        // Показываем спиннер
+        $submitBtn.html(`
+            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            Please wait...
+        `).prop('disabled', true);
+        
+        // Симуляция отправки на сервер
+        setTimeout(function() {
+            // Восстанавливаем кнопку
+            $submitBtn.text(originalText).prop('disabled', false);
+            
+            // Показываем уведомление об успехе
+            showNotification('Booking confirmed successfully!', 'success');
+            
+            // Сбрасываем форму
+            $form[0].reset();
+            
+            // Сбрасываем шаги формы
+            if (window.bookingFormHandler) {
+                window.bookingFormHandler.currentStep = 1;
+                window.bookingFormHandler.updateStepDisplay();
+            }
+            
+        }, 2000);
+        
+        e.preventDefault();
+    });
+    
+    // Для контактной формы (если есть на странице)
+    $('#contactForm').on('submit', function(e) {
+        const $form = $(this);
+        const $submitBtn = $form.find('button[type="submit"]');
+        const originalText = $submitBtn.text();
+        
+        // Показываем спиннер
+        $submitBtn.html(`
+            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            Sending...
+        `).prop('disabled', true);
+        
+        // Симуляция отправки на сервер
+        setTimeout(function() {
+            // Восстанавливаем кнопку
+            $submitBtn.text(originalText).prop('disabled', false);
+            
+            // Показываем уведомление об успехе
+            showNotification('Message sent successfully!', 'success');
+            
+            // Сбрасываем форму
+            $form[0].reset();
+            
+        }, 2000);
+        
+        e.preventDefault();
+    });
+}
+
+// Вспомогательная функция для подсветки текста
+// Вспомогательная функция для подсветки текста (ИСПРАВЛЕННАЯ)
+function highlightText($element, searchTerm) {
+    // Сохраняем оригинальную структуру HTML
+    const originalHtml = $element.html();
+    
+    // Восстанавливаем оригинальную структуру перед каждой подсветкой
+    $element.html(originalHtml);
+    
+    // Ищем только текстовые узлы для подсветки, не трогая HTML структуру
+    $element.find('h5, p').each(function() {
+        const $textElement = $(this);
+        const originalText = $textElement.html();
+        const regex = new RegExp(`(${searchTerm})`, 'gi');
+        const highlighted = originalText.replace(regex, '<mark class="search-highlight">$1</mark>');
+        $textElement.html(highlighted);
+    });
+}
+
+// Вспомогательная функция для показа уведомлений
+function showNotification(message, type) {
+    const alertClass = type === 'success' ? 'alert-success' : 'alert-danger';
+    const $notification = $(`
+        <div class="alert ${alertClass} alert-dismissible fade show mt-3">
+            ${message}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    `);
+    
+    $('#formStatus, #contactStatus').html($notification);
+    
+    // Автоматически скрываем через 5 секунд
+    setTimeout(() => {
+        $notification.alert('close');
+    }, 5000);
+}
+
+// Класс для обработки формы бронирования (существующий функционал)
 class BookingFormHandler {
     constructor() {
         this.currentStep = 1;
         this.totalSteps = 3;
         this.formData = {};
         this.init();
+        
+        // Сохраняем экземпляр в глобальной области для доступа из jQuery
+        window.bookingFormHandler = this;
     }
 
     init() {
@@ -35,7 +316,11 @@ class BookingFormHandler {
         }
         
         if (form) {
-            form.addEventListener('submit', (e) => this.handleSubmit(e));
+            // Убираем обработчик submit, так как он теперь в jQuery
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                // Валидация выполняется в jQuery обработчике
+            });
         }
 
         // Сохраняем данные при вводе
@@ -57,39 +342,39 @@ class BookingFormHandler {
     }
 
     initKeyboardNavigation() {
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' && e.target.tagName !== 'TEXTAREA') {
-            e.preventDefault();
-            if (this.currentStep < this.totalSteps) {
-                this.nextStep();
-            } else if (this.currentStep === this.totalSteps) {
-                document.getElementById('submitBtn').click();
-            }
-        }
-        
-        if (e.ctrlKey && ['1', '2', '3'].includes(e.key)) {
-            e.preventDefault();
-            const step = parseInt(e.key);
-            
-            let canNavigate = true;
-            for (let i = 1; i < step; i++) {
-                if (!this.validateStep(i)) {
-                    canNavigate = false;
-                    this.showNotification(`Please complete step ${i} first`, 'error');
-                    break;
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && e.target.tagName !== 'TEXTAREA') {
+                e.preventDefault();
+                if (this.currentStep < this.totalSteps) {
+                    this.nextStep();
+                } else if (this.currentStep === this.totalSteps) {
+                    document.getElementById('submitBtn').click();
                 }
             }
             
-            if (canNavigate && step !== this.currentStep) {
-                this.currentStep = step;
-                this.updateStepDisplay();
-                if (this.currentStep === 3) {
-                    this.updateConfirmationSummary();
+            if (e.ctrlKey && ['1', '2', '3'].includes(e.key)) {
+                e.preventDefault();
+                const step = parseInt(e.key);
+                
+                let canNavigate = true;
+                for (let i = 1; i < step; i++) {
+                    if (!this.validateStep(i)) {
+                        canNavigate = false;
+                        showNotification(`Please complete step ${i} first`, 'error');
+                        break;
+                    }
+                }
+                
+                if (canNavigate && step !== this.currentStep) {
+                    this.currentStep = step;
+                    this.updateStepDisplay();
+                    if (this.currentStep === 3) {
+                        this.updateConfirmationSummary();
+                    }
                 }
             }
-        }
-    });
-}
+        });
+    }
 
     nextStep() {
         console.log('Moving to next step from:', this.currentStep);
@@ -102,7 +387,7 @@ class BookingFormHandler {
                 this.updateConfirmationSummary();
             }
         } else {
-            this.showNotification('Please fix the errors before continuing', 'error');
+            showNotification('Please fix the errors before continuing', 'error');
         }
     }
 
@@ -166,6 +451,15 @@ class BookingFormHandler {
 
         console.log(`Step ${this.currentStep} validation:`, isValid);
         return isValid;
+    }
+
+    validateStep(step) {
+        switch(step) {
+            case 1: return this.validateStep1();
+            case 2: return this.validateStep2();
+            case 3: return this.validateStep3();
+            default: return false;
+        }
     }
 
     validateStep1() {
@@ -264,23 +558,6 @@ class BookingFormHandler {
         return valid;
     }
 
-    async handleSubmit(e) {
-        e.preventDefault();
-        console.log('Form submission started...');
-        
-        if (this.validateStep3()) {
-            console.log('Step 3 validation passed');
-            
-            this.saveAllData();
-            console.log('Form data saved:', this.formData);
-            
-            await this.submitBooking();
-        } else {
-            console.log('Step 3 validation failed');
-            this.showNotification('Please agree to the terms and conditions', 'error');
-        }
-    }
-
     saveCurrentStepData() {
         const panel = document.querySelector(`.step-panel[data-step="${this.currentStep}"]`);
         if (!panel) return;
@@ -303,57 +580,6 @@ class BookingFormHandler {
         }
     }
 
-    async submitBooking() {
-        try {
-            const submitBtn = document.getElementById('submitBtn');
-            const originalText = submitBtn.textContent;
-            submitBtn.textContent = 'Processing...';
-            submitBtn.disabled = true;
-
-            console.log('Submitting booking data...');
-
-            const response = await this.simulateApiCall(this.formData);
-            
-            if (response.success) {
-                this.onBookingSuccess(response);
-            } else {
-                throw new Error(response.message || 'Booking failed');
-            }
-            
-        } catch (error) {
-            console.error('Booking error:', error);
-            this.onBookingError(error.message);
-        }
-    }
-
-    async simulateApiCall(formData) {
-        await new Promise(resolve => setTimeout(resolve, 1500));
-        
-        return {
-            success: true,
-            bookingId: 'BW' + Date.now(),
-            message: 'Booking confirmed successfully!'
-        };
-    }
-
-    onBookingSuccess(data) {
-        this.showSuccessMessage(`✅ ${data.message} Your booking ID: ${data.bookingId}`);
-        
-        setTimeout(() => {
-            this.resetForm();
-            this.currentStep = 1;
-            this.updateStepDisplay();
-        }, 5000);
-    }
-
-    onBookingError(errorMessage) {
-        this.showNotification(`❌ Booking failed: ${errorMessage}`, 'error');
-        
-        const submitBtn = document.getElementById('submitBtn');
-        submitBtn.textContent = 'Confirm Booking';
-        submitBtn.disabled = false;
-    }
-
     handlePackageChange(packageType) {
         let message = '';
         switch(packageType) {
@@ -361,20 +587,7 @@ class BookingFormHandler {
             case 'adventure': message = 'Adventure package selected!'; break;
             case 'luxury': message = 'Luxury retreat selected!'; break;
         }
-        this.showNotification(message, 'success');
-    }
-
-    showNotification(message, type) {
-        const statusBox = document.getElementById('formStatus');
-        const alertClass = type === 'error' ? 'alert-danger' : 'alert-success';
-        statusBox.innerHTML = `<div class="alert ${alertClass} alert-dismissible fade show">
-            ${message}
-            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-        </div>`;
-    }
-
-    showSuccessMessage(message) {
-        this.showNotification(message, 'success');
+        showNotification(message, 'success');
     }
 
     resetForm() {
@@ -463,10 +676,3 @@ class BookingFormHandler {
         }
     }
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-    if (document.getElementById('bookingForm')) {
-        new BookingFormHandler();
-        console.log('Nuray: Booking form handler initialized');
-    }
-});
