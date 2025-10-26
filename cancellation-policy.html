@@ -53,29 +53,81 @@
         <p class="hero-description">Understanding our cancellation terms and refund process</p>
         
 
+        <!-- Interactive Refund Calculator -->
+        <div class="mb-4">
+            <div class="card">
+                <div class="card-header">
+                    <h4>🧮 Refund Calculator</h4>
+                    <p class="mb-0">Calculate your potential refund based on cancellation timing</p>
+                </div>
+                <div class="card-body">
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <label for="packageType" class="form-label">Package Type</label>
+                            <select id="packageType" class="form-select">
+                                <option value="">Select Package</option>
+                                <option value="weekend">Weekend Getaway ($299)</option>
+                                <option value="adventure">Adventure Week ($899)</option>
+                                <option value="luxury">Luxury Retreat ($1,599)</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="travelDate" class="form-label">Travel Date</label>
+                            <input type="date" id="travelDate" class="form-control">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="cancellationDate" class="form-label">Cancellation Date</label>
+                            <input type="date" id="cancellationDate" class="form-control">
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <button id="calculateRefundBtn" class="btn btn-primary">Calculate Refund</button>
+                        <button id="clearCalculatorBtn" class="btn btn-outline-secondary">Clear</button>
+                    </div>
+                    <div id="refundResult" class="mt-3"></div>
+                </div>
+            </div>
+        </div>
+
         <div class="policy-timeline">
-            <div class="timeline-item">
+            <div class="timeline-item" data-days="30">
                 <div class="timeline-period">More than 30 days before travel</div>
                 <div class="timeline-refund">100% Refund</div>
                 <p>Full refund of all payments made, minus any non-refundable supplier fees.</p>
+                <div class="timeline-features">
+                    <span class="badge bg-success">✓ Full Refund</span>
+                    <span class="badge bg-info">✓ No Penalties</span>
+                </div>
             </div>
 
-            <div class="timeline-item">
+            <div class="timeline-item" data-days="15">
                 <div class="timeline-period">15-30 days before travel</div>
                 <div class="timeline-refund">50% Refund</div>
                 <p>50% refund of total package cost, plus full refund of any refundable components.</p>
+                <div class="timeline-features">
+                    <span class="badge bg-warning">⚠ Partial Refund</span>
+                    <span class="badge bg-secondary">Processing Fee</span>
+                </div>
             </div>
 
-            <div class="timeline-item">
+            <div class="timeline-item" data-days="8">
                 <div class="timeline-period">8-14 days before travel</div>
                 <div class="timeline-refund">25% Refund</div>
                 <p>25% refund of package cost, subject to supplier policies and availability.</p>
+                <div class="timeline-features">
+                    <span class="badge bg-warning">⚠ Limited Refund</span>
+                    <span class="badge bg-danger">High Penalties</span>
+                </div>
             </div>
 
-            <div class="timeline-item">
+            <div class="timeline-item" data-days="0">
                 <div class="timeline-period">Less than 7 days before travel</div>
                 <div class="timeline-refund">No Refund</div>
                 <p>No refund available due to supplier commitments made on your behalf.</p>
+                <div class="timeline-features">
+                    <span class="badge bg-danger">✗ No Refund</span>
+                    <span class="badge bg-dark">Non-refundable</span>
+                </div>
             </div>
         </div>
 
@@ -89,32 +141,117 @@
             </ul>
         </div>
 
+        <!-- Interactive Policy Comparison -->
+        <div class="mb-4">
+            <div class="card">
+                <div class="card-header">
+                    <h4>📊 Policy Comparison Tool</h4>
+                    <p class="mb-0">Compare cancellation policies across different package types</p>
+                </div>
+                <div class="card-body">
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <button id="showComparisonBtn" class="btn btn-info">Show Detailed Comparison</button>
+                            <button id="hideComparisonBtn" class="btn btn-outline-secondary d-none">Hide Comparison</button>
+                        </div>
+                        <div class="col-md-6">
+                            <button id="simulateScenarioBtn" class="btn btn-warning">🎭 Simulate Scenarios</button>
+                        </div>
+                    </div>
+                    <div id="comparisonTable" class="d-none">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead class="table-dark">
+                                <tr>
+                                    <th>Package Type</th>
+                                    <th>Original Price</th>
+                                    <th>30+ Days</th>
+                                    <th>15-30 Days</th>
+                                    <th>8-14 Days</th>
+                                    <th>&lt;7 Days</th>
+                                </tr>
+                                </thead>
+                                <tbody id="comparisonTableBody">
+                                <!-- Will be populated by JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div id="scenarioResult" class="mt-3"></div>
+                </div>
+            </div>
+        </div>
+
         <table class="policy-table">
             <thead>
             <tr>
                 <th>Package Type</th>
                 <th>Cancellation Period</th>
                 <th>Refund Amount</th>
+                <th>Actions</th>
             </tr>
             </thead>
             <tbody>
-            <tr>
+            <tr data-package="weekend">
                 <td>Weekend Getaway</td>
                 <td>7+ days before</td>
                 <td>Full refund</td>
+                <td>
+                    <button class="btn btn-sm btn-outline-primary calculate-specific-btn" data-package="weekend">
+                        Calculate
+                    </button>
+                </td>
             </tr>
-            <tr>
+            <tr data-package="adventure">
                 <td>Adventure Week</td>
                 <td>14+ days before</td>
                 <td>Full refund</td>
+                <td>
+                    <button class="btn btn-sm btn-outline-primary calculate-specific-btn" data-package="adventure">
+                        Calculate
+                    </button>
+                </td>
             </tr>
-            <tr>
+            <tr data-package="luxury">
                 <td>Luxury Retreat</td>
                 <td>30+ days before</td>
                 <td>Full refund</td>
+                <td>
+                    <button class="btn btn-sm btn-outline-primary calculate-specific-btn" data-package="luxury">
+                        Calculate
+                    </button>
+                </td>
             </tr>
             </tbody>
         </table>
+
+        <!-- Advanced Features Section -->
+        <div class="mt-5">
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-header">
+                            <h5>🔍 Policy Search</h5>
+                        </div>
+                        <div class="card-body">
+                            <input type="text" id="policySearchInput" class="form-control mb-3" placeholder="Search policy terms...">
+                            <div id="searchResults"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-header">
+                            <h5>💡 Smart Recommendations</h5>
+                        </div>
+                        <div class="card-body">
+                            <button id="getRecommendationsBtn" class="btn btn-success mb-3">Get Recommendations</button>
+                            <div id="recommendationsResult"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
