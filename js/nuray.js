@@ -1,31 +1,21 @@
 // nuray.js - jQuery функционал для заданий
 $(document).ready(function() {
     console.log("jQuery is ready!");
-
-    // Task 1: Real-time Search - фильтрация услуг
     initRealTimeSearch();
-    
-    // Task 2: Autocomplete Search - подсказки при поиске
     initAutocompleteSearch();
-    
-    // Task 3: Loading Spinner on Submit - для форм бронирования и контактов
     initLoadingSpinner();
-    
-    // Инициализация формы бронирования
     if (document.getElementById('bookingForm')) {
         new BookingFormHandler();
         console.log('Booking form handler initialized');
     }
 });
 
-// Task 1: Real-time Search - фильтрация услуг или направлений (КОРРЕКТНАЯ ВЕРСИЯ)
 function initRealTimeSearch() {
     const $searchInput = $('#servicesSearch');
     
     if ($searchInput.length) {
         console.log('Initializing real-time search...');
         
-        // Сохраняем оригинальную структуру карточек
         const cardTitles = [
             "Tropical Paradise",
             "Mountain Escape", 
@@ -49,7 +39,6 @@ function initRealTimeSearch() {
             const $services = $('.service-item');
             
             if (searchTerm === '') {
-                // Восстанавливаем оригинальные карточки
                 $services.each(function(index) {
                     $(this).html(`
                         <div class="card-body">
@@ -109,12 +98,10 @@ function initAutocompleteSearch() {
     const $searchInput = $('#servicesSearch');
     
     if ($searchInput.length) {
-        // Создаем контейнер для автодополнения
         $searchInput.wrap('<div class="position-relative"></div>');
         $searchInput.after('<div class="autocomplete-suggestions"></div>');
         const $suggestions = $('.autocomplete-suggestions');
         
-        // Пример данных для автодополнения
         const suggestions = [
             "Tropical Paradise",
             "Mountain Escape", 
@@ -176,30 +163,21 @@ function initAutocompleteSearch() {
 
 // Task 3: Loading Spinner on Submit - для форм бронирования и контактов
 function initLoadingSpinner() {
-    // Для формы бронирования
     $('#bookingForm').on('submit', function(e) {
         const $form = $(this);
         const $submitBtn = $('#submitBtn');
         const originalText = $submitBtn.text();
         
-        // Показываем спиннер
         $submitBtn.html(`
             <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
             Please wait...
         `).prop('disabled', true);
         
-        // Симуляция отправки на сервер
         setTimeout(function() {
-            // Восстанавливаем кнопку
             $submitBtn.text(originalText).prop('disabled', false);
-            
-            // Показываем уведомление об успехе
             showNotification('Booking confirmed successfully!', 'success');
-            
-            // Сбрасываем форму
             $form[0].reset();
             
-            // Сбрасываем шаги формы
             if (window.bookingFormHandler) {
                 window.bookingFormHandler.currentStep = 1;
                 window.bookingFormHandler.updateStepDisplay();
@@ -210,13 +188,11 @@ function initLoadingSpinner() {
         e.preventDefault();
     });
     
-    // Для контактной формы (если есть на странице)
     $('#contactForm').on('submit', function(e) {
         const $form = $(this);
         const $submitBtn = $form.find('button[type="submit"]');
         const originalText = $submitBtn.text();
         
-        // Показываем спиннер
         $submitBtn.html(`
             <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
             Sending...
