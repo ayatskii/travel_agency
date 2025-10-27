@@ -1892,3 +1892,271 @@ select.form-input {
     box-shadow: 0 0 10px rgba(0,123,255,0.3);
 }
 
+mark.hl { background:#ffec7a; padding:0 .15em; border-radius:.1rem; }
+
+.search-container {
+  display: flex;
+  justify-content: center; /* центрирует по горизонтали */
+  margin: 20px 0;
+}
+
+#faqSearch {
+  width: 70%;
+  max-width: 700px; /* чтобы не растягивалось слишком сильно */
+  border-radius: 8px;
+  padding: 10px 15px;
+}
+
+/* 🔹 Общий контейнер чата */
+#chat {
+  background: #f8fafc;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  max-width: 600px;
+  margin: 40px auto;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Заголовок */
+#chat h2 {
+  text-align: center;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Контейнер с пузырями */
+.chat-bubble-container {
+  background: white;
+  border-radius: 10px;
+  padding: 15px;
+  height: 350px;
+  overflow-y: auto;
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.05);
+  margin-bottom: 20px;
+}
+
+/* 🔸 Сообщения пользователя и бота */
+.chat-bubble {
+  max-width: 75%;
+  padding: 10px 14px;
+  border-radius: 14px;
+  margin-bottom: 10px;
+  font-size: 15px;
+  line-height: 1.4;
+  word-wrap: break-word;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Пользователь */
+.chat-bubble.user {
+  background-color: #007bff;
+  color: white;
+  margin-left: auto;
+  text-align: right;
+}
+
+/* Бот */
+.chat-bubble.bot {
+  background-color: #eaeaea;
+  color: #222;
+  margin-right: auto;
+  text-align: left;
+}
+
+/* 🔹 Форма ввода */
+#chat-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Поле ввода */
+#chat-input {
+  flex: 1;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+#chat-input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.4);
+}
+
+/* Кнопка отправки */
+#chat-form button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+#chat-form button:hover {
+  background-color: #0056b3;
+}
+
+/* 🔹 Анимация появления */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 🔸 Адаптив */
+@media (max-width: 480px) {
+  #chat {
+    padding: 16px;
+  }
+  .chat-bubble-container {
+    height: 280px;
+  }
+  #chat-form button {
+    padding: 8px 14px;
+  }
+}
+
+/* 🔹 Общий контейнер FAQ */
+#faq {
+  max-width: 800px;
+  margin: 60px auto;
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+}
+
+/* Заголовок */
+#faq h2 {
+  text-align: center;
+  font-weight: 600;
+  font-size: 28px;
+  margin-bottom: 30px;
+  color: #222;
+}
+
+/* 🔸 Аккордеон */
+.accordion {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  background-color: #fff;
+}
+
+/* Каждый пункт */
+.accordion-item {
+  border-bottom: 1px solid #eee;
+}
+
+/* Кнопка-заголовок */
+.accordion-header {
+  width: 100%;
+  background-color: #f9fafc;
+  border: none;
+  outline: none;
+  text-align: left;
+  padding: 18px 20px;
+  font-size: 17px;
+  font-weight: 500;
+  color: #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.accordion-header:hover {
+  background-color: #eef3ff;
+}
+
+/* Текст вопроса */
+.accordion-header-text {
+  flex: 1;
+}
+
+/* Стрелка */
+.accordion-arrow {
+  font-size: 16px;
+  color: #007bff;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* При открытии — поворот стрелки */
+.accordion-header.active .accordion-arrow {
+  transform: rotate(180deg);
+  color: #0056b3;
+}
+
+/* Содержимое (ответ) */
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  background: #fff;
+  transition: max-height 0.4s ease, padding 0.3s ease;
+  padding: 0 20px;
+}
+
+.accordion-content p {
+  font-size: 15px;
+  color: #444;
+  line-height: 1.6;
+  margin: 15px 0;
+}
+
+/* При активном состоянии */
+.accordion-item.active .accordion-content {
+  max-height: 400px;
+  padding: 10px 20px 20px;
+}
+
+/* 🔹 Анимация появления */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.accordion-content p {
+  animation: fadeIn 0.4s ease;
+}
+
+/* 🔸 Адаптивность */
+@media (max-width: 600px) {
+  #faq {
+    padding: 0 10px;
+  }
+
+  .accordion-header {
+    font-size: 16px;
+    padding: 14px;
+  }
+
+  .accordion-content p {
+    font-size: 14px;
+  }
+}
+
+/* scroll progress bar */
+#scroll-progress{
+  position: fixed; top:0; left:0; height:4px; width:0;
+  background: linear-gradient(90deg,#5a67ff,#00d4ff);
+  z-index: 9999;
+  box-shadow: 0 0 6px rgba(0,212,255,.6);
+  transition: width .08s linear;
+}
+body { padding-top: 0 } /* бар фиксированный, отступы не нужны */
+
+img.lazy { filter: blur(6px); background:#eee; }
+img.lazy[src] { filter: none; transition: filter .3s ease; }
