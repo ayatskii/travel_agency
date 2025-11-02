@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 
 <body>
-
+    <div id="scroll-progress"></div>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container">
         <a class="navbar-brand fw-bold" href="index.html">BlueWave Travel</a>
@@ -97,35 +97,35 @@ document.addEventListener('DOMContentLoaded', () => {
     <section class="ta-container" style="padding-bottom: 36px">
         <div class="ta-gallery" aria-label="Travel photos">
             <figure class="ta-figure">
-                <img src="assets/imgs/The Maldives.jpeg" alt="Maldives">
+                <img class="lazy" data-src="assets/imgs/The Maldives.jpeg" alt="Maldives">
                 <figcaption class="ta-caption">Maldives</figcaption>
             </figure>
             <figure class="ta-figure">
-                <img src="assets/imgs/The Colosseum, Rome.jpeg" alt="Rome Italy">
+                <img class="lazy" data-src="assets/imgs/The Colosseum, Rome.jpeg" alt="Rome Italy">
                 <figcaption class="ta-caption">Rome Italy</figcaption>
             </figure>
             <figure class="ta-figure">
-                <img src="assets/imgs/Switzerland.jpeg" alt="Switzerland">
+                <img class="lazy" data-src="assets/imgs/Switzerland.jpeg" alt="Switzerland">
                 <figcaption class="ta-caption">Switzerland</figcaption>
             </figure>
             <figure class="ta-figure">
-                <img src="assets/imgs/Dubai.jpeg" alt="Dubai">
+                <img class="lazy" data-src="assets/imgs/Dubai.jpeg" alt="Dubai">
                 <figcaption class="ta-caption">Dubai</figcaption>
             </figure>
             <figure class="ta-figure">
-                <img src="assets/imgs/Phuket.jpeg" alt="Phuket Thailand">
+                <img class="lazy" data-src="assets/imgs/Phuket.jpeg" alt="Phuket Thailand">
                 <figcaption class="ta-caption">Phuket Thailand</figcaption>
             </figure>
             <figure class="ta-figure">
-                <img src="assets/imgs/China.jpeg" alt="Great Wall of China">
+                <img class="lazy" data-src="assets/imgs/China.jpeg" alt="Great Wall of China">
                 <figcaption class="ta-caption">Great Wall of China</figcaption>
             </figure>
             <figure class="ta-figure">
-                <img src="assets/imgs/Japan.jpeg" alt="Tokyo Japan">
+                <img class="lazy" data-src="assets/imgs/Japan.jpeg" alt="Tokyo Japan">
                 <figcaption class="ta-caption">Tokyo Japan</figcaption>
             </figure>
             <figure class="ta-figure">
-                <img src="assets/imgs/Эстетика.jpeg" alt="Istanbul Turkey">
+                <img class="lazy" data-src="assets/imgs/Эстетика.jpeg" alt="Istanbul Turkey">
                 <figcaption class="ta-caption">Istanbul Turkey</figcaption>
             </figure>
         </div>
@@ -184,5 +184,6 @@ document.addEventListener('DOMContentLoaded', () => {
 <script src="js/app.js" defer></script>
 <script src="js/altynay-dom.js" defer></script>
 <script src="js/jquery-features.js" defer></script>
+<script src="js/merey.js" defer></script>
 </body>
 </html>

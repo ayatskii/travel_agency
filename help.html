@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+    <div id="scroll-progress"></div>
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container">
         <a class="navbar-brand fw-bold" href="index.html">BlueWave Travel</a>
@@ -93,29 +95,116 @@
         </div>
     </section>
 
+    <div class="search-container">
+    <input type="text" id="faqSearch" class="form-control" placeholder="Search FAQs...">
+    </div>
 
     <section class="container my-5" id="faq">
     <div class="accordion">
+
     <div class="accordion-item">
-        <button class="accordion-header">How do I change or cancel my booking?</button>
-        <div class="accordion-content">
+      <button class="accordion-header">
+        <span class="accordion-header-text">How do I change or cancel my booking?</span>
+        <span class="accordion-arrow">&#x25BC;</span>
+      </button>
+      <div class="accordion-content">
         <p>Use the Booking page → enter your reference. Fees follow our Cancellation Policy.</p>
-        </div>
+      </div>
     </div>
+
     <div class="accordion-item">
-        <button class="accordion-header">Do you offer travel insurance?</button>
-        <div class="accordion-content">
+      <button class="accordion-header">
+        <span class="accordion-header-text">Do you offer travel insurance?</span>
+        <span class="accordion-arrow">&#x25BC;</span>
+      </button>
+      <div class="accordion-content">
         <p>We offer a variety of travel insurance packages. Please check our Insurance page for more details.</p>
-        </div>
+      </div>
     </div>
+
     <div class="accordion-item">
-        <button class="accordion-header">How can I contact support?</button>
-        <div class="accordion-content">
+      <button class="accordion-header">
+        <span class="accordion-header-text">How can I contact support?</span>
+        <span class="accordion-arrow">&#x25BC;</span>
+      </button>
+      <div class="accordion-content">
         <p>You can contact support via our Contact page or by emailing support@example.com.</p>
-        </div>
+      </div>
     </div>
+
+    <div class="accordion-item">
+      <button class="accordion-header">
+        <span class="accordion-header-text">What payment methods are accepted?</span>
+        <span class="accordion-arrow">&#x25BC;</span>
+      </button>
+      <div class="accordion-content">
+        <p>We accept Visa, MasterCard, American Express, and PayPal for online payments.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-header">
+        <span class="accordion-header-text">How do I update my personal details?</span>
+        <span class="accordion-arrow">&#x25BC;</span>
+      </button>
+      <div class="accordion-content">
+        <p>You can update your details in the 'Profile' section after logging in.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-header">
+        <span class="accordion-header-text">Can I get a refund?</span>
+        <span class="accordion-arrow">&#x25BC;</span>
+      </button>
+      <div class="accordion-content">
+        <p>Refunds are available according to our refund policy, which you can find on the "Refunds" page.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-header">
+        <span class="accordion-header-text">Do you offer group discounts?</span>
+        <span class="accordion-arrow">&#x25BC;</span>
+      </button>
+      <div class="accordion-content">
+        <p>Yes, we provide special group packages and discounts for groups of 5 or more travelers.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-header">
+        <span class="accordion-header-text">Is there a mobile app for booking?</span>
+        <span class="accordion-arrow">&#x25BC;</span>
+      </button>
+      <div class="accordion-content">
+        <p>Yes, our mobile app is available for iOS and Android — download it from the App Store or Google Play.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-header">
+        <span class="accordion-header-text">How can I track my booking status?</span>
+        <span class="accordion-arrow">&#x25BC;</span>
+      </button>
+      <div class="accordion-content">
+        <p>After logging in, you can view your current bookings under the "My Trips" section for live updates.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-header">
+        <span class="accordion-header-text">Do you offer 24/7 customer service?</span>
+        <span class="accordion-arrow">&#x25BC;</span>
+      </button>
+      <div class="accordion-content">
+        <p>Our support team is available 24/7 via live chat, email, and phone for any travel-related issues.</p>
+      </div>
+    </div>
+
     </div>
     </section>
+
 
     
     <section id="chat" class="ta-container" style="padding-bottom: 36px">
@@ -176,5 +265,6 @@
 <script src="js/app.js" defer></script>
 <script src="js/altynay-dom.js" defer></script>
 <script src="js/jquery-features.js" defer></script>
+<script src="js/merey.js" defer></script>
 </body>
 </html>
