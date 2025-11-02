@@ -1,8 +1,6 @@
-// nuray.js - jQuery функционал для заданий
+// nuray.js - Упрощенный и очищенный jQuery функционал
 $(document).ready(function() {
     console.log("jQuery is ready!");
-    initRealTimeSearch();
-    initAutocompleteSearch();
     initLoadingSpinner();
     if (document.getElementById('bookingForm')) {
         new BookingFormHandler();
@@ -10,158 +8,7 @@ $(document).ready(function() {
     }
 });
 
-function initRealTimeSearch() {
-    const $searchInput = $('#servicesSearch');
-    
-    if ($searchInput.length) {
-        console.log('Initializing real-time search...');
-        
-        const cardTitles = [
-            "Tropical Paradise",
-            "Mountain Escape", 
-            "Cultural Cities",
-            "Weekend Getaway",
-            "Adventure Week",
-            "Luxury Retreat"
-        ];
-        
-        const cardDescriptions = [
-            "Beautiful beaches and crystal clear waters",
-            "Adventure in the majestic mountains",
-            "Explore rich history and architecture", 
-            "Short and sweet escape package",
-            "Thrilling activities for adrenaline lovers",
-            "Premium experience with top amenities"
-        ];
-        
-        $searchInput.on('input', function() {
-            const searchTerm = $(this).val().toLowerCase().trim();
-            const $services = $('.service-item');
-            
-            if (searchTerm === '') {
-                $services.each(function(index) {
-                    $(this).html(`
-                        <div class="card-body">
-                            <h5 class="card-title">${cardTitles[index]}</h5>
-                            <p class="card-text">${cardDescriptions[index]}</p>
-                        </div>
-                    `);
-                });
-                $services.show().removeClass('search-highlight');
-                return;
-            }
-            
-            $services.each(function(index) {
-                const $service = $(this);
-                const title = cardTitles[index];
-                const description = cardDescriptions[index];
-                const serviceText = (title + ' ' + description).toLowerCase();
-                
-                if (serviceText.includes(searchTerm)) {
-                    $service.show().addClass('search-highlight');
-                    
-                    // Подсветка с сохранением структуры HTML
-                    const highlightedTitle = title.replace(
-                        new RegExp(`(${searchTerm})`, 'gi'), 
-                        '<mark class="search-highlight-text">$1</mark>'
-                    );
-                    
-                    const highlightedDescription = description.replace(
-                        new RegExp(`(${searchTerm})`, 'gi'), 
-                        '<mark class="search-highlight-text">$1</mark>'
-                    );
-                    
-                    $service.html(`
-                        <div class="card-body">
-                            <h5 class="card-title">${highlightedTitle}</h5>
-                            <p class="card-text">${highlightedDescription}</p>
-                        </div>
-                    `);
-                    
-                } else {
-                    $service.hide().removeClass('search-highlight');
-                    // Восстанавливаем оригинальную карточку
-                    $service.html(`
-                        <div class="card-body">
-                            <h5 class="card-title">${title}</h5>
-                            <p class="card-text">${description}</p>
-                        </div>
-                    `);
-                }
-            });
-        });
-    }
-}
-
-// Task 2: Autocomplete Search - подсказки при поиске
-function initAutocompleteSearch() {
-    const $searchInput = $('#servicesSearch');
-    
-    if ($searchInput.length) {
-        $searchInput.wrap('<div class="position-relative"></div>');
-        $searchInput.after('<div class="autocomplete-suggestions"></div>');
-        const $suggestions = $('.autocomplete-suggestions');
-        
-        const suggestions = [
-            "Tropical Paradise",
-            "Mountain Escape", 
-            "Cultural Cities",
-            "Weekend Getaway",
-            "Adventure Week",
-            "Luxury Retreat",
-            "Beach Vacation",
-            "Ski Resort",
-            "City Tour",
-            "Family Package"
-        ];
-        
-        $searchInput.on('input', function() {
-            const searchTerm = $(this).val().toLowerCase().trim();
-            $suggestions.empty().hide();
-            
-            if (searchTerm.length < 2) return;
-            
-            const matched = suggestions.filter(item => 
-                item.toLowerCase().includes(searchTerm)
-            );
-            
-            if (matched.length > 0) {
-                matched.forEach(item => {
-                    $suggestions.append(
-                        `<div class="suggestion-item">${item}</div>`
-                    );
-                });
-                $suggestions.show();
-            }
-        });
-        
-        // Обработчик клика по предложению
-        $suggestions.on('click', '.suggestion-item', function() {
-            const selectedText = $(this).text();
-            $searchInput.val(selectedText);
-            $suggestions.hide();
-            
-            // Триггерим поиск
-            $searchInput.trigger('input');
-        });
-        
-        // Скрываем предложения при клике вне
-        $(document).on('click', function(e) {
-            if (!$(e.target).closest('.autocomplete-suggestions, #servicesSearch').length) {
-                $suggestions.hide();
-            }
-        });
-        
-        // Закрываем по ESC
-        $searchInput.on('keydown', function(e) {
-            if (e.key === 'Escape') {
-                $suggestions.hide();
-            }
-        });
-    }
-}
-
-// Task 3: Loading Spinner on Submit - для форм бронирования и контактов
+// Task: Loading Spinner on Submit - для форм бронирования и контактов
 function initLoadingSpinner() {
     $('#bookingForm').on('submit', function(e) {
         const $form = $(this);
@@ -215,25 +62,6 @@ function initLoadingSpinner() {
     });
 }
 
-// Вспомогательная функция для подсветки текста
-// Вспомогательная функция для подсветки текста (ИСПРАВЛЕННАЯ)
-function highlightText($element, searchTerm) {
-    // Сохраняем оригинальную структуру HTML
-    const originalHtml = $element.html();
-    
-    // Восстанавливаем оригинальную структуру перед каждой подсветкой
-    $element.html(originalHtml);
-    
-    // Ищем только текстовые узлы для подсветки, не трогая HTML структуру
-    $element.find('h5, p').each(function() {
-        const $textElement = $(this);
-        const originalText = $textElement.html();
-        const regex = new RegExp(`(${searchTerm})`, 'gi');
-        const highlighted = originalText.replace(regex, '<mark class="search-highlight">$1</mark>');
-        $textElement.html(highlighted);
-    });
-}
-
 // Вспомогательная функция для показа уведомлений
 function showNotification(message, type) {
     const alertClass = type === 'success' ? 'alert-success' : 'alert-danger';
@@ -252,7 +80,7 @@ function showNotification(message, type) {
     }, 5000);
 }
 
-// Класс для обработки формы бронирования (существующий функционал)
+// Класс для обработки формы бронирования
 class BookingFormHandler {
     constructor() {
         this.currentStep = 1;
@@ -292,10 +120,8 @@ class BookingFormHandler {
         }
         
         if (form) {
-            // Убираем обработчик submit, так как он теперь в jQuery
             form.addEventListener('submit', (e) => {
                 e.preventDefault();
-                // Валидация выполняется в jQuery обработчике
             });
         }
 
@@ -548,12 +374,6 @@ class BookingFormHandler {
                 }
             }
         });
-    }
-
-    saveAllData() {
-        for (let step = 1; step <= this.totalSteps; step++) {
-            this.saveCurrentStepData();
-        }
     }
 
     handlePackageChange(packageType) {
