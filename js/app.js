@@ -86,23 +86,38 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape') close();});
 const chatForm = document.querySelector('#chat-form');
 const chatContainer = document.querySelector('#chat-bubbles');
 
-chatForm.addEventListener('submit', function(e) {
+if (chatForm && chatContainer) {
+  chatForm.addEventListener('submit', function(e) {
     e.preventDefault();
-    const userMessage = document.querySelector('#chat-input').value;
+    const input = document.querySelector('#chat-input');
+    const userMessage = (input?.value || '').trim();
+    if (!userMessage) return;
+
     const userBubble = document.createElement('div');
     userBubble.classList.add('chat-bubble', 'user');
     userBubble.textContent = userMessage;
     chatContainer.appendChild(userBubble);
 
+    // автоскролл вниз
+    chatContainer.scrollTop = chatContainer.scrollHeight;
+
     setTimeout(() => {
-        const botMessage = 'We will respond soon.';
-        const botBubble = document.createElement('div');
-        botBubble.classList.add('chat-bubble', 'bot');
-        botBubble.textContent = botMessage;
-        chatContainer.appendChild(botBubble);
-        playBeep(); // Звук при ответе бота
+      const botMessage = 'We will respond soon.';
+      const botBubble = document.createElement('div');
+      botBubble.classList.add('chat-bubble', 'bot');
+      botBubble.textContent = botMessage;
+      chatContainer.appendChild(botBubble);
+
+      // автоскролл вниз
+      chatContainer.scrollTop = chatContainer.scrollHeight;
+
+      playBeep();
     }, 500);
-});
+
+    input.value = '';
+  });
+}
+
 
 document.querySelectorAll('.accordion-button').forEach(button => {
     button.addEventListener('click', function() {
