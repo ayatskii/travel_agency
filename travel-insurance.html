@@ -10,39 +10,32 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div id="scroll-progress"></div>
+<div id="scroll-progress"></div>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container">
         <a class="navbar-brand fw-bold" href="index.html">BlueWave Travel</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Toggle navigation">
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav" aria-controls="navbarNav"
+                aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navMain">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-lg-3">
-                <li class="nav-item">
-                    <a class="nav-link position-relative" href="index.html">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link position-relative" href="index.html#destinations">Destinations</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link position-relative" href="index.html#packages">Packages</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link position-relative" href="about.html">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link position-relative" href="contact.html">Contact</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link position-relative" href="gallery.html">Gallery</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active position-relative" href="services.html">Services</a>
-                </li>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#destinations">Destinations</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#packages">Packages</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
             </ul>
-            <button id="themeToggle" class="btn btn-outline-light ms-2" title="Toggle theme">🌙</button>
-            <a class="btn btn-light ms-lg-3 px-3 py-2 fw-medium" href="booking.html">Book Now</a>
+
+            <div class="d-flex align-items-center ms-lg-3 mt-2 mt-lg-0">
+                <button id="themeToggle" class="btn btn-outline-light me-2">🌙</button>
+                <a class="btn btn-light" href="booking.html">Book Now</a>
+            </div>
         </div>
     </div>
 </nav>
@@ -147,14 +140,16 @@
         </div>
     </div>
 </section>
-
 <footer class="footer">
     <div class="container">
         <div class="footer-grid">
+            <!-- Company Info -->
             <div class="footer-section">
                 <h4 class="footer-title">BlueWave Travel</h4>
                 <p class="footer-text">Your trusted partner for unforgettable travel experiences around the world.</p>
             </div>
+
+            <!-- Quick Links -->
             <div class="footer-section">
                 <h5 class="footer-subtitle">Quick Links</h5>
                 <ul class="footer-links">
@@ -162,19 +157,22 @@
                     <li><a href="index.html#destinations">Destinations</a></li>
                     <li><a href="index.html#packages">Packages</a></li>
                     <li><a href="about.html">About Us</a></li>
-                    <li><a href="contact.html">Contact</a></li>
                     <li><a href="services.html">Services</a></li>
                 </ul>
             </div>
+
+            <!-- Support -->
             <div class="footer-section">
                 <h5 class="footer-subtitle">Support</h5>
                 <ul class="footer-links">
                     <li><a href="help.html">Help Center</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                     <li><a href="travel-insurance.html">Travel Insurance</a></li>
                     <li><a href="cancellation-policy.html">Cancellation Policy</a></li>
-                    <li><a href="faq.html">FAQ</a></li>
                 </ul>
             </div>
+
+            <!-- Contact Info -->
             <div class="footer-section">
                 <h5 class="footer-subtitle">Contact Info</h5>
                 <div class="footer-contact">
@@ -184,9 +182,10 @@
                 </div>
             </div>
         </div>
-        <div class="footer-bottom text-center">
-            <p class="mb-1">© 2025 BlueWave Travel</p>
-            <p class="mb-2">Developed by: Altynay Yertay, Nuray Nuraly, Aiat Mergenbay, Merey Amangeldi</p>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 BlueWave Travel. All rights reserved.</p>
+            <p>Developed by: Altynay Yertay, Nuray Nuraly, Aiat Mergenbay, Merey Amangeldi</p>
             <p id="clock" class="text-center small"></p>
         </div>
     </div>

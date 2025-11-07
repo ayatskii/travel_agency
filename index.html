@@ -14,39 +14,32 @@
 </head>
 
 <body>
-    <div id="scroll-progress"></div>
+<div id="scroll-progress"></div>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container">
         <a class="navbar-brand fw-bold" href="index.html">BlueWave Travel</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Toggle navigation">
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav" aria-controls="navbarNav"
+                aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navMain">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-lg-3">
-                <li class="nav-item">
-                    <a class="nav-link active position-relative" href="index.html">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link position-relative" href="#destinations">Destinations</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link position-relative" href="#packages">Packages</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link position-relative" href="about.html">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link position-relative" href="contact.html">Contact</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link position-relative" href="gallery.html">Gallery</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link position-relative" href="services.html">Services</a>
-                </li>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#destinations">Destinations</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#packages">Packages</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
             </ul>
-            <button id="themeToggle" class="btn btn-outline-light ms-2" title="Toggle theme">🌙</button>
-            <a class="btn btn-light ms-lg-3 px-3 py-2 fw-medium" href="booking.html">Book Now</a>
+
+            <div class="d-flex align-items-center ms-lg-3 mt-2 mt-lg-0">
+                <button id="themeToggle" class="btn btn-outline-light me-2">🌙</button>
+                <a class="btn btn-light" href="booking.html">Book Now</a>
+            </div>
         </div>
     </div>
 </nav>
@@ -58,7 +51,7 @@
             Explore the world's most beautiful destinations with our expertly crafted travel experiences.
             From pristine beaches to mountain peaks, your perfect journey awaits.
         </p>
-        <div id="heroStats" class="mt-4 d-none">
+        <div id="heroStats" class="mt-4 d-md-block d-none">
             <div class="row justify-content-center">
                 <div class="col-auto">
                     <div class="badge bg-primary fs-6 px-3 py-2">
@@ -89,14 +82,14 @@
                 <a href="about.html" class="btn btn-primary me-2 mb-3">Learn More</a>
                 <button id="openPopup" class="btn btn-outline-primary mb-3">Subscribe</button>
                 <div id="modal" class="hidden">
-                      <div class="backdrop"></div>
-                      <div class="dialog">
+                    <div class="backdrop"></div>
+                    <div class="dialog">
                         <button id="closePopup">×</button>
                         <form>
-                          <input type="email" placeholder="Email">
-                          <button id="send" type="submit">Send</button>
+                            <input type="email" placeholder="Email">
+                            <button id="send" type="submit">Send</button>
                         </form>
-                      </div>
+                    </div>
                 </div>
             </div>
             <div class="col-sm-12 col-md-6 col-lg-6 text-center">
@@ -135,8 +128,8 @@
 <section id="destinations" class="py-5" style="background-color: hsl(207, 81%, 94%);">
     <div class="container text-center">
         <h3 class="section-title mb-5">Popular Destinations</h3>
-        
-        
+
+
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="destinationsGrid">
 
             <div class="col" data-destination-type="beach">
@@ -199,9 +192,9 @@
         <div id="packageStats" class="row mb-4 d-none">
             <div class="col-12 text-center">
                 <div class="alert alert-info">
-                    <strong>💡 Smart Pricing:</strong> 
-                    <span id="avgPackagePrice">$0</span> average price | 
-                    <span id="totalSavings">$0</span> total savings available | 
+                    <strong>💡 Smart Pricing:</strong>
+                    <span id="avgPackagePrice">$0</span> average price |
+                    <span id="totalSavings">$0</span> total savings available |
                     <span id="bestValue">Best Value</span> package recommended
                 </div>
             </div>
@@ -295,46 +288,56 @@
         </div>
     </div>
 </section>
-
-<footer class="footer mt-5">
+<footer class="footer">
     <div class="container">
         <div class="footer-grid">
-            <div>
+            <!-- Company Info -->
+            <div class="footer-section">
                 <h4 class="footer-title">BlueWave Travel</h4>
                 <p class="footer-text">Your trusted partner for unforgettable travel experiences around the world.</p>
             </div>
-            <div>
+
+            <!-- Quick Links -->
+            <div class="footer-section">
                 <h5 class="footer-subtitle">Quick Links</h5>
                 <ul class="footer-links">
-                    <li><a href="#destinations">Destinations</a></li>
-                    <li><a href="#packages">Packages</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#destinations">Destinations</a></li>
+                    <li><a href="index.html#packages">Packages</a></li>
                     <li><a href="about.html">About Us</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="services.html">Services</a></li>
                 </ul>
             </div>
-            <div>
+
+            <!-- Support -->
+            <div class="footer-section">
                 <h5 class="footer-subtitle">Support</h5>
                 <ul class="footer-links">
                     <li><a href="help.html">Help Center</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                     <li><a href="travel-insurance.html">Travel Insurance</a></li>
                     <li><a href="cancellation-policy.html">Cancellation Policy</a></li>
                 </ul>
             </div>
-            <div>
+
+            <!-- Contact Info -->
+            <div class="footer-section">
                 <h5 class="footer-subtitle">Contact Info</h5>
-                <p>📧 info@bluewave.travel</p>
-                <p>📞 +1 (555) 123-4567</p>
-                <p>📍 123 Ocean Drive, Miami FL</p>
+                <div class="footer-contact">
+                    <p>📧 info@bluewave.travel</p>
+                    <p>📞 +1 (555) 123-4567</p>
+                    <p>📍 123 Ocean Drive, Miami FL</p>
+                </div>
             </div>
         </div>
-        <div class="footer-bottom text-center">
-            <p class="mb-1">© 2025 BlueWave Travel</p>
-            <p class="mb-2">Developed by: Altynay Yertay, Nuray Nuraly, Aiat Mergenbay, Merey Amangeldi</p>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 BlueWave Travel. All rights reserved.</p>
+            <p>Developed by: Altynay Yertay, Nuray Nuraly, Aiat Mergenbay, Merey Amangeldi</p>
             <p id="clock" class="text-center small"></p>
         </div>
     </div>
 </footer>
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="js/app.js" defer></script>
 <script src="js/altynay.js" defer></script>

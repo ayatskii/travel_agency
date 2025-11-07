@@ -175,54 +175,76 @@ select.form-input {
 .footer {
     background-color: var(--dark-blue);
     color: var(--white);
-    padding: 3rem 0;
+    padding: 3rem 0 1rem;
+    margin-top: auto;
 }
 .footer-grid {
     display: grid;
+    grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
-    grid-template-columns: 1fr;
+    margin-bottom: 2rem;
+}
+.footer-section {
+    display: flex;
+    flex-direction: column;
 }
 .footer-title {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 1rem;
     color: var(--light-blue);
 }
 .footer-text {
-    color: var(--white);
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+    margin-bottom: 1rem;
 }
 .footer-subtitle {
+    font-size: 1.1rem;
     font-weight: 600;
-    margin-bottom: 0.75rem;
+    margin-bottom: 1rem;
     color: var(--light-blue);
 }
 .footer-links {
     list-style: none;
+    padding: 0;
+    margin: 0;
 }
 .footer-links li {
     margin-bottom: 0.5rem;
 }
 .footer-links a {
-    color: var(--white);
+    color: rgba(255, 255, 255, 0.8);
     text-decoration: none;
-    transition: color 0.3s;
+    transition: all 0.3s ease;
+    display: inline-block;
+    padding: 0.25rem 0;
 }
 .footer-links a:hover {
     color: var(--light-blue);
-    text-decoration: underline;
+    transform: translateX(5px);
+}
+.footer-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 .footer-contact p {
-    color: var(--white);
-    margin-bottom: 0.5rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 .footer-bottom {
-    border-top: 1px solid var(--light-blue);
-    margin-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
     padding-top: 2rem;
     text-align: center;
 }
 .footer-bottom p {
-    color: var(--white);
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0.25rem 0;
+    font-size: 0.9rem;
 }
 /* HOMEPAGE STYLES (index.html) */
 .hero {
@@ -875,6 +897,21 @@ select.form-input {
     .team-grid {
         grid-template-columns: 1fr;
     }
+    .footer {
+        padding: 1.5rem 0 1rem;
+    }
+
+    .footer-grid {
+        gap: 1rem;
+    }
+
+    .footer-title {
+        font-size: 1.3rem;
+    }
+
+    .footer-subtitle {
+        font-size: 1rem;
+    }
 }
 /* ===== SERVICES PAGE STYLES ===== */
 .services-grid {
@@ -1074,67 +1111,72 @@ select.form-input {
     margin-top: 15px;
     border-left: 4px solid #ffc107;
 }
-/* 2. ТЕМЫ ДЕНЬ/НОЧЬ */
+/* 2. ТЕМЫ ДЕНЬ/НОЧЬ - FIXED */
 [data-theme="dark"] {
-    --light-blue: hsl(207, 81%, 30%);
-    --medium-blue: hsl(240, 100%, 70%);
-    --dark-blue: hsl(240, 100%, 27%);
+    --light-blue: hsl(207, 81%, 35%);
+    --medium-blue: hsl(240, 100%, 65%);
+    --dark-blue: hsl(240, 100%, 35%);
     --white: hsl(0, 0%, 100%);
     --bg-dark: #1a1a1a;
     --bg-darker: #121212;
     --bg-card: #2d2d2d;
     --text-light: #ffffff;
-    --text-muted: #cccccc;
+    --text-muted: #aaaaaa;
 }
-/* BASE DARK THEME STYLES */
+
+/* BASE DARK THEME */
 [data-theme="dark"],
 [data-theme="dark"] body {
     background-color: var(--bg-dark) !important;
     color: var(--text-light) !important;
 }
-/* HEADER - Keep original blue */
+
+/* HEADER - Keep original blue but darker */
 [data-theme="dark"] .navbar-dark.bg-primary {
-    background: var(--medium-blue) !important;
+    background: var(--dark-blue) !important;
 }
-/* REMOVE ALL WHITE BACKGROUNDS */
-[data-theme="dark"] .bg-light,
-[data-theme="dark"] .bg-white,
-[data-theme="dark"] .card,
-[data-theme="dark"] .card-body,
-[data-theme="dark"] .card-footer,
-[data-theme="dark"] .p-4.border.rounded-4,
-[data-theme="dark"] .shadow-sm,
-[data-theme="dark"] .border.rounded-4 {
+
+/* CARDS - Dark background with light text */
+[data-theme="dark"] .card {
     background-color: var(--bg-card) !important;
     color: var(--text-light) !important;
     border-color: #444 !important;
 }
-/* SECTION BACKGROUNDS - Make all sections dark */
-[data-theme="dark"] section,
-[data-theme="dark"] .py-5,
-[data-theme="dark"] .container {
+
+[data-theme="dark"] .card-title,
+[data-theme="dark"] .card-text,
+[data-theme="dark"] .card-subtitle {
+    color: var(--text-light) !important;
+}
+
+/* SECTIONS - Proper dark backgrounds */
+[data-theme="dark"] section {
     background-color: var(--bg-dark) !important;
     color: var(--text-light) !important;
 }
+
+[data-theme="dark"] .bg-light,
+[data-theme="dark"] .bg-white {
+    background-color: var(--bg-card) !important;
+}
+
 /* Specific section backgrounds */
-[data-theme="dark"] .py-5[style*="background-color"],
-[data-theme="dark"] #destinations,
-[data-theme="dark"] #packages {
+[data-theme="dark"] .destinations,
+[data-theme="dark"] .about-mission,
+[data-theme="dark"] .about-achievements,
+[data-theme="dark"] #contact-section {
     background-color: var(--bg-darker) !important;
 }
+
 [data-theme="dark"] .hero {
     background: linear-gradient(180deg, var(--bg-darker), var(--bg-dark)) !important;
 }
-/* TEXT COLORS - Make all text white/light */
+
+/* TEXT COLORS - Make all text visible */
 [data-theme="dark"] .hero-title,
 [data-theme="dark"] .hero-description,
 [data-theme="dark"] .section-title,
-[data-theme="dark"] .card-title,
-[data-theme="dark"] .card-text,
-[data-theme="dark"] .card-subtitle,
-[data-theme="dark"] .text-primary,
 [data-theme="dark"] .text-dark-blue,
-[data-theme="dark"] .text-muted,
 [data-theme="dark"] .text-dark,
 [data-theme="dark"] .lead,
 [data-theme="dark"] p,
@@ -1146,32 +1188,39 @@ select.form-input {
 [data-theme="dark"] h6 {
     color: var(--text-light) !important;
 }
+
 [data-theme="dark"] .text-muted {
     color: var(--text-muted) !important;
 }
+
 /* BUTTONS - Keep original styles but ensure text is visible */
 [data-theme="dark"] .btn-primary {
     background-color: var(--medium-blue) !important;
     border-color: var(--medium-blue) !important;
     color: white !important;
 }
+
 [data-theme="dark"] .btn-secondary {
     background-color: var(--light-blue) !important;
     border-color: var(--light-blue) !important;
     color: var(--text-light) !important;
 }
+
 [data-theme="dark"] .btn-outline-primary {
     border-color: var(--medium-blue) !important;
     color: var(--medium-blue) !important;
 }
+
 [data-theme="dark"] .btn-outline-primary:hover {
     background-color: var(--medium-blue) !important;
     color: white !important;
 }
+
 [data-theme="dark"] .btn-light {
     background-color: var(--text-light) !important;
     color: var(--bg-dark) !important;
 }
+
 /* FORMS */
 [data-theme="dark"] .form-input,
 [data-theme="dark"] .form-control,
@@ -1180,52 +1229,66 @@ select.form-input {
     color: var(--text-light) !important;
     border-color: #555 !important;
 }
+
 [data-theme="dark"] .form-input:focus {
     background-color: var(--bg-card) !important;
     color: var(--text-light) !important;
     border-color: var(--medium-blue) !important;
 }
+
 [data-theme="dark"] .form-label {
     color: var(--text-light) !important;
 }
+
 /* LISTS */
 [data-theme="dark"] ul,
 [data-theme="dark"] li {
     color: var(--text-light) !important;
 }
+
 /* BADGES */
 [data-theme="dark"] .badge {
     color: white !important;
 }
+
 /* FOOTER - KEEP ORIGINAL BLUE COLORS IN DARK THEME */
 [data-theme="dark"] .footer {
     background-color: var(--dark-blue) !important;
     color: var(--white) !important;
 }
+
 [data-theme="dark"] .footer-title {
     color: var(--light-blue) !important;
 }
+
 [data-theme="dark"] .footer-text {
-    color: var(--white) !important;
+    color: rgba(255, 255, 255, 0.8) !important;
 }
+
 [data-theme="dark"] .footer-subtitle {
     color: var(--light-blue) !important;
 }
+
 [data-theme="dark"] .footer-links a {
-    color: var(--white) !important;
+    color: rgba(255, 255, 255, 0.8) !important;
 }
+
 [data-theme="dark"] .footer-links a:hover {
     color: var(--light-blue) !important;
 }
+
 [data-theme="dark"] .footer-contact p {
-    color: var(--white) !important;
+    color: rgba(255, 255, 255, 0.8) !important;
 }
+
 [data-theme="dark"] .footer-bottom {
-    border-top: 1px solid var(--light-blue) !important;
+    border-top-color: rgba(255, 255, 255, 0.2) !important;
 }
+
 [data-theme="dark"] .footer-bottom p {
     color: var(--white) !important;
 }
+
 /* SPECIFIC COMPONENTS */
 [data-theme="dark"] .mission-card,
 [data-theme="dark"] .achievement,
@@ -1236,31 +1299,38 @@ select.form-input {
     border-color: #555 !important;
     color: var(--text-light) !important;
 }
+
 [data-theme="dark"] .services-sidebar {
     background-color: var(--bg-card) !important;
     border-right-color: #555 !important;
 }
+
 [data-theme="dark"] .service-link {
     background-color: var(--bg-card) !important;
     color: var(--text-light) !important;
     border: 1px solid #555 !important;
 }
+
 [data-theme="dark"] .service-link:hover {
     background-color: var(--medium-blue) !important;
     color: white !important;
 }
+
 /* RATING SYSTEM */
 [data-theme="dark"] .rating-section {
     background: rgba(255, 193, 7, 0.1) !important;
     color: var(--text-light) !important;
 }
+
 [data-theme="dark"] .star {
     color: #666 !important;
 }
+
 [data-theme="dark"] .star.active,
 [data-theme="dark"] .star:hover {
     color: #ffc107 !important;
 }
+
 /* READ MORE SECTIONS */
 .read-more-section {
     position: relative;
@@ -2333,5 +2403,259 @@ img.lazy[src] { filter: none; transition: filter .3s ease; }
     .notification-message {
         font-size: 12px;
     }
->>>>>>> 15e75608b3b2e7814f86a30ab052fc6e3fc3e6fe
+}
+
+/* ===== MOBILE RESPONSIVE FIXES ===== */
+@media (max-width: 768px) {
+    /* Navigation fixes */
+    .navbar-collapse {
+        text-align: center;
+        padding: 1rem 0;
+    }
+
+    .navbar-nav {
+        margin: 1rem 0;
+    }
+
+    .navbar-nav .nav-item {
+        margin: 0.5rem 0;
+    }
+
+    .navbar .d-flex {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 1rem;
+    }
+
+    .navbar .btn {
+        margin: 0.25rem;
+        min-width: 140px;
+    }
+
+    /* Container padding */
+    .container {
+        padding: 0 1rem;
+    }
+
+    /* Hero sections */
+    .hero-title {
+        font-size: 2rem;
+        padding: 0 1rem;
+    }
+
+    .hero-description {
+        font-size: 1.1rem;
+        padding: 0 1rem;
+    }
+
+    .about-hero .hero-title {
+        font-size: 2rem;
+    }
+
+    /* Section spacing */
+    section {
+        padding: 2rem 0;
+    }
+
+    .section-title {
+        font-size: 1.75rem;
+        margin-bottom: 2rem;
+    }
+
+    /* Cards and grids */
+    .grid,
+    .packages-grid,
+    .team-grid,
+    .achievements-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .card {
+        margin-bottom: 1rem;
+    }
+
+    /* Forms */
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .booking-form {
+        padding: 1.5rem;
+        margin: 0 0.5rem;
+    }
+
+    /* Buttons */
+    .btn {
+        width: 100%;
+        margin: 0.5rem 0;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    /* Footer */
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        text-align: center;
+    }
+
+    .footer {
+        padding: 2rem 0 1rem;
+    }
+
+    .footer-section {
+        align-items: center;
+    }
+
+    .footer-contact p {
+        justify-content: center;
+    }
+
+    .footer-links a:hover {
+        transform: none;
+    }
+
+    /* Images */
+    .circular-image {
+        width: 150px;
+        height: 150px;
+    }
+
+    /* Services page */
+    .services-grid {
+        grid-template-areas:
+            "sidebar"
+            "main";
+        grid-template-columns: 1fr;
+    }
+
+    .services-sidebar {
+        order: 2;
+    }
+
+    .services-main {
+        order: 1;
+        padding: 1rem 0;
+    }
+
+    /* Gallery */
+    .gallery-grid,
+    .ta-gallery {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 0.5rem;
+    }
+
+    .shot__img {
+        height: 200px;
+    }
+
+    /* Insurance cards */
+    .insurance-plans {
+        grid-template-columns: 1fr;
+    }
+
+    .insurance-card.featured {
+        transform: none;
+    }
+
+    /* Tables */
+    .policy-table {
+        font-size: 0.8rem;
+    }
+
+    .policy-table th,
+    .policy-table td {
+        padding: 0.5rem;
+    }
+
+    /* Multi-step form */
+    .form-steps {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .step {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .step-number {
+        margin: 0;
+    }
+
+    .form-navigation {
+        flex-direction: column;
+    }
+
+    .form-navigation .btn {
+        width: 100%;
+        margin: 0.25rem 0;
+    }
+}
+
+/* ===== TABLET FIXES ===== */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .grid,
+    .packages-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .services-grid {
+        grid-template-columns: 200px 1fr;
+    }
+}
+
+/* ===== TOUCH DEVICE OPTIMIZATIONS ===== */
+@media (hover: none) and (pointer: coarse) {
+    .btn,
+    .nav-link,
+    .star,
+    .read-more-btn {
+        min-height: 44px;
+        min-width: 44px;
+    }
+
+    .form-input,
+    select,
+    textarea {
+        font-size: 16px;
+    }
+}
+
+/* ===== FIX FOR BOOTSTRAP COLLAPSE ===== */
+.navbar-collapse {
+    flex-basis: 100%;
+    flex-grow: 1;
+    align-items: center;
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 0.1rem;
+}
+
+.collapse:not(.show) {
+    display: none;
+}
+
+/* ===== SAFE AREA SUPPORT ===== */
+@supports(padding: max(0px)) {
+    .container {
+        padding-left: max(15px, env(safe-area-inset-left));
+        padding-right: max(15px, env(safe-area-inset-right));
+    }
 }
