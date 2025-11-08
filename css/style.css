@@ -3678,3 +3678,97 @@ select.form-input {
         padding-right: max(15px, env(safe-area-inset-right));
     }
 }}
+/* Dark Theme Fixes for Contact Page */
+[data-theme="dark"] .contact-section {
+  background: linear-gradient(180deg, #1a1a2e 0%, var(--bg-dark) 100%) !important;
+}
+
+[data-theme="dark"] .contact-hero {
+  background: linear-gradient(135deg, #1e3a5f 0%, #2a4d8a 50%, #162447 100%) !important;
+}
+
+[data-theme="dark"] .contact-hero::before {
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="rgba(255,255,255,0.05)"><path d="M500 50L550 0L600 50L650 0L700 50L750 0L800 50L850 0L900 50L950 0L1000 50L1000 100L0 100L0 50Z"/></svg>');
+}
+
+[data-theme="dark"] .map-section {
+  background: #162447 !important;
+}
+
+[data-theme="dark"] .contact-info,
+[data-theme="dark"] .contact-form-container {
+  background: var(--bg-card) !important;
+  border-color: #444 !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+}
+
+[data-theme="dark"] .contact-method:hover {
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+
+[data-theme="dark"] .contact-icon {
+  background: #2a4d8a !important;
+  color: var(--text-light) !important;
+}
+
+[data-theme="dark"] .contact-details h4,
+[data-theme="dark"] .contact-details p {
+  color: var(--text-light) !important;
+}
+
+[data-theme="dark"] .social-links {
+  border-top-color: #444 !important;
+}
+
+[data-theme="dark"] .social-links h4 {
+  color: var(--text-light) !important;
+}
+
+[data-theme="dark"] .social-link {
+  background: #2a4d8a !important;
+  color: var(--text-light) !important;
+}
+
+[data-theme="dark"] .social-link:hover {
+  background: var(--medium-blue) !important;
+  color: white !important;
+}
+
+[data-theme="dark"] .form-input {
+  background: var(--bg-card) !important;
+  border-color: #555 !important;
+  color: var(--text-light) !important;
+}
+
+[data-theme="dark"] .form-input:focus {
+  border-color: var(--medium-blue) !important;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2) !important;
+}
+
+[data-theme="dark"] .form-label {
+  color: var(--text-light) !important;
+}
+
+[data-theme="dark"] .checkbox-label {
+  color: var(--text-light) !important;
+}
+
+[data-theme="dark"] .checkmark {
+  border-color: #555 !important;
+  background: var(--bg-card) !important;
+}
+
+[data-theme="dark"] .form-checkbox:checked + .checkmark {
+  background: var(--medium-blue) !important;
+  border-color: var(--medium-blue) !important;
+}
+
+[data-theme="dark"] .section-title,
+[data-theme="dark"] .section-description {
+  color: var(--text-light) !important;
+}
+
+[data-theme="dark"] .map-placeholder {
+  background: linear-gradient(135deg, #2a4d8a 0%, #162447 100%) !important;
+  color: var(--text-light) !important;
+}
