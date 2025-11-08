@@ -73,30 +73,58 @@ $(function () {
   update();
 })();
 
-/*  Image Lazy Loading for gallery  */
-(function () {
-  const $imgs = $('img.lazy');
-  if (!$imgs.length) return;
+// Lazy loading for gallery images with 1s delay and proper re-observe behavior
+document.addEventListener("DOMContentLoaded", () => {
+  const imgs = document.querySelectorAll("img.lazy");
+  if (!imgs.length) return;
 
-  function loadVisible() {
-    const winTop = $(window).scrollTop();
-    const winBot = winTop + $(window).height();
+  // Общий observer для всех изображений
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
 
-    $imgs.each(function () {
-      const $img = $(this);
-      if (!$img.hasClass('lazy')) return;
-
-      const top = $img.offset().top;
-      if (top < winBot + 100) { 
-        const src = $img.attr('data-src');
-        if (src) {
-          $img.attr('src', src).removeClass('lazy');
-        }
+      const img = entry.target;
+      const src = img.getAttribute("data-src");
+      if (!src || img.getAttribute("src")) {
+        io.unobserve(img);
+        return;
       }
-    });
-  }
 
-  $(window).on('scroll resize', loadVisible);
-  loadVisible(); 
-})();
+      // Задержка 1 секунда после появления в зоне видимости
+      setTimeout(() => {
+        img.setAttribute("src", src);
+        img.removeAttribute("data-src");
+        img.classList.remove("lazy");
+        io.unobserve(img); // отписываем только это изображение
+      }, 1000);
+    });
+  }, {
+    root: null,
+    rootMargin: "200px 0px", // подгружать чуть заранее
+    threshold: 0            // достаточно 1px видимости
+  });
+
+  imgs.forEach(img => io.observe(img));
+
+  // Fallback для очень старых браузеров без IO
+  if (!("IntersectionObserver" in window)) {
+    const loadVisible = () => {
+      imgs.forEach((img) => {
+        if (!img.dataset.src) return;
+        const r = img.getBoundingClientRect();
+        if (r.top < window.innerHeight + 200 && r.bottom > -200) {
+          setTimeout(() => {
+            img.src = img.dataset.src;
+            img.removeAttribute("data-src");
+            img.classList.remove("lazy");
+          }, 1000);
+        }
+      });
+    };
+    ["scroll","resize","orientationchange"].forEach(ev =>
+      window.addEventListener(ev, loadVisible)
+    );
+    loadVisible();
+  }
+});
 
