@@ -1,22 +1,61 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const el = document.getElementById("clock");
-    if (!el) return;
-    function updateClock() {
-        const now = new Date();
-        const opts = {
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-            hour: "2-digit",
-            minute: "2-digit",
-            second: "2-digit",
-            timeZone: "Asia/Almaty"
-        };
-        el.textContent = now.toLocaleString("en-US", opts);
-    }
-    updateClock();
-    setInterval(updateClock, 1000);
+// ===== Contact form validation =====
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+    const g = id => document.getElementById(id);
+    const cName = g('cName');
+    const cEmail = g('cEmail');
+    const cMessage = g('cMessage');
+    const cAgree = g('cAgree');
+    const contactStatus = g('contactStatus');
 
+    const err = id => g(id);
+    const show = (el, msg) => {
+        if (el) {
+            el.textContent = msg;
+            el.classList.remove('d-none');
+        }
+    };
+    const hide = el => {
+        if (el) el.classList.add('d-none');
+    };
+    const isEmail = v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);
+
+    function validateContact() {
+        let ok = true;
+        ['err-cName', 'err-cEmail', 'err-cMessage', 'err-cAgree'].forEach(i => hide(err(i)));
+        contactStatus.innerHTML = '';
+
+        if (!cName.value.trim()) {
+            show(err('err-cName'), 'Enter your name.');
+            ok = false;
+        }
+        const e = cEmail.value.trim();
+        if (!e || !isEmail(e)) {
+            show(err('err-cEmail'), 'Enter a valid email.');
+            ok = false;
+        }
+        const m = cMessage.value.trim();
+        if (m.length < 10) {
+            show(err('err-cMessage'), 'Message must be at least 10 characters.');
+            ok = false;
+        }
+        if (!cAgree.checked) {
+            show(err('err-cAgree'), 'You must agree before submitting.');
+            ok = false;
+        }
+
+        return ok;
+    }
+
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        if (validateContact()) {
+            contactStatus.innerHTML = "<p class='text-success mb-0'>Message sent successfully.</p>";
+            contactForm.reset();
+        } else {
+            contactStatus.innerHTML = "<p class='text-danger mb-0'>Please fix the errors above.</p>";
+        }
+    });
 
     [cName, cEmail, cMessage, cAgree].forEach(el => el && el.addEventListener('input', validateContact));
 
@@ -353,16 +392,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 notificationSystem.info('Loading destination details...', 2000);
             });
         });
-
-        // Theme toggle notification
-        const themeToggle = document.getElementById('themeToggle');
-        if (themeToggle) {
-            themeToggle.addEventListener('click', function () {
-                const currentTheme = document.documentElement.getAttribute('data-theme');
-                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-                notificationSystem.info(`Switched to ${newTheme} theme`, 2000);
-            });
-        }
     }
 
 // ===== SCROLL-BASED NOTIFICATIONS =====
@@ -434,5 +463,5 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 // Make notification system globally available
-window.notificationSystem = notificationSystem;
-});
+    window.notificationSystem = notificationSystem;
+}

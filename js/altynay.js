@@ -1,11 +1,10 @@
-// Combined JavaScript File - DOM Features + jQuery Animations
 class DOMFeatures {
     constructor() {
         this.currentTheme = 'light';
+        this.themeToggleInitialized = false;
         this.init();
         this.initGlobalTheme();
     }
-
     init() {
         this.initRatingSystem();
         this.initThemeToggle();
@@ -14,19 +13,18 @@ class DOMFeatures {
         this.initSmoothScroll();
         this.initClock();
     }
-
     initGlobalTheme() {
         const savedTheme = localStorage.getItem('theme') || 'light';
         this.setTheme(savedTheme);
 
         document.addEventListener('click', (e) => {
             if (e.target.id === 'themeToggle' || e.target.closest('#themeToggle')) {
+                e.preventDefault();
+                e.stopPropagation();
                 this.toggleTheme();
             }
         });
     }
-
-    // 1. RATING SYSTEM
     initRatingSystem() {
         document.addEventListener('click', (e) => {
             if (e.target.classList.contains('star')) {
@@ -35,7 +33,6 @@ class DOMFeatures {
         });
         this.loadSavedRatings();
     }
-
     handleStarClick(star) {
         const ratingContainer = star.closest('.rating-stars');
         if (!ratingContainer) return;
@@ -57,7 +54,6 @@ class DOMFeatures {
             }, 600);
         }
     }
-
     updateStarDisplay(stars, ratingValue) {
         stars.forEach((star, index) => {
             const isActive = index < ratingValue;
@@ -66,13 +62,11 @@ class DOMFeatures {
             star.style.textShadow = isActive ? '0 0 10px rgba(255, 193, 7, 0.5)' : 'none';
         });
     }
-
     saveRating(service, rating) {
         const ratings = JSON.parse(localStorage.getItem('serviceRatings') || '{}');
         ratings[service] = { rating, timestamp: new Date().toISOString() };
         localStorage.setItem('serviceRatings', JSON.stringify(ratings));
     }
-
     loadSavedRatings() {
         const ratings = JSON.parse(localStorage.getItem('serviceRatings') || '{}');
         Object.entries(ratings).forEach(([service, data]) => {
@@ -83,7 +77,6 @@ class DOMFeatures {
             }
         });
     }
-
     updateOverallRating() {
         const ratings = JSON.parse(localStorage.getItem('serviceRatings') || '{}');
         const ratingValues = Object.values(ratings).map(r => r.rating);
@@ -106,7 +99,6 @@ class DOMFeatures {
         if (ratingScore) ratingScore.textContent = `${average.toFixed(1)}/5`;
         if (ratingCount) ratingCount.textContent = `Based on ${ratingValues.length} reviews`;
     }
-
     showRatingMessage(rating) {
         const messages = [
             "Thanks for your rating! We'll work harder. 👏",
@@ -115,25 +107,27 @@ class DOMFeatures {
             "Great! Thank you for the positive rating! 🌟",
             "Excellent! Thanks for the perfect rating! 🎉"
         ];
-
         if (window.showToast) {
             showToast(messages[rating - 1], 'success');
         }
     }
-
-    // 2. THEME TOGGLE
     initThemeToggle() {
         const savedTheme = localStorage.getItem('theme') || 'light';
         this.setTheme(savedTheme);
     }
 
     toggleTheme() {
+        if (this.themeToggleInitialized) return;
+        this.themeToggleInitialized = true;
         this.currentTheme = this.currentTheme === 'light' ? 'dark' : 'light';
         this.setTheme(this.currentTheme);
         localStorage.setItem('theme', this.currentTheme);
         this.playThemeTransition();
-    }
 
+        setTimeout(() => {
+            this.themeToggleInitialized = false;
+        }, 500);
+    }
     setTheme(theme) {
         document.documentElement.setAttribute('data-theme', theme);
         document.body.setAttribute('data-theme', theme);
@@ -144,12 +138,10 @@ class DOMFeatures {
                 btn.title = `Switch to ${theme === 'light' ? 'dark' : 'light'} theme`;
             }
         });
-
         document.body.style.display = 'none';
         document.body.offsetHeight;
         document.body.style.display = '';
     }
-
     playThemeTransition() {
         document.body.style.transition = 'all 0.5s ease';
         document.body.style.opacity = '0.8';
@@ -161,8 +153,6 @@ class DOMFeatures {
             }, 350);
         }, 150);
     }
-
-    // 3. READ MORE
     initReadMore() {
         document.addEventListener('click', (e) => {
             if (e.target.classList.contains('read-more-btn')) {
@@ -171,7 +161,6 @@ class DOMFeatures {
         });
         this.initializeReadMoreSections();
     }
-
     initializeReadMoreSections() {
         document.querySelectorAll('.read-more-section').forEach(section => {
             const content = section.querySelector('.more-content');
@@ -182,14 +171,12 @@ class DOMFeatures {
             }
         });
     }
-
     toggleReadMore(button) {
         const content = button.previousElementSibling;
         const isExpanded = content.style.display === 'block';
 
         isExpanded ? this.collapseReadMore(content, button) : this.expandReadMore(content, button);
     }
-
     expandReadMore(content, button) {
         content.style.display = 'block';
         button.textContent = 'Read Less';
@@ -197,7 +184,6 @@ class DOMFeatures {
         this.animateReadMore(content, true);
         this.playExpandSound();
     }
-
     collapseReadMore(content, button) {
         this.animateReadMore(content, false);
         setTimeout(() => {
@@ -206,7 +192,6 @@ class DOMFeatures {
             button.classList.remove('expanded');
         }, 300);
     }
-
     animateReadMore(element, expanding) {
         element.style.opacity = expanding ? '0' : '1';
         element.style.transform = expanding ? 'translateY(-10px)' : 'translateY(0)';
@@ -220,8 +205,6 @@ class DOMFeatures {
             element.style.maxHeight = expanding ? '1000px' : '0';
         });
     }
-
-    // 4. SERVICE FILTER
     initServiceFilter() {
         document.addEventListener('click', (e) => {
             if (e.target.dataset.filter) {
@@ -230,7 +213,6 @@ class DOMFeatures {
             }
         });
     }
-
     filterServices(filter) {
         const serviceItems = document.querySelectorAll('.service-item');
         const servicesContainer = document.querySelector('.services-container');
@@ -252,7 +234,6 @@ class DOMFeatures {
             servicesContainer.style.opacity = '1';
         }, 150);
     }
-
     updateActiveFilter(activeButton) {
         document.querySelectorAll('[data-filter]').forEach(btn => {
             btn.classList.remove('active');
@@ -261,8 +242,6 @@ class DOMFeatures {
         activeButton.classList.add('active');
         activeButton.classList.remove('btn-outline-primary');
     }
-
-    // 5. SMOOTH SCROLL
     initSmoothScroll() {
         document.addEventListener('click', (e) => {
             if (e.target.hash && e.target.getAttribute('href').startsWith('#')) {
@@ -271,7 +250,6 @@ class DOMFeatures {
             }
         });
     }
-
     smoothScrollTo(targetId) {
         const targetElement = document.querySelector(targetId);
         if (targetElement) {
@@ -279,8 +257,6 @@ class DOMFeatures {
             window.scrollTo({ top: offsetTop, behavior: 'smooth' });
         }
     }
-
-    // 6. CLOCK
     initClock() {
         const el = document.getElementById("clock");
         if (!el) return;
@@ -294,19 +270,15 @@ class DOMFeatures {
             };
             el.textContent = now.toLocaleString("en-US", opts);
         };
-
         updateClock();
         setInterval(updateClock, 1000);
     }
-
     playRatingSound() {
         this.playSound([800, 1000, 600], 0.3);
     }
-
     playExpandSound() {
         this.playSound([400, 600], 0.2);
     }
-
     playSound(frequencies, gainValue) {
         try {
             const audioContext = new (window.AudioContext || window.AudioContext)();
@@ -331,8 +303,6 @@ class DOMFeatures {
         }
     }
 }
-
-// jQuery Features
 function initJQueryFeatures() {
     if (!window.jQuery) {
         console.log("jQuery not loaded, skipping jQuery features");
@@ -341,7 +311,6 @@ function initJQueryFeatures() {
 
     console.log("jQuery is ready!");
 
-    // Toast Notification System
     window.showToast = function(message, type = 'info', duration = 3000) {
         $('.bluewave-toast').remove();
 
@@ -367,7 +336,6 @@ function initJQueryFeatures() {
         return icons[type] || '💙';
     }
 
-    // Animated Number Counter
     function animateCounter() {
         $('.counter').each(function() {
             const $this = $(this);
@@ -382,7 +350,6 @@ function initJQueryFeatures() {
                 const elapsed = currentTime - startTime;
                 const progress = Math.min(elapsed / duration, 1);
 
-                // easing function
                 const easeOut = 1 - Math.pow(1 - progress, 3);
                 const currentValue = Math.floor(easeOut * (target - startValue) + startValue);
 
@@ -415,7 +382,6 @@ function initJQueryFeatures() {
     checkCounterAnimation();
 }
 
-// Initialization
 document.addEventListener('DOMContentLoaded', () => {
     const domFeatures = new DOMFeatures();
     window.domFeatures = domFeatures;
