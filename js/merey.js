@@ -1,4 +1,3 @@
-/*  Search Highlighting for FAQ  */
 (function () {
   const $search = $('#faqSearch');
   if (!$search.length) return;
@@ -59,7 +58,7 @@ $(function () {
 });
 
 
-/*  Global Scroll Progress Bar  */
+
 (function () {
   const $bar = $('#scroll-progress');
   if (!$bar.length) return;
@@ -73,12 +72,11 @@ $(function () {
   update();
 })();
 
-// Lazy loading for gallery images with 1s delay and proper re-observe behavior
 document.addEventListener("DOMContentLoaded", () => {
   const imgs = document.querySelectorAll("img.lazy");
   if (!imgs.length) return;
 
-  // Общий observer для всех изображений
+
   const io = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (!entry.isIntersecting) return;
@@ -90,23 +88,22 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      // Задержка 1 секунда после появления в зоне видимости
       setTimeout(() => {
         img.setAttribute("src", src);
         img.removeAttribute("data-src");
         img.classList.remove("lazy");
-        io.unobserve(img); // отписываем только это изображение
+        io.unobserve(img); 
       }, 1000);
     });
   }, {
     root: null,
-    rootMargin: "200px 0px", // подгружать чуть заранее
-    threshold: 0            // достаточно 1px видимости
+    rootMargin: "200px 0px", 
+    threshold: 0            
   });
 
   imgs.forEach(img => io.observe(img));
 
-  // Fallback для очень старых браузеров без IO
+
   if (!("IntersectionObserver" in window)) {
     const loadVisible = () => {
       imgs.forEach((img) => {
