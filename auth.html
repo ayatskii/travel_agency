@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Login or Register to BlueWave Travel">
+    <meta name="keywords" content="login, register, account, travel">
+    <title>Login / Register - BlueWave Travel</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="./assets/imgs/favicon.ico" type="image/x-icon">
+</head>
+<body>
+<div id="scroll-progress"></div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">BlueWave Travel</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav" aria-controls="navbarNav"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#destinations">Destinations</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#packages">Packages</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+            </ul>
+
+            <div class="d-flex align-items-center ms-lg-3 mt-2 mt-lg-0" id="authNavButtons">
+                <button id="themeToggle" class="btn btn-outline-light me-2">🌙</button>
+                <a class="btn btn-light" href="booking.html">Book Now</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<section class="py-5" style="min-height: 70vh; background-color: hsl(207, 81%, 94%);">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                <div class="card shadow-lg border-0 rounded-4">
+                    <div class="card-body p-4">
+                        <!-- Tab Navigation -->
+                        <ul class="nav nav-tabs mb-4" id="authTabs" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="login-tab" data-bs-toggle="tab" 
+                                        data-bs-target="#login" type="button" role="tab" 
+                                        aria-controls="login" aria-selected="true">
+                                    Login
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="register-tab" data-bs-toggle="tab" 
+                                        data-bs-target="#register" type="button" role="tab" 
+                                        aria-controls="register" aria-selected="false">
+                                    Register
+                                </button>
+                            </li>
+                        </ul>
+
+                        <!-- Tab Content -->
+                        <div class="tab-content" id="authTabContent">
+                            <!-- Login Form -->
+                            <div class="tab-pane fade show active" id="login" role="tabpanel" 
+                                 aria-labelledby="login-tab">
+                                <h3 class="mb-4 text-center">Welcome Back</h3>
+                                <form id="loginForm" novalidate>
+                                    <div class="form-group mb-3">
+                                        <label class="form-label" for="loginEmail">Email Address *</label>
+                                        <input id="loginEmail" name="email" type="email" 
+                                               class="form-control" placeholder="your.email@example.com" required />
+                                        <div class="text-danger d-none" id="err-loginEmail"></div>
+                                    </div>
+
+                                    <div class="form-group mb-3">
+                                        <label class="form-label" for="loginPassword">Password *</label>
+                                        <input id="loginPassword" name="password" type="password" 
+                                               class="form-control" placeholder="Enter your password" required />
+                                        <div class="text-danger d-none" id="err-loginPassword"></div>
+                                    </div>
+
+                                    <div class="form-group mb-4">
+                                        <button type="submit" class="btn btn-primary w-100">Login</button>
+                                    </div>
+
+                                    <div id="loginStatus" class="text-center"></div>
+                                </form>
+                            </div>
+
+                            <div class="tab-pane fade" id="register" role="tabpanel" 
+                                 aria-labelledby="register-tab">
+                                <h3 class="mb-4 text-center">Create Account</h3>
+                                <form id="registerForm" novalidate>
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <div class="form-group">
+                                                <label class="form-label" for="regFirstName">First Name</label>
+                                                <input id="regFirstName" name="firstName" type="text" 
+                                                       class="form-control" placeholder="John" />
+                                                <div class="text-danger d-none" id="err-regFirstName"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <div class="form-group">
+                                                <label class="form-label" for="regLastName">Last Name</label>
+                                                <input id="regLastName" name="lastName" type="text" 
+                                                       class="form-control" placeholder="Doe" />
+                                                <div class="text-danger d-none" id="err-regLastName"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group mb-3">
+                                        <label class="form-label" for="regEmail">Email Address *</label>
+                                        <input id="regEmail" name="email" type="email" 
+                                               class="form-control" placeholder="your.email@example.com" required />
+                                        <div class="text-danger d-none" id="err-regEmail"></div>
+                                    </div>
+
+                                    <div class="form-group mb-3">
+                                        <label class="form-label" for="regPhone">Phone Number</label>
+                                        <input id="regPhone" name="phone" type="tel" 
+                                               class="form-control" placeholder="+1 (555) 123-4567" />
+                                        <div class="text-danger d-none" id="err-regPhone"></div>
+                                    </div>
+
+                                    <div class="form-group mb-3">
+                                        <label class="form-label" for="regPassword">Password *</label>
+                                        <input id="regPassword" name="password" type="password" 
+                                               class="form-control" placeholder="Create a password" required />
+                                        <div class="text-danger d-none" id="err-regPassword"></div>
+                                        <small class="form-text text-muted">
+                                            Must be at least 8 characters with uppercase, lowercase, and number.
+                                        </small>
+                                    </div>
+
+                                    <div class="form-group mb-3">
+                                        <label class="form-label" for="regPasswordConfirm">Confirm Password *</label>
+                                        <input id="regPasswordConfirm" name="passwordConfirm" type="password" 
+                                               class="form-control" placeholder="Confirm your password" required />
+                                        <div class="text-danger d-none" id="err-regPasswordConfirm"></div>
+                                    </div>
+
+                                    <div class="form-group mb-4">
+                                        <button type="submit" class="btn btn-primary w-100">Create Account</button>
+                                    </div>
+
+                                    <div id="registerStatus" class="text-center"></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <!-- Company Info -->
+            <div class="footer-section">
+                <h4 class="footer-title">BlueWave Travel</h4>
+                <p class="footer-text">Your trusted partner for unforgettable travel experiences around the world.</p>
+            </div>
+            <!-- Quick Links -->
+            <div class="footer-section">
+                <h5 class="footer-subtitle">Quick Links</h5>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#destinations">Destinations</a></li>
+                    <li><a href="index.html#packages">Packages</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                </ul>
+            </div>
+
+            <!-- Support -->
+            <div class="footer-section">
+                <h5 class="footer-subtitle">Support</h5>
+                <ul class="footer-links">
+                    <li><a href="help.html">Help Center</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="travel-insurance.html">Travel Insurance</a></li>
+                    <li><a href="cancellation-policy.html">Cancellation Policy</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="footer-section">
+                <h5 class="footer-subtitle">Contact Info</h5>
+                <div class="footer-contact">
+                    <p>📧 info@bluewave.travel</p>
+                    <p>📞 +1 (555) 123-4567</p>
+                    <p>📍 123 Ocean Drive, Miami FL</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 BlueWave Travel. All rights reserved.</p>
+            <p>Developed by: Altynay Yertay, Nuray Nuraly, Aiat Mergenbay, Merey Amangeldi</p>
+            <p id="clock" class="text-center small"></p>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/auth.js" defer></script>
+<script src="js/app.js" defer></script>
+<script>
+// ===== AUTHENTICATION PAGE HANDLERS =====
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize auth state in navbar
+    if (typeof updateAuthNavbar === 'function') {
+        updateAuthNavbar();
+    }
+
+    // Check if user is already logged in
+    if (typeof authManager !== 'undefined' && authManager.isAuthenticated()) {
+        // Redirect to home if already logged in
+        setTimeout(() => {
+            window.location.href = 'index.html';
+        }, 2000);
+        return;
+    }
+
+    // Handle URL parameter for tab switching (e.g., auth.html?tab=register)
+    const urlParams = new URLSearchParams(window.location.search);
+    const tabParam = urlParams.get('tab');
+    if (tabParam === 'register') {
+        const registerTab = document.getElementById('register-tab');
+        if (registerTab && typeof bootstrap !== 'undefined') {
+            const registerTabInstance = new bootstrap.Tab(registerTab);
+            registerTabInstance.show();
+        }
+    }
+
+    // ===== LOGIN FORM HANDLER =====
+    const loginForm = document.getElementById('loginForm');
+    if (loginForm) {
+        const loginEmail = document.getElementById('loginEmail');
+        const loginPassword = document.getElementById('loginPassword');
+        const loginStatus = document.getElementById('loginStatus');
+
+        const showError = (id, msg) => {
+            const errEl = document.getElementById(id);
+            if (errEl) {
+                errEl.textContent = msg;
+                errEl.classList.remove('d-none');
+            }
+        };
+
+        const hideError = (id) => {
+            const errEl = document.getElementById(id);
+            if (errEl) errEl.classList.add('d-none');
+        };
+
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            hideError('err-loginEmail');
+            hideError('err-loginPassword');
+            loginStatus.innerHTML = '';
+
+            const email = loginEmail.value.trim();
+            const password = loginPassword.value;
+
+            let isValid = true;
+
+            if (!email) {
+                showError('err-loginEmail', 'Email is required.');
+                isValid = false;
+            } else if (!authManager.validateEmail(email)) {
+                showError('err-loginEmail', 'Please enter a valid email address.');
+                isValid = false;
+            }
+
+            if (!password) {
+                showError('err-loginPassword', 'Password is required.');
+                isValid = false;
+            }
+
+            if (!isValid) return;
+
+            // Attempt login
+            const result = authManager.login(email, password);
+
+            if (result.success) {
+                if (window.notificationSystem) {
+                    notificationSystem.success(result.message, 3000);
+                }
+                loginStatus.innerHTML = '<p class="text-success mb-0">' + result.message + '</p>';
+                
+                // Redirect after short delay
+                setTimeout(() => {
+                    const returnUrl = new URLSearchParams(window.location.search).get('return') || 'index.html';
+                    window.location.href = returnUrl;
+                }, 1500);
+            } else {
+                if (window.notificationSystem) {
+                    notificationSystem.error(result.message, 5000);
+                }
+                loginStatus.innerHTML = '<p class="text-danger mb-0">' + result.message + '</p>';
+            }
+        });
+    }
+
+    // ===== REGISTER FORM HANDLER =====
+    const registerForm = document.getElementById('registerForm');
+    if (registerForm) {
+        const regEmail = document.getElementById('regEmail');
+        const regPassword = document.getElementById('regPassword');
+        const regPasswordConfirm = document.getElementById('regPasswordConfirm');
+        const registerStatus = document.getElementById('registerStatus');
+
+        const showError = (id, msg) => {
+            const errEl = document.getElementById(id);
+            if (errEl) {
+                errEl.textContent = msg;
+                errEl.classList.remove('d-none');
+            }
+        };
+
+        const hideError = (id) => {
+            const errEl = document.getElementById(id);
+            if (errEl) errEl.classList.add('d-none');
+        };
+
+        registerForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            ['err-regEmail', 'err-regPassword', 'err-regPasswordConfirm'].forEach(id => hideError(id));
+            registerStatus.innerHTML = '';
+
+            const email = regEmail.value.trim();
+            const password = regPassword.value;
+            const passwordConfirm = regPasswordConfirm.value;
+            const firstName = document.getElementById('regFirstName').value.trim();
+            const lastName = document.getElementById('regLastName').value.trim();
+            const phone = document.getElementById('regPhone').value.trim();
+
+            let isValid = true;
+
+            // Validate email
+            if (!email) {
+                showError('err-regEmail', 'Email is required.');
+                isValid = false;
+            } else if (!authManager.validateEmail(email)) {
+                showError('err-regEmail', 'Please enter a valid email address.');
+                isValid = false;
+            }
+
+            // Validate password
+            if (!password) {
+                showError('err-regPassword', 'Password is required.');
+                isValid = false;
+            } else {
+                const passwordValidation = authManager.validatePassword(password);
+                if (!passwordValidation.valid) {
+                    showError('err-regPassword', passwordValidation.message);
+                    isValid = false;
+                }
+            }
+
+            // Validate password confirmation
+            if (!passwordConfirm) {
+                showError('err-regPasswordConfirm', 'Please confirm your password.');
+                isValid = false;
+            } else if (password !== passwordConfirm) {
+                showError('err-regPasswordConfirm', 'Passwords do not match.');
+                isValid = false;
+            }
+
+            if (!isValid) return;
+
+            // Attempt registration
+            const result = authManager.register({
+                email,
+                password,
+                firstName,
+                lastName,
+                phone
+            });
+
+            if (result.success) {
+                if (window.notificationSystem) {
+                    notificationSystem.success(result.message, 4000);
+                }
+                registerStatus.innerHTML = '<p class="text-success mb-0">' + result.message + '</p>';
+                
+                // Switch to login tab after short delay
+                setTimeout(() => {
+                    const loginTab = document.getElementById('login-tab');
+                    const loginEmailField = document.getElementById('loginEmail');
+                    if (loginTab) {
+                        // Use Bootstrap tab API to switch
+                        const loginTabInstance = new bootstrap.Tab(loginTab);
+                        loginTabInstance.show();
+                        // Pre-fill email in login form
+                        if (loginEmailField) {
+                            loginEmailField.value = email;
+                        }
+                    }
+                }, 2000);
+            } else {
+                if (window.notificationSystem) {
+                    notificationSystem.error(result.message, 5000);
+                }
+                registerStatus.innerHTML = '<p class="text-danger mb-0">' + result.message + '</p>';
+            }
+        });
+    }
+});
+</script>
+</body>
+</html>
+

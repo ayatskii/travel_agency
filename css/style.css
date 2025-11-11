@@ -1177,6 +1177,139 @@ select.form-input {
 .policy-table td {
     color: var(--dark-blue);
 }
+
+/* Refund Calculator Styles */
+.refund-calculator-card {
+    background: var(--white);
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 2rem 0;
+    overflow: hidden;
+}
+
+.refund-calculator-card .card-header {
+    background: linear-gradient(135deg, var(--medium-blue) 0%, var(--dark-blue) 100%);
+    color: var(--white);
+    padding: 1.5rem;
+    border-bottom: none;
+}
+
+.refund-calculator-card .card-header h4 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.refund-calculator-card .card-header p {
+    margin: 0.5rem 0 0 0;
+    opacity: 0.9;
+    font-size: 0.95rem;
+}
+
+.refund-calculator-card .card-body {
+    padding: 2rem;
+}
+
+.refund-calculator-card .form-label {
+    font-weight: 600;
+    color: var(--dark-blue);
+    margin-bottom: 0.5rem;
+}
+
+.refund-calculator-card .form-select,
+.refund-calculator-card .form-control {
+    border: 2px solid var(--light-blue);
+    border-radius: 0.5rem;
+    padding: 0.75rem;
+    transition: all 0.3s ease;
+}
+
+.refund-calculator-card .form-select:focus,
+.refund-calculator-card .form-control:focus {
+    border-color: var(--medium-blue);
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    outline: none;
+}
+
+.refund-result-card {
+    border-radius: 0.75rem;
+    border: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    margin-top: 1rem;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.refund-result-header h5 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.refund-result-body {
+    margin-top: 1rem;
+}
+
+.refund-details p {
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+}
+
+.refund-details strong {
+    color: var(--dark-blue);
+    font-weight: 600;
+}
+
+.refund-amount-display {
+    background: var(--light-blue);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.refund-amount-display h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--medium-blue);
+    margin: 0;
+}
+
+.refund-result-card.alert-success {
+    background-color: #d1e7dd;
+    border-left: 4px solid #198754;
+    color: #0f5132;
+}
+
+.refund-result-card.alert-warning {
+    background-color: #fff3cd;
+    border-left: 4px solid #ffc107;
+    color: #856404;
+}
+
+.refund-result-card.alert-danger {
+    background-color: #f8d7da;
+    border-left: 4px solid #dc3545;
+    color: #842029;
+}
+
+.refund-result-card.alert-info {
+    background-color: #d1ecf1;
+    border-left: 4px solid #0dcaf0;
+    color: #055160;
+}
+
 /* MEDIA QUERIES (All Pages) */
 @media (min-width: 640px) {
     .hero-buttons {
@@ -1265,6 +1398,21 @@ select.form-input {
     .timeline-item {
         padding: 1.5rem;
         margin: 1.5rem 0;
+    }
+    .refund-calculator-card .card-body {
+        padding: 1.5rem;
+    }
+    .refund-calculator-card .card-header {
+        padding: 1rem;
+    }
+    .refund-calculator-card .card-header h4 {
+        font-size: 1.25rem;
+    }
+    .refund-amount-display h3 {
+        font-size: 1.5rem;
+    }
+    .refund-result-card {
+        padding: 1rem;
     }
 }
 @media (max-width: 480px) {
@@ -3231,10 +3379,27 @@ select.form-input {
 }
 
 .map-container {
+  position: relative;
+  width: 100%;
+  height: 450px;
   border-radius: 1rem;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   margin-top: 2rem;
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+/* Responsive map adjustments */
+@media (max-width: 768px) {
+  .map-container {
+    height: 300px;
+  }
 }
 
 .map-placeholder {
@@ -3771,4 +3936,68 @@ select.form-input {
 [data-theme="dark"] .map-placeholder {
   background: linear-gradient(135deg, #2a4d8a 0%, #162447 100%) !important;
   color: var(--text-light) !important;
+}
+
+/* ===== AUTHENTICATION STYLES ===== */
+.auth-container {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.auth-card {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.nav-tabs {
+    border-bottom: 2px solid #e9ecef;
+}
+
+.nav-tabs .nav-link {
+    border: none;
+    border-bottom: 3px solid transparent;
+    color: var(--dark-blue);
+    font-weight: 500;
+    padding: 1rem 2rem;
+    transition: all 0.3s ease;
+}
+
+.nav-tabs .nav-link:hover {
+    border-bottom-color: var(--light-blue);
+    color: var(--medium-blue);
+}
+
+.nav-tabs .nav-link.active {
+    background-color: transparent;
+    border-bottom-color: var(--medium-blue);
+    color: var(--medium-blue);
+    font-weight: 600;
+}
+
+#authNavButtons .text-light {
+    font-weight: 500;
+}
+
+#authNavButtons .btn {
+    white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+    .nav-tabs .nav-link {
+        padding: 0.75rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    #authNavButtons {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    
+    #authNavButtons .btn {
+        font-size: 0.875rem;
+        padding: 0.5rem 1rem;
+    }
 }
