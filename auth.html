@@ -12,6 +12,24 @@
     <link rel="icon" href="./assets/imgs/favicon.ico" type="image/x-icon">
 </head>
 <body>
+<div class="skyline" aria-hidden="true">
+  <svg class="skyline-svg" viewBox="0 0 1200 140" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <linearGradient id="routeGrad" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%" stop-color="currentColor" stop-opacity="0.0"/>
+        <stop offset="40%" stop-color="currentColor" stop-opacity="0.6"/>
+        <stop offset="100%" stop-color="currentColor" stop-opacity="0.0"/>
+      </linearGradient>
+    </defs>
+    <path id="route"
+          d="M20,100 C220,20 380,160 580,60 C750,0 930,140 1180,40"
+          fill="none" stroke="url(#routeGrad)" stroke-width="3" stroke-linecap="round"/>
+    <g id="plane" transform="translate(20 100)">
+      <path d="M0,-6 L18,0 L0,6 L3,0 Z" fill="currentColor"/>
+    </g>
+  </svg>
+</div>
+
 <div id="scroll-progress"></div>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container">
@@ -420,6 +438,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 </script>
+<script src="js/altynay.js" defer></script>
+<script src="js/super-anim.js" defer></script>
 </body>
 </html>
 

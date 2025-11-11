@@ -14,6 +14,24 @@
 </head>
 
 <body>
+<div class="skyline" aria-hidden="true">
+  <svg class="skyline-svg" viewBox="0 0 1200 140" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <linearGradient id="routeGrad" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%" stop-color="currentColor" stop-opacity="0.0"/>
+        <stop offset="40%" stop-color="currentColor" stop-opacity="0.6"/>
+        <stop offset="100%" stop-color="currentColor" stop-opacity="0.0"/>
+      </linearGradient>
+    </defs>
+    <path id="route"
+          d="M20,100 C220,20 380,160 580,60 C750,0 930,140 1180,40"
+          fill="none" stroke="url(#routeGrad)" stroke-width="3" stroke-linecap="round"/>
+    <g id="plane" transform="translate(20 100)">
+      <path d="M0,-6 L18,0 L0,6 L3,0 Z" fill="currentColor"/>
+    </g>
+  </svg>
+</div>
+
 <div id="scroll-progress"></div>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container">
@@ -74,7 +92,7 @@
                 </div>
             </div>
             <div class="col-sm-12 col-md-6 col-lg-6 text-center">
-                <img src="./assets/imgs/card1.jpeg" class="img-fluid rounded-4 shadow-lg" alt="Why Choose BlueWave">
+                <img src="./assets/imgs/bluewave.png" class="img-fluid rouned-4 shadow-lg" alt="Why ChoosBlueWave" style="border-radius:89px;">
             </div>
         </div>
     </div>
@@ -115,7 +133,7 @@
 
             <div class="col" data-destination-type="beach">
                 <div class="card h-100 shadow border-0 rounded-4 destination-card">
-                    <img src="./assets/imgs/card1.jpeg" class="card-img-top" alt="Tropical Paradise">
+                    <img src="./assets/imgs/tropic.jpg" class="card-img-top" alt="Tropical Paradise">
                     <div class="card-body">
                         <h4 class="card-title">Tropical Paradise</h4>
                         <p class="card-subtitle text-muted mb-2">Crystal clear waters and white sandy beaches</p>
@@ -131,7 +149,7 @@
 
             <div class="col" data-destination-type="mountain">
                 <div class="card h-100 shadow border-0 rounded-4 destination-card">
-                    <img src="./assets/imgs/card2.jpeg" class="card-img-top" alt="Mountain Escapes">
+                    <img src="./assets/imgs/mountainss.jpg" class="card-img-top" alt="Mountain Escapes">
                     <div class="card-body">
                         <h4 class="card-title">Mountain Escapes</h4>
                         <p class="card-subtitle text-muted mb-2">Breathtaking peaks and alpine adventures</p>
@@ -147,7 +165,7 @@
 
             <div class="col" data-destination-type="cultural">
                 <div class="card h-100 shadow border-0 rounded-4 destination-card">
-                    <img src="./assets/imgs/card3.jpeg" class="card-img-top" alt="Cultural Cities">
+                    <img src="./assets/imgs/romee.jpg" class="card-img-top" alt="Cultural Cities">
                     <div class="card-body">
                         <h4 class="card-title">Cultural Cities</h4>
                         <p class="card-subtitle text-muted mb-2">Historic landmarks and vibrant cultures</p>
@@ -307,5 +325,6 @@
 <script src="js/app.js" defer></script>
 <script src="js/altynay.js" defer></script>
 <script src="js/merey.js" defer></script>
+<script src="js/super-anim.js" defer></script>
 </body>
 </html>
