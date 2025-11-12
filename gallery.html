@@ -101,51 +101,109 @@
     <section class="ta-container" style="padding: 28px 0 8px 40px">
         <h1>Gallery</h1>
         <p style="max-width: 760px; color:#555;">
-            A collection of our best destinations and travel moments. Hover to see the captions.
+            Prepare to be amazed by our stunning travel destinations
         </p>
     </section>
 
-    <section class="ta-container" style="padding-bottom: 36px">
-        <div class="ta-gallery" aria-label="Travel photos">
-            <figure class="ta-figure">
-                <img class="lazy" loading="lazy" data-src="assets/imgs/The Maldives.jpeg" alt="Maldives">
-                <figcaption class="ta-caption">Maldives</figcaption>
-            </figure>
-            <figure class="ta-figure">
-                <img class="lazy" loading="lazy" data-src="assets/imgs/The Colosseum, Rome.jpeg" alt="Rome Italy">
-                <figcaption class="ta-caption">Rome Italy</figcaption>
-            </figure>
-            <figure class="ta-figure">
-                <img class="lazy" loading="lazy" data-src="assets/imgs/Switzerland.jpeg" alt="Switzerland">
-                <figcaption class="ta-caption">Switzerland</figcaption>
-            </figure>
-            <figure class="ta-figure">
-                <img class="lazy" loading="lazy" data-src="assets/imgs/Dubai.jpeg" alt="Dubai">
-                <figcaption class="ta-caption">Dubai</figcaption>
-            </figure>
-            <figure class="ta-figure">
-                <img class="lazy" loading="lazy" data-src="assets/imgs/Phuket.jpeg" alt="Phuket Thailand">
-                <figcaption class="ta-caption">Phuket Thailand</figcaption>
-            </figure>
-            <figure class="ta-figure">
-                <img class="lazy" loading="lazy" data-src="assets/imgs/China.jpeg" alt="Great Wall of China">
-                <figcaption class="ta-caption">Great Wall of China</figcaption>
-            </figure>
-            <figure class="ta-figure">
-                <img class="lazy" loading="lazy" data-src="assets/imgs/Japan.jpeg" alt="Tokyo Japan">
-                <figcaption class="ta-caption">Tokyo Japan</figcaption>
-            </figure>
-            <figure class="ta-figure">
-                <img class="lazy" loading="lazy" data-src="assets/imgs/Эстетика.jpeg" alt="Istanbul Turkey">
-                <figcaption class="ta-caption">Istanbul Turkey</figcaption>
-            </figure>
+    <!-- EPIC CAROUSEL -->
+    <section class="epic-carousel-section">
+        <div class="epic-carousel">
+            <div class="universe-background"></div>
+            <div class="stars-layer"></div>
+            
+            <div class="cosmic-slides-container">
+                <div class="cosmic-slide active" data-index="0">
+                    <img src="assets/imgs/The Maldives.jpeg" alt="Maldives">
+                    <div class="slide-content">
+                        <h2 class="slide-title">Maldives Paradise</h2>
+                        <p class="slide-description">Crystal clear waters and pristine beaches await in this tropical paradise</p>
+                    </div>
+                    <div class="slide-glow"></div>
+                </div>
+                
+                <div class="cosmic-slide" data-index="1">
+                    <img src="assets/imgs/The Colosseum, Rome.jpeg" alt="Rome Italy">
+                    <div class="slide-content">
+                        <h2 class="slide-title">Historic Rome</h2>
+                        <p class="slide-description">Walk through ancient history in the eternal city</p>
+                    </div>
+                    <div class="slide-glow"></div>
+                </div>
+                
+                <div class="cosmic-slide" data-index="2">
+                    <img src="assets/imgs/Switzerland.jpeg" alt="Switzerland">
+                    <div class="slide-content">
+                        <h2 class="slide-title">Alpine Switzerland</h2>
+                        <p class="slide-description">Majestic mountains and charming villages</p>
+                    </div>
+                    <div class="slide-glow"></div>
+                </div>
+                
+                <div class="cosmic-slide" data-index="3">
+                    <img src="assets/imgs/Dubai.jpeg" alt="Dubai">
+                    <div class="slide-content">
+                        <h2 class="slide-title">Modern Dubai</h2>
+                        <p class="slide-description">Where innovation meets luxury in the desert</p>
+                    </div>
+                    <div class="slide-glow"></div>
+                </div>
+                
+                <div class="cosmic-slide" data-index="4">
+                    <img src="assets/imgs/Phuket.jpeg" alt="Phuket Thailand">
+                    <div class="slide-content">
+                        <h2 class="slide-title">Tropical Phuket</h2>
+                        <p class="slide-description">Exotic beaches and vibrant culture</p>
+                    </div>
+                    <div class="slide-glow"></div>
+                </div>
+            </div>
+
+            <!-- Навигация -->
+            <div class="cosmic-nav">
+                <button class="cosmic-nav-btn prev-cosmic" aria-label="Previous">
+                    <span class="nav-arrow">〈</span>
+                    <div class="nav-glow"></div>
+                </button>
+                <button class="cosmic-nav-btn next-cosmic" aria-label="Next">
+                    <span class="nav-arrow">〉</span>
+                    <div class="nav-glow"></div>
+                </button>
+            </div>
+
+            <!-- Миниатюры -->
+            <div class="cosmic-thumbnails">
+                <div class="cosmic-thumb active" data-index="0">
+                    <img src="assets/imgs/The Maldives.jpeg" alt="Maldives">
+                    <div class="thumb-glow"></div>
+                </div>
+                <div class="cosmic-thumb" data-index="1">
+                    <img src="assets/imgs/The Colosseum, Rome.jpeg" alt="Rome">
+                    <div class="thumb-glow"></div>
+                </div>
+                <div class="cosmic-thumb" data-index="2">
+                    <img src="assets/imgs/Switzerland.jpeg" alt="Switzerland">
+                    <div class="thumb-glow"></div>
+                </div>
+                <div class="cosmic-thumb" data-index="3">
+                    <img src="assets/imgs/Dubai.jpeg" alt="Dubai">
+                    <div class="thumb-glow"></div>
+                </div>
+                <div class="cosmic-thumb" data-index="4">
+                    <img src="assets/imgs/Phuket.jpeg" alt="Phuket">
+                    <div class="thumb-glow"></div>
+                </div>
+            </div>
+
+            <!-- Индикатор -->
+            <div class="cosmic-indicator">
+                <span class="current-slide">01</span>
+                <div class="indicator-line">
+                    <div class="indicator-progress"></div>
+                </div>
+                <span class="total-slides">05</span>
+            </div>
         </div>
     </section>
-    <div class="text-center my-5">
-        <button id="openPopup" class="btn btn-primary btn-lg">Subscribe for Deals</button>
-    </div>
-
-</main>
 <footer class="footer">
     <div class="container">
         <div class="footer-grid">
@@ -198,5 +256,6 @@
 <script src="js/altynay.js" defer></script>
 <script src="js/merey.js" defer></script>
 <script src="js/super-anim.js" defer></script>
+<script src="js/carusel.js" defer></script>
 </body>
 </html>
