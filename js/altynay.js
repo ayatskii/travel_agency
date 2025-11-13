@@ -9,7 +9,6 @@ class DOMFeatures {
         this.initRatingSystem();
         this.initThemeToggle();
         this.initReadMore();
-        this.initServiceFilter();
         this.initSmoothScroll();
         this.initClock();
     }
@@ -204,43 +203,6 @@ class DOMFeatures {
             element.style.transform = 'translateY(0)';
             element.style.maxHeight = expanding ? '1000px' : '0';
         });
-    }
-    initServiceFilter() {
-        document.addEventListener('click', (e) => {
-            if (e.target.dataset.filter) {
-                this.filterServices(e.target.dataset.filter);
-                this.updateActiveFilter(e.target);
-            }
-        });
-    }
-    filterServices(filter) {
-        const serviceItems = document.querySelectorAll('.service-item');
-        const servicesContainer = document.querySelector('.services-container');
-
-        servicesContainer.style.opacity = '0.5';
-        servicesContainer.style.transition = 'opacity 0.3s ease';
-
-        setTimeout(() => {
-            serviceItems.forEach(item => {
-                const shouldShow = filter === 'all' || item.dataset.category === filter;
-                item.style.opacity = shouldShow ? '1' : '0';
-                item.style.transform = shouldShow ? 'scale(1)' : 'scale(0.8)';
-
-                setTimeout(() => {
-                    item.style.display = shouldShow ? 'block' : 'none';
-                }, shouldShow ? 50 : 300);
-            });
-
-            servicesContainer.style.opacity = '1';
-        }, 150);
-    }
-    updateActiveFilter(activeButton) {
-        document.querySelectorAll('[data-filter]').forEach(btn => {
-            btn.classList.remove('active');
-            btn.classList.add('btn-outline-primary');
-        });
-        activeButton.classList.add('active');
-        activeButton.classList.remove('btn-outline-primary');
     }
     initSmoothScroll() {
         document.addEventListener('click', (e) => {
